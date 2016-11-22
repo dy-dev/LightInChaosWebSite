@@ -1,0 +1,152 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22 nov. 2016, 09:51:06
+    Author     : Dominique
+*/
+@import "compass";
+
+$navHeight : 50px;
+$default-transition-property : all;
+$default-transition-duration : 1s;
+$default-transition-function : false;
+$default-transition-delay    : false;
+$backgroundColor : rgba(72, 61, 139, 0.3);
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+header
+{
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+}
+.social-info
+{
+    color: red;
+    font-size: 1em;
+}
+
+nav
+{
+    @include transition-duration($default-transition-duration);
+
+    z-index: 10;
+    width: 100%;
+    border-bottom: 20px solid #e44d26; 
+    min-height: $navHeight;
+
+    float: left;
+    display: inline-block;
+    font-size: 1em;
+    text-align: center;
+    &.active
+    {
+        font-size: 3em;
+    }
+    ul 
+    {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    li 
+    {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    a 
+    {
+        display: block;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        color: #333333;
+        background: #ffffff;
+        &:hover
+            {
+            color: black;
+            text-decoration: underline;
+        }
+    }
+}
+
+#logo_container
+{
+
+    img
+    {
+        @include transition-duration($default-transition-duration);
+        @include transition-property(height);
+        height: 90px;
+    }
+    &.active img
+    {
+        height: 300px;
+    }
+}
+
+
+.main-content
+{
+    // position:absolute;
+    //  top:230px;
+}
+
+.background
+{
+    position: relative;
+    height: 100%;
+    z-index: 4;
+    background-color:$backgroundColor ;
+}
+.infos_services
+{
+    top:500px;
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+    border: transparent;
+    background-color: $backgroundColor;
+    overflow: hidden; 
+    margin: 0 35%;
+    text-align: center;
+}
+
+.service-title
+{
+    color: white;  
+    font-weight: 600;
+    font-size: 4em;
+}
+
+.service-list
+{
+    font-size: 1.2em;
+    height:100%;
+}
+
+.contact
+{
+    color: black;
+    font-size: 2em;
+}

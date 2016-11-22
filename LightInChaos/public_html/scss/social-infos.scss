@@ -1,0 +1,86 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22 nov. 2016, 11:40:47
+    Author     : Dominique
+*/
+$infosHeight : 50px;
+
+body
+{
+    margin: 0;
+    padding: 0;
+}
+.wrap-infos
+{
+    z-index: 10;
+    background: aliceblue;
+    height:$infosHeight;
+    display: block;
+    width:100%;
+}
+.social-info
+{
+    line-height: $infosHeight;
+    float: left;
+    margin: auto;
+    padding: 0 35%;
+    a 
+    {
+        text-decoration: none;
+    }
+}
+
+.social-icons
+{
+    display: inline-block;
+    float: right;
+    margin:0;
+    li 
+    {
+        display: inline-block;
+        margin-left: 20px;
+        margin-top: -2px;
+    }
+}
+
+.social-icon
+{
+    a 
+    {
+        display: inline-block;
+        position: relative;
+        color: #666;
+        font-size: 24px;
+        line-height: $infosHeight;
+        text-align: center;
+        text-decoration: none;
+        transition: color 300ms ease 0s;
+    }
+    span 
+    {
+        display: none;
+    }
+
+}
+
+
+#social-phone,
+#social-email,
+span {
+    position: relative;
+}
+
+#social-phone:before {
+    position: relative;
+    top: 2px;
+    margin-right: 2px;
+    content: "\e090";
+}
+
+#social-phone {
+    margin-right: 13px;
+}
