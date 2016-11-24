@@ -20,15 +20,14 @@ body {
 
 .social-info {
   line-height: 50px;
-  float: left;
   margin: auto;
   padding: 0 35%; }
-  .social-info a {
-    text-decoration: none; }
+  .social-info span, .social-info ul {
+    text-decoration: none;
+    padding-right: 20px; }
 
 .social-icons {
   display: inline-block;
-  float: right;
   margin: 0; }
   .social-icons li {
     display: inline-block;

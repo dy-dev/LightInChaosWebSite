@@ -25,19 +25,18 @@ body
 .social-info
 {
     line-height: $infosHeight;
-    float: left;
     margin: auto;
     padding: 0 35%;
-    a 
+    span , ul
     {
         text-decoration: none;
+        padding-right: 20px;
     }
 }
 
 .social-icons
 {
     display: inline-block;
-    float: right;
     margin:0;
     li 
     {

@@ -14,11 +14,13 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/social-infos.css">
         <link rel="stylesheet" href="css/font-style.css">
+        <link rel="stylesheet" href="css/foundation.css">
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" defer="defer"></script>
         <script src="js/main.js" type="text/javascript" defer="defer"></script>
         <script src="js/backgroundVideo.js" type="text/javascript" defer="defer"></script>
-
+        <script src="js/parallax.js-1.4.2/parallax.min.js" type="text/javascript" defer="defer"></script>
+        <script src="js/app.js" type="text/javascript" defer="defer"></script>
     </head>
     <body  onscroll="checkTopPos()">
         <header >
@@ -81,27 +83,51 @@ and open the template in the editor.
                                 <span style="color: #ffffff; font-weight: 600;"> …</span></p>
                         </div>
                     </div>
+                </div><!-- .et_pb_toggle_content -->
+            </div><!-- .et_pb_toggle -->
+            <div id="Contact">
+                <div class="contact-header" >
+                    <h2 class="contact-title" >Contact</h2>
                 </div>
-                <p><!-- .et_pb_toggle_content --></p>
+                
+                <div class="row">
+                    <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
+                </div>
+                <form action="send_contact_mail.php" id="ContactForm" method="post" accept-charset="utf-8">
+                    <div class="row">
+                        <div class="medium-6 columns ">
+                            <label> Votre Nom
+                                <input type="text" id="name" name="name" placeholder="Votre Nom" required>
+                            </label>
+                        </div>
+                        <div class="medium-6 columns">
+                            <label>Votre e-mail
+                                <input type="text"  id="email" name="email" placeholder="Votre e-mail" required>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-12 columns">
+                            <label>Votre Message
+                                <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:200px" required></textarea>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-2 columns float-right">
+                            <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
+                        </div>
+                         <div class="medium-2 columns float-right">
+                             <button  class="primary button float-right "  type="reset" value="Clear">Effacer</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <p><!-- .et_pb_toggle --></p>
 
-
-            <div id="Contact" style="position: relative;">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <p>
-                    Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
-                </p>
-                <p>
-                    Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris, sed placerat ipsum urna sed risus. In convallis tellus a mauris. Curabitur non elit ut libero tristique sodales. Mauris a lacus. Donec mattis semper leo. In hac habitasse platea dictumst. Vivamus facilisis diam at odio. Mauris dictum, nisi eget consequat elementum, lacus ligula molestie metus, non feugiat orci magna ac sem. Donec turpis. Donec vitae metus. Morbi tristique neque eu mauris. Quisque gravida ipsum non sapien. Proin turpis lacus, scelerisque vitae, elementum at, lobortis ac, quam. Aliquam dictum eleifend risus. In hac habitasse platea dictumst. Etiam sit amet diam. Suspendisse odio. Suspendisse nunc. In semper bibendum libero.
-                </p>
-                <p>
-                    Proin nonummy, lacus eget pulvinar lacinia, pede felis dignissim leo, vitae tristique magna lacus sit amet eros. Nullam ornare. Praesent odio ligula, dapibus sed, tincidunt eget, dictum ac, nibh. Nam quis lacus. Nunc eleifend molestie velit. Morbi lobortis quam eu velit. Donec euismod vestibulum massa. Donec non lectus. Aliquam commodo lacus sit amet nulla. Cras dignissim elit et augue. Nullam non diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Aenean vestibulum. Sed lobortis elit quis lectus. Nunc sed lacus at augue bibendum dapibus.
-                </p>
-
-            </div>
         </div>
+        <footer>
+
+        </footer>
+
     </body>
 </html>
