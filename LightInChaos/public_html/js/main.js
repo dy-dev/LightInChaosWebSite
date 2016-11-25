@@ -1,6 +1,8 @@
 $(document).ready(function () {
     $('#my-video').backgroundVideo();
     $('.service-list').toggle('height');
+    console.log("add scroll event");
+    $(window).scroll(checkTopPos);
 });
 
 $('a[href^="#"]').on('click', function (event) {
@@ -42,5 +44,5 @@ function checkTopPos()
 
 function toggle(myDiv)
 {
-   $(myDiv).animate({height:'toggle'});
+    $(myDiv).animate({height: 'toggle'});
 }
