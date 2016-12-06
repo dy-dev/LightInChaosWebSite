@@ -7,7 +7,7 @@ and open the template in the editor.
     Created on : 22 nov. 2016, 11:40:47
     Author     : Dominique
 */
-$infosHeight : 50px;
+$infosHeight : 70px;
 
 body
 {
@@ -24,9 +24,11 @@ body
 }
 .social-info
 {
+    position: absolute;
+    bottom: 0;
+    display: inline-block;
     line-height: $infosHeight;
     margin: auto;
-    padding: 0 35%;
     span , ul
     {
         text-decoration: none;
@@ -52,7 +54,7 @@ body
     {
         display: inline-block;
         position: relative;
-        color: #666;
+        color: #ffffff;
         font-size: 24px;
         line-height: $infosHeight;
         text-align: center;

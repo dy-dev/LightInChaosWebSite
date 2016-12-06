@@ -1,6 +1,8 @@
 $(document).ready(function () {
     $('#my-video').backgroundVideo();
     $('.service-list').toggle('height');
+    //$('#info-bar').toggle('width');
+    //$('#text-bar').toggle('width');
     console.log("add scroll event");
     $(window).scroll(checkTopPos);
 });
@@ -26,23 +28,23 @@ $('a[href^="#"]').on('click', function (event) {
 
 function checkTopPos()
 {
-    var height = $(window).scrollTop();
-
-    if (height > 0)
-    {
-        $('nav').removeClass('active');
-        $('.wrapper').removeClass('active');
-        $('#logo_container').removeClass('active');
-    }
-    else
-    {
-        $('nav').addClass('active');
-        $('.wrapper').addClass('active');
-        $('#logo_container').addClass('active');
-    }
+    /*var height = $(window).scrollTop();
+     
+     if (height > 0)
+     {
+     $('nav').removeClass('active');
+     $('.wrapper').removeClass('active');
+     $('#logo_container').removeClass('active');
+     }
+     else
+     {
+     $('nav').addClass('active');
+     $('.wrapper').addClass('active');
+     $('#logo_container').addClass('active');
+     }*/
 }
 
 function toggle(myDiv)
 {
-    $(myDiv).animate({height: 'toggle'});
+    $(myDiv).animate({width: 'toggle'});
 }

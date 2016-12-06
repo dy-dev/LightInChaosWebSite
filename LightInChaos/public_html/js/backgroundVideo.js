@@ -223,7 +223,7 @@
         calculateYPos: function (yPos, scrollPos) {
             var videoPosition, videoOffset;
 
-            videoPosition = parseInt(this.options.$videoWrap.offset().top) - 180;
+            videoPosition = parseInt(this.options.$videoWrap.offset().top);
             videoOffset = videoPosition - scrollPos;
             yPos = -((videoOffset / this.options.parallaxOptions.effect) + yPos);
 

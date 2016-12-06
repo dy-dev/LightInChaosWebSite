@@ -14,14 +14,16 @@ body {
 .wrap-infos {
   z-index: 10;
   background: aliceblue;
-  height: 50px;
+  height: 70px;
   display: block;
   width: 100%; }
 
 .social-info {
-  line-height: 50px;
-  margin: auto;
-  padding: 0 35%; }
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+  line-height: 70px;
+  margin: auto; }
   .social-info span, .social-info ul {
     text-decoration: none;
     padding-right: 20px; }
@@ -37,9 +39,9 @@ body {
 .social-icon a {
   display: inline-block;
   position: relative;
-  color: #666;
+  color: #ffffff;
   font-size: 24px;
-  line-height: 50px;
+  line-height: 70px;
   text-align: center;
   text-decoration: none;
   transition: color 300ms ease 0s; }
