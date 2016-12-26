@@ -1,9 +1,10 @@
 $(document).ready(function () {
     $('#my-video').backgroundVideo();
     $('.service-list').toggle('height');
-    //$('#info-bar').toggle('width');
-    //$('#text-bar').toggle('width');
-    console.log("add scroll event");
+    $('#info-content').toggle('left');
+    $('#info-bar').toggle('visibility');
+    // $('#text-bar').toggle('width');
+    //console.log("add scroll event");
     $(window).scroll(checkTopPos);
 });
 
@@ -46,5 +47,20 @@ function checkTopPos()
 
 function toggle(myDiv)
 {
-    $(myDiv).animate({width: 'toggle'});
+//    if (!$("info-bar").is(":visible"))
+//    {
+//        $("info-bar").toggle('visibility');
+//    }
+    //  $(myDiv).animate({width: 'toggle'});
+    $(myDiv).animate({left: 'toggle'});
+    //$(myDiv).toggle('slide', 'left', 300);
+}
+
+function manageInfoDisplay()
+{
+    /*  if ($("#text-bar").is(":visible"))
+     {
+     toggle('#text-bar');
+     }
+     toggle('#info-bar');*/
 }

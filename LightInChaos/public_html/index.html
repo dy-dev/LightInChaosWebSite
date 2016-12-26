@@ -27,7 +27,7 @@ and open the template in the editor.
     <body>
         <div class="background">
             <div id="video-wrap" class="video-wrap"  >
-                <video preload="metadata" autoplay loop id="my-video"  poster="tmpbg.png" >
+                <video preload="metadata" autoplay loop id="my-video" >
                     <source id="mp4" src="videos/Mashup1.mp4" type="video/mp4">
                     <source id="wbm" src="videos/Mashup1.webm" type="video/webm">
                 </video>
@@ -36,72 +36,53 @@ and open the template in the editor.
 
         <div class="wrapper-bars">
             <div class="sidebar">
-                <div class="third">
+                <div class="half">
                     <div id="logo_container" >
                         <a href="#">
-                            <img src="img/Logo_LIC.png" alt="Light In Chaos" id="logo">
+                            <img src="img/Logo-lic-web-white.png" alt="Light In Chaos" id="logo">
                         </a>
                     </div>
-                    <div>
-                        <h4>Site en Construction</h4>
+                    <div id="catch-phrase">
+                        <h5 >Alchimiste de la narration, <br> artisants de l'image <br> nous ferons une histoire de votre communication</h5>
                     </div>
                 </div>
-                <div class="third">
-                    <div id="info-opener">
-                        <button onclick="toggle('#info-bar')">infos</button>
-                    </div>
-                </div>
-                <div class="third">
-                    <div id="showreel" >
-                        <button>Showreel</button>
-                    </div>
-                </div>
-            </div> <!--   .main-info -->
-            <div id="info-bar">
-                <h5 >Alchimiste de la narration, <br> artisants de l'image <br> nous ferons une histoire de votre communication</h5>
-                <nav >
-                    <ul>
-                        <li><h3>Video</h3></li>
-                        <li><h3>Web</h3></li>
-                        <li><h3>Design</h3></li>
-                    </ul>
-                </nav>
-                <div id="manifest-button-wrapper">
-                    <div id="manifest-opener">
-                        <button id="manifest" onclick="toggle('#text-bar')">Notre Manifest</button>
-                    </div>
-                </div>
-                <div id="Contact">
-                    <div class="row">
-                        <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
-                    </div>
-                    <form action="send_contact_mail.php" id="ContactForm" method="post" accept-charset="utf-8">
-                        <div class="row">
-                            <div class="medium-6 columns ">
-                                <label> Votre Nom </label>
-                                <input type="text" id="name" name="name" placeholder="Votre Nom" required>
-                            </div>
-                            <div class="medium-6 columns">
-                                <label>Votre e-mail </label>
-                                <input type="email"  id="mail" name="email" placeholder="example@domain.com" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="medium-12 columns">
-                                <label >Votre Message </label>
-                                <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:200px" required></textarea>
-                            </div>
-                            <div class="row" >
-                                <div class="medium-2 columns float-right" style="padding-right: 30px;">
-                                    <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
+                <!--                <div class="third">
+                                    <div id="info-opener">
+                                        <button onclick="toggle('#info-bar')">infos</button>
+                                    </div>
                                 </div>
-                                <div class="medium-2 columns float-right">
-                                    <button  class="primary button float-right"  type="reset" value="Clear">Effacer</button>
-                                </div>
-                            </div>   
+                                <div class="half">
+                                    <div id="showreel" >
+                                        <button>Showreel</button>
+                                    </div>
+                                </div> -->
+                <div class="half">
+                    <div id="info-opener" >
+                        <div class="custom-button" onclick="toggle('#info-content')">  </div>
+                    </div>
+                </div>
+            </div> <!--   main-info -->
+            <div id="info-bar" style="display: none">
+                <div id="info-content">
+                    <div  class="row" id="info-bar-text">
+                        <h4 >DE L'HISTOIRE, <br> À L'IMAGE</h5>
+                            <p>
+                            <p>
+                                Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh tellus a odio tincidunt auctor
+                            </p>
+                    </div>
+                    <nav  class="row" >
+                        <ul>
+                            <li>STORYTELLING</li>
+                            <li>DESIGN GRAPHIQUE</li>
+                            <li>TECHNOLOGIE</li>
+                        </ul>
+                    </nav>
+                    <div class="row" id="manifest-button-wrapper">
+                        <div id="manifest-opener">
+                            <button id="manifest" onclick="toggle('#text-bar')">Notre Manifest</button>
                         </div>
-                    </form>
-
+                    </div>
                     <div class="row social-info" >
                         <div class="medium-3 columns"> 
                             <span class="icon-phone"> 0662151126 </span>
@@ -128,9 +109,42 @@ and open the template in the editor.
                                 </li>
                             </ul>
                         </div> 
+                    </div><!--  #social-info --></div>
+            </div> <!--   main-info -->
+            <div id="Contact" style="visibility: hidden">
+                <div class="row">
+                    <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
+                </div>
+                <form action="send_contact_mail.php" id="ContactForm" method="post" accept-charset="utf-8">
+                    <div class="row">
+                        <div class="medium-6 columns ">
+                            <label> Votre Nom </label>
+                            <input type="text" id="name" name="name" placeholder="Votre Nom" required>
+                        </div>
+                        <div class="medium-6 columns">
+                            <label>Votre e-mail </label>
+                            <input type="email"  id="mail" name="email" placeholder="example@domain.com" required>
+                        </div>
                     </div>
-                </div> 
-            </div> <!--  #social-info -->
+                    <div class="row">
+                        <div class="medium-12 columns">
+                            <label >Votre Message </label>
+                            <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:200px" required></textarea>
+                        </div>
+                        <div class="row" >
+                            <div class="medium-2 columns float-right" style="padding-right: 30px;">
+                                <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
+                            </div>
+                            <div class="medium-2 columns float-right">
+                                <button  class="primary button float-right"  type="reset" value="Clear">Effacer</button>
+                            </div>
+                        </div>   
+                    </div>
+                </form>
+
+
+            </div> 
+
             <div id="text-bar">
                 <div class="content">
                     <p>Création de l'ère numérique, nous sommes Light In Chaos un studio de production hybride avec une expertise<br>
@@ -161,6 +175,6 @@ and open the template in the editor.
                         </div> .et_pb_toggle_content -->
         <!-- .et_pb_toggle -->
         <!--            -->
-
     </body>
+
 </html>

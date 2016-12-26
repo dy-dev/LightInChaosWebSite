@@ -12,6 +12,7 @@ and open the template in the editor.
 $navHeight : 50px;
 $default-transition-property : all;
 $default-transition-duration : 1s;
+$quick-transition-duration : 0.3s;
 $default-transition-function : false;
 $default-transition-delay    : false;
 $backgroundColor : rgba(72, 61, 139, 0.3);
@@ -46,19 +47,25 @@ h4
     color: white;
     text-align: center;
     padding-top: 20px;
+    font-family: "Roboto";
 }
 
 h5
 {
     color: white;   
     text-align: center;
-    padding: 20px;
+    padding: 20px 20%;
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
 }
 
 .background
 {
     position: fixed;
     height: 100%;
+    width: 100%;
     z-index: -1;
 }
 
@@ -70,6 +77,16 @@ svg,
 video 
 {
     vertical-align: middle;
+}
+
+video 
+{
+    width: 100%;
+    height: 100%;
+}
+
+.video-background
+{
 }
 
 .wrapper-bars
@@ -89,6 +106,11 @@ video
     height: 100%;
     margin: 0;
 }
+.half
+{
+    height: 50%;
+}
+
 .third
 {
     height: 33%;
@@ -110,19 +132,57 @@ video
 
 .sidebar
 {
+    top:20%;
+    left:7%;
     position: relative;
-    height: 100%;
-    background: rgba(16, 32, 52, 0.55) ;
+    height: 60%;
+    background: rgba(35, 31, 32, 1) ;
     //    display: inline-block;
     overflow: hidden;
-    width: 10%;
+    width: 22%;
+    z-index: 3;
+}
+#logo_container
+{
+    margin: 10% 20% 5% 20%;
+}
+
+#catch-phrase
+{
+    margin: 5% 0% 15% 0%;    
 }
 
 #info-opener
 {
-    position: absolute;
-    margin: 0 50%;
-    bottom: 50%;
+    position: relative;
+    margin: 30% 35%;
+    width: auto;
+}
+
+.custom-button
+{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background: url('../img/Boutons/Btn-black-fleche-droite.png') no-repeat;
+    color: #000; text-shadow: 1px 1px 0 #fff;
+    cursor:pointer;    
+    &:hover
+        {
+        /*        @include transition-duration($quick-transition-duration);
+                background: url('../img/Boutons/Btn-black-fleche-droite-deform.png') no-repeat;*/
+        animation: deform-cycle 1.8s steps(6) infinite;
+    }
+}
+
+@keyframes deform-cycle {  
+    0% {background: url('../img/Boutons/Btn-black-fleche-droite.png') no-repeat; } 
+    15%{background: url('../img/Boutons/Btn-black-fleche-droite.png') no-repeat; } 
+    30% {background: url('../img/Boutons/Btn-black-fleche-droite-deform.png') no-repeat;} 
+    60% {background: url('../img/Boutons/Btn-black-fleche-droite-deform.png') no-repeat;} 
+    75% {background: url('../img/Boutons/Btn-black-fleche-droite.png') no-repeat; }  
+    100% {background: url('../img/Boutons/Btn-black-fleche-droite.png') no-repeat; } 
+
 }
 
 #showreel
@@ -134,42 +194,60 @@ video
 
 #info-bar
 {
-    background: rgba(0, 0, 0, 0.43);
-    height: 100%;
-    position: relative;
-    //display:inline-block;
+    left:-25%;
+    top: 15%;
+    height: 75%;
+    position: absolute;
     overflow: hidden;
-    padding : 5px;
-    width: 35%;
-    nav
+    width: 175%;
+    z-index:2;
+    font-family: 'Roboto';
+    #info-content
     {
         position: relative;
-        @include transition-duration($default-transition-duration);
-
+        background: rgba(255, 255, 255, 1);
+        width: 14%; 
+        left: 30%;
+        height: 100%;
+        padding-top: 1%;
+    }
+    h4
+    {
+        color: black;
+        text-align: left;
+        font-size: 1.4em;
+        font-weight: 500;
+    }
+    #info-bar-text
+    {
+        margin: 0 15% 10% 20%;
+        text-align: justify;
+        font-size: 1.2em;
+        font-weight: 300;
+        p
+        {
+            line-height: 1.3;
+        }
+    }
+    nav
+    {
         z-index: 10;
-
-        text-align: center;
-        color:white;
-        padding-bottom: 30px;
         ul 
         {
-            margin: 0 25%;
+            margin-left: 7.25rem;
             padding: 0;
-            list-style-type: none;
         }
         li 
         {
-            vertical-align: middle;
-            h3
-            {
-                font-size: 3rem;
-                font-weight: 800;
-                color: #3399ff;
-                margin: 0;
-            }
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #000000;
+            margin: 0;
+
         }
     }
 }
+
 #manifest-button-wrapper
 {
     position: absolute;
@@ -371,6 +449,7 @@ button:active {
 {
     background: rgba(51, 153, 255, 0.7);
     height: 100%;
+    left:-2000px;
     position: relative;
     padding : 5px;
     width:55%;
