@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $('#my-video').backgroundVideo();
     $('.service-list').toggle('height');
     $('#info-content').toggle('left');
@@ -44,17 +45,33 @@ function checkTopPos()
      $('#logo_container').addClass('active');
      }*/
 }
+$('#sidebar-button').click(function () {
+    $('#info-content').animate({left: 'toggle'});
+    if ($("#info-content").position().left === 0)
+    {
+        $('#sidebar-button').removeClass('custom-open-button');
+        $('#sidebar-button').addClass('custom-close-button');
 
-function toggle(myDiv)
-{
+    }
+    else
+    {
+        $('#sidebar-button').removeClass('custom-close-button');
+        $('#sidebar-button').addClass('custom-open-button');
+
+    }
+});
+//$('#sidebar-button').click(toggle('#info-content'));
+//function toggle(myDiv)
+//{
 //    if (!$("info-bar").is(":visible"))
 //    {
 //        $("info-bar").toggle('visibility');
 //    }
-    //  $(myDiv).animate({width: 'toggle'});
-    $(myDiv).animate({left: 'toggle'});
-    //$(myDiv).toggle('slide', 'left', 300);
-}
+//  $(myDiv).animate({width: 'toggle'});
+//   $(myDiv).animate({left: 'toggle'});
+//alert(this.id);
+
+//}
 
 function manageInfoDisplay()
 {

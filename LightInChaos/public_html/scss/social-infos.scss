@@ -22,8 +22,14 @@ body
     display: block;
     width:100%;
 }
+
+.social-network
+{
+    margin: 0 15% 5% 20%;
+}
 .social-info
 {
+    margin: 0 15% 5% 20%;
     position: absolute;
     bottom: 0;
     display: inline-block;
@@ -39,6 +45,7 @@ body
 .social-icons
 {
     display: inline-block;
+    line-height: 1em;
     margin:0;
     li 
     {
@@ -48,26 +55,57 @@ body
     }
 }
 
-.social-icon
+.social-icon 
 {
+    height:15px;
+    width:15px;
     a 
     {
         display: inline-block;
         position: relative;
-        color: #ffffff;
-        font-size: 24px;
-        line-height: $infosHeight;
+        color: #000000;
         text-align: center;
         text-decoration: none;
-        transition: color 300ms ease 0s;
+        background-size: contain;
     }
     span 
     {
-        display: none;
+        color: transparent;
+        font-size: 3em;
     }
 
 }
 
+.contact-infos
+{
+    margin: 0 10% 10% 20%;
+    border-left: thin solid #000000;
+    .contact-mail
+    {
+        margin-bottom: 20px;
+    }
+    .contact-id
+    {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    a 
+    {
+        display: inline-block;
+        position: relative;
+        color: #000000;
+        text-align: center;
+        text-decoration: none;
+        background-size: contain;
+        margin-left: 10px;
+    }
+    span
+    {
+        margin-left: 10px;
+        position: relative;
+        display: block;
+    }
+}
 
 #social-phone,
 #social-email,

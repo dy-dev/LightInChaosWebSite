@@ -57,6 +57,32 @@
 }
 
 
+.linkedIn {
+    background: url(../img/SocialNW/Linkedin.png) no-repeat center;
+}
+
+.google-plus {
+    background: url(../img/SocialNW/google-plus.png)no-repeat center;
+}
+
+.facebook {
+    background: url(../img/SocialNW/Facebook.png) no-repeat center;
+
+}
+.twitter {
+    background: url(../img/SocialNW/Twitter.png) no-repeat center;
+
+}
+.vimeo {
+    background: url(../img/SocialNW/Vimeo.png) no-repeat center;
+
+}
+.instagram {
+    background: url(../img/SocialNW/Instagram.png) no-repeat center;
+
+}
+
+
 
 /*- foundation fonts-icons styling*/
 

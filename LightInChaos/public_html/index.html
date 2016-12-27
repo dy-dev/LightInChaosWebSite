@@ -58,18 +58,18 @@ and open the template in the editor.
                                 </div> -->
                 <div class="half">
                     <div id="info-opener" >
-                        <div class="custom-button" onclick="toggle('#info-content')">  </div>
+                        <div class="custom-button custom-open-button" id="sidebar-button" >  </div>
                     </div>
                 </div>
             </div> <!--   main-info -->
             <div id="info-bar" style="display: none">
                 <div id="info-content">
                     <div  class="row" id="info-bar-text">
-                        <h4 >DE L'HISTOIRE, <br> À L'IMAGE</h5>
-                            <p>
-                            <p>
-                                Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh tellus a odio tincidunt auctor
-                            </p>
+                        <h4 >DE L'HISTOIRE, <br> À L'IMAGE</h4>
+                        <p>
+                        <p>
+                            Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh tellus a odio tincidunt auctor
+                        </p>
                     </div>
                     <nav  class="row" >
                         <ul>
@@ -79,102 +79,127 @@ and open the template in the editor.
                         </ul>
                     </nav>
                     <div class="row" id="manifest-button-wrapper">
-                        <div id="manifest-opener">
-                            <button id="manifest" onclick="toggle('#text-bar')">Notre Manifest</button>
-                        </div>
+                        <!--                        <div id="manifest-opener">
+                                                    <button id="manifest" onclick="toggle('#text-bar')">Notre Manifest</button>
+                                                </div>-->
                     </div>
-                    <div class="row social-info" >
-                        <div class="medium-3 columns"> 
-                            <span class="icon-phone"> 0662151126 </span>
-                        </div>
-                        <div class="medium-5 columns">
+                    <div class="row social-network">
+                        <h4 >CONTACT</h4>
+                        <ul class="social-icons">
+                            <li class="social-icon ">
+                                <a href="https://www.instagram.com/lightinchaos/" class="instagram">
+                                    <span>a</span>
+                                </a>
+                            </li>
+                            <li class="social-icon">
+                                <a href="http://facebook.com/Light-In-Chaos-584085058415541/" class="facebook">
+                                    <span>a</span>
+                                </a>
+                            </li>
+                            <li class="social-icon">
+                                <a href="https://twitter.com/light_in_chaos" class="twitter">
+                                    <span>a</span>
+                                </a>
+                            </li>
+                            <li class="social-icon">
+                                <a href="https://vimeo.com/lightinchaos" class="vimeo">
+                                    <span>a</span>
+                                </a>
+                            </li>
+                            <li class="social-icon">
+                                <a href="https://plus.google.com/u/0/115753659698318637488" class="google-plus">
+                                    <span>a</span>
+                                </a>
+                            </li>
+                            <li class="social-icon">
+                                <a href="https://www.linkedin.com/company/light-in-chaos" class="linkedIn">
+                                    <span>a</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="row contact-infos" >
+                        <div class="contact-mail">
                             <a href="mailto:contact@lightinchaos.com"><span class="icon-mail">  contact@lightinchaos.com</span></a>
                         </div>
-                        <div class="medium-4 columns">
-                            <ul class="social-icons">
-                                <li class="social-icon">
-                                    <a href="http://facebook.com/Light-In-Chaos-584085058415541/" class="icon-facebook">
-                                        <span>Facebook</span>
-                                    </a>
-                                </li>
-                                <li class="social-icon">
-                                    <a href="https://twitter.com/light_in_chaos" class="icon-twitter">
-                                        <span>Twitter</span>
-                                    </a>
-                                </li>
-                                <li class="social-icon">
-                                    <a href="https://plus.google.com/u/0/115753659698318637488" class="icon-google-plus">
-                                        <span>Google</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> 
-                    </div><!--  #social-info --></div>
-            </div> <!--   main-info -->
-            <div id="Contact" style="visibility: hidden">
-                <div class="row">
-                    <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
-                </div>
-                <form action="send_contact_mail.php" id="ContactForm" method="post" accept-charset="utf-8">
-                    <div class="row">
-                        <div class="medium-6 columns ">
-                            <label> Votre Nom </label>
-                            <input type="text" id="name" name="name" placeholder="Votre Nom" required>
+                        <div class="contact-id">
+                            <span>Walid Benhafsia - CEO </span>
+                            <span class="icon-phone"> 06 67 51 55 40 </span>
                         </div>
-                        <div class="medium-6 columns">
-                            <label>Votre e-mail </label>
-                            <input type="email"  id="mail" name="email" placeholder="example@domain.com" required>
+
+                        <div class="contact-id">
+                            <span>Dominique YOLIN - CTO </span>
+                            <span class="icon-phone"> 06 62 15 11 26 </span>
                         </div>
+
+
+                    </div> <!--   main-info -->
+
+
+                    <div id="text-bar">
+                        <div id="corner-line"></div>
+                        <div class="content">
+                            <p>Création de l'ère numérique, nous sommes Light In Chaos un studio de production hybride avec une expertise<br>
+                                dans le numérique, le cinéma, l'événement et technologiques créatives. <br>
+                                Nous produisons des expériences engageantes et du contenu de marque innovant, combinant un fort sens de la narration <br>
+                                avec une valeur de production élevée. <br>
+                                Quels que soient les médias, quel que soit le budget. Les grandes idées exigent le meilleur de la création.<br>
+                                La combinaison de design, de technologie et d'animation nous donne l'avantage sur le marché et fait ressortir travaux </p>
+                        </div>        
                     </div>
-                    <div class="row">
-                        <div class="medium-12 columns">
-                            <label >Votre Message </label>
-                            <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:200px" required></textarea>
+                    <div id="Contact" style="visibility: hidden">
+                        <div class="row">
+                            <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
                         </div>
-                        <div class="row" >
-                            <div class="medium-2 columns float-right" style="padding-right: 30px;">
-                                <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
-                            </div>
-                            <div class="medium-2 columns float-right">
-                                <button  class="primary button float-right"  type="reset" value="Clear">Effacer</button>
-                            </div>
-                        </div>   
-                    </div>
-                </form>
-
-
-            </div> 
-
-            <div id="text-bar">
-                <div class="content">
-                    <p>Création de l'ère numérique, nous sommes Light In Chaos un studio de production hybride avec une expertise<br>
-                        dans le numérique, le cinéma, l'événement et technologiques créatives. <br>
-                        Nous produisons des expériences engageantes et du contenu de marque innovant, combinant un fort sens de la narration <br>
-                        avec une valeur de production élevée. <br>
-                        Quels que soient les médias, quel que soit le budget. Les grandes idées exigent le meilleur de la création.<br>
-                        La combinaison de design, de technologie et d'animation nous donne l'avantage sur le marché et fait ressortir travaux </p>
-                </div>        
-            </div>
-        </div>
-
-        <!--sidebar-->
-        <!--                <div class="background">
-                            <div class="infos_services " >
-                                <h2 class="service-title" onclick="toggle('.service-list')">Vidéo</h2>
-                                <div class="service-list" onclick="toggle('.service-list')">
-                                    <p><span style="color: #ffffff; font-weight: 600;">Captation Live</span><br>
-                                        <span style="color: #ffffff; font-weight: 600;"> 360</span><br>
-                                        <span style="color: #ffffff; font-weight: 600;"> VFX</span><br>
-                                        <span style="color: #ffffff; font-weight: 600;"> Drone</span><br>
-                                        <span style="color: #ffffff; font-weight: 600;"> 3D</span><br>
-                                        <span style="color: #ffffff; font-weight: 600;"> Animation</span><br>
-                                        <span style="color: #ffffff; font-weight: 600;"> Motion Design</span><br>
-                                        <span style="color: #ffffff; font-weight: 600;"> …</span></p>
+                        <form action="send_contact_mail.php" id="ContactForm" method="post" accept-charset="utf-8">
+                            <div class="row">
+                                <div class="medium-6 columns ">
+                                    <label> Votre Nom </label>
+                                    <input type="text" id="name" name="name" placeholder="Votre Nom" required>
+                                </div>
+                                <div class="medium-6 columns">
+                                    <label>Votre e-mail </label>
+                                    <input type="email"  id="mail" name="email" placeholder="example@domain.com" required>
                                 </div>
                             </div>
-                        </div> .et_pb_toggle_content -->
-        <!-- .et_pb_toggle -->
-        <!--            -->
+                            <div class="row">
+                                <div class="medium-12 columns">
+                                    <label >Votre Message </label>
+                                    <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:200px" required></textarea>
+                                </div>
+                                <div class="row" >
+                                    <div class="medium-2 columns float-right" style="padding-right: 30px;">
+                                        <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
+                                    </div>
+                                    <div class="medium-2 columns float-right">
+                                        <button  class="primary button float-right"  type="reset" value="Clear">Effacer</button>
+                                    </div>
+                                </div>   
+                            </div>
+                        </form>
+                    </div> 
+                </div>
+            </div>
+            <!--sidebar-->
+            <!--                <div class="background">
+                                <div class="infos_services " >
+                                    <h2 class="service-title" onclick="toggle('.service-list')">Vidéo</h2>
+                                    <div class="service-list" onclick="toggle('.service-list')">
+                                        <p><span style="color: #ffffff; font-weight: 600;">Captation Live</span><br>
+                                            <span style="color: #ffffff; font-weight: 600;"> 360</span><br>
+                                            <span style="color: #ffffff; font-weight: 600;"> VFX</span><br>
+                                            <span style="color: #ffffff; font-weight: 600;"> Drone</span><br>
+                                            <span style="color: #ffffff; font-weight: 600;"> 3D</span><br>
+                                            <span style="color: #ffffff; font-weight: 600;"> Animation</span><br>
+                                            <span style="color: #ffffff; font-weight: 600;"> Motion Design</span><br>
+                                            <span style="color: #ffffff; font-weight: 600;"> …</span></p>
+                                    </div>
+                                </div>
+                            </div> .et_pb_toggle_content -->
+            <!-- .et_pb_toggle -->
+            <!--            -->
+        </div>
     </body>
 
 </html>

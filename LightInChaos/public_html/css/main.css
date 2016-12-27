@@ -98,31 +98,50 @@ video {
   width: auto; }
 
 .custom-button {
-  width: 100px;
+  position: relative;
+  width: 120px;
   height: 100px;
   margin: 0 auto;
-  background: url("../img/Boutons/Btn-black-fleche-droite.png") no-repeat;
   color: #000;
   text-shadow: 1px 1px 0 #fff;
-  cursor: pointer; }
-  .custom-button:hover {
-    /*        @include transition-duration($quick-transition-duration);
-            background: url('../img/Boutons/Btn-black-fleche-droite-deform.png') no-repeat;*/
-    animation: deform-cycle 1.8s steps(6) infinite; }
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat; }
+  .custom-button.custom-open-button {
+    background-image: url("../img/Boutons/Btn-black-fleche-droite.png"); }
+    .custom-button.custom-open-button:hover {
+      animation: deform-open-cycle 1.8s steps(6) infinite; }
+  .custom-button.custom-close-button {
+    background-image: url("../img/Boutons/Btn-black-close.png"); }
+    .custom-button.custom-close-button:hover {
+      animation: deform-close-cycle 1.8s steps(6) infinite; }
 
-@keyframes deform-cycle {
+@keyframes deform-open-cycle {
   0% {
-    background: url("../img/Boutons/Btn-black-fleche-droite.png") no-repeat; }
+    background-image: url("../img/Boutons/Btn-black-fleche-droite.png"); }
   15% {
-    background: url("../img/Boutons/Btn-black-fleche-droite.png") no-repeat; }
+    background-image: url("../img/Boutons/Btn-black-fleche-droite.png"); }
   30% {
-    background: url("../img/Boutons/Btn-black-fleche-droite-deform.png") no-repeat; }
+    background-image: url("../img/Boutons/Btn-black-fleche-droite-deform.png"); }
   60% {
-    background: url("../img/Boutons/Btn-black-fleche-droite-deform.png") no-repeat; }
+    background-image: url("../img/Boutons/Btn-black-fleche-droite-deform.png"); }
   75% {
-    background: url("../img/Boutons/Btn-black-fleche-droite.png") no-repeat; }
+    background-image: url("../img/Boutons/Btn-black-fleche-droite.png"); }
   100% {
-    background: url("../img/Boutons/Btn-black-fleche-droite.png") no-repeat; } }
+    background-image: url("../img/Boutons/Btn-black-fleche-droite.png"); } }
+@keyframes deform-close-cycle {
+  0% {
+    background-image: url("../img/Boutons/Btn-black-close.png"); }
+  15% {
+    background-image: url("../img/Boutons/Btn-black-close.png"); }
+  30% {
+    background-image: url("../img/Boutons/Btn-black-close-droite-deform.png"); }
+  60% {
+    background-image: url("../img/Boutons/Btn-black-close-droite-deform.png"); }
+  75% {
+    background-image: url("../img/Boutons/Btn-black-close.png"); }
+  100% {
+    background-image: url("../img/Boutons/Btn-black-close.png"); } }
 #showreel {
   position: absolute;
   bottom: 5%;
@@ -133,15 +152,14 @@ video {
   top: 15%;
   height: 75%;
   position: absolute;
-  overflow: hidden;
-  width: 175%;
+  width: 95%;
   z-index: 2;
   font-family: 'Roboto'; }
   #info-bar #info-content {
     position: relative;
     background: white;
-    width: 14%;
-    left: 30%;
+    width: 25%;
+    left: 55%;
     height: 100%;
     padding-top: 1%; }
   #info-bar h4 {
@@ -317,27 +335,45 @@ button:active {
 
 .social-info {
   font-size: 1em;
-  color: #ffffff;
+  color: #000000;
   width: 100%;
   padding: 0 20px; }
   .social-info a {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none; }
     .social-info a:hover {
       color: #3399ff; }
 
 #text-bar {
-  background: rgba(51, 153, 255, 0.7);
-  height: 100%;
-  left: -2000px;
-  position: relative;
-  padding: 5px;
-  width: 55%;
-  font-size: 1.8em;
-  color: #ffffff;
+  top: 15%;
+  left: 110%;
+  width: 90%;
+  height: 75%;
+  background: white;
+  position: absolute;
+  font-size: 0.8em;
+  color: #000000;
   padding: 40px;
-  text-align: center;
-  text-shadow: 2px 2px #000000; }
+  text-align: justify;
+  font-family: 'Roboto'; }
+
+#corner-line {
+  border-color: white;
+  border-style: solid;
+  border-bottom-style: hidden;
+  border-left-style: hidden;
+  border-width: 2px;
+  top: -12%;
+  position: absolute;
+  left: -11%;
+  width: 60%;
+  height: 12%; }
+
+#horizontal-line {
+  top: -20%;
+  position: absolute;
+  left: -11%;
+  width: 60%; }
 
 .content {
   margin: 15% 2%; }
