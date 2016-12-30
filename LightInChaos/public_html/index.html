@@ -12,6 +12,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="css/foundation.css">
+        <link rel="stylesheet" href="css/masonry-grid.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/font-style.css">
         <link rel="stylesheet" href="css/social-infos.css">
@@ -23,27 +24,37 @@ and open the template in the editor.
         <script src="js/main.js" type="text/javascript" defer="defer"></script>
         <script src="js/backgroundVideo.js" type="text/javascript" defer="defer"></script>
         <script src="js/app.js" type="text/javascript" defer="defer"></script>
+        <script src="js/libs/masonry/masonry.pkgd.min.js"  defer="defer"></script>
     </head>
     <body>
-        <div class="background">
+        <div style="position: fixed; z-index: 99;">
+        <input type="checkbox" id="displayBG" value="checked"> <label id="cblabel">
+            Hide Background
+        </label>
+        </div>
+        <div class="background displayon" id="backdiv">
             <div id="video-wrap" class="video-wrap"  >
-                <video preload="metadata" autoplay loop id="my-video" >
-                    <source id="mp4" src="videos/Mashup1.mp4" type="video/mp4">
-                    <source id="wbm" src="videos/Mashup1.webm" type="video/webm">
-                </video>
+
+                <img src="./img/skyline.jpg"  id="videosubstitute" alt="" >
+                <!--                <video preload="metadata" autoplay loop id="my-video">
+                                    <source id="mp4" src="toto.mp4" type="video/mp4" >
+                                    <source id="wbm" src="toto.webm" type="video/webm">
+                                </video>-->
             </div>
         </div>
 
         <div class="wrapper-bars">
-            <div class="sidebar">
-                <div class="half">
-                    <div id="logo_container" >
-                        <a href="#">
-                            <img src="img/Logo-lic-web-white.png" alt="Light In Chaos" id="logo">
-                        </a>
+            <div class="sidebar" class="grid">
+                <div class="grid-item--height4">
+                    <div  class="grid-item--height4" >
+                        <div id="logo_container">
+                            <a href="#">
+                                <!--<img src="img/Logo-lic-web-white.png" alt="Light In Chaos" id="logo">-->
+                            </a>
+                        </div>
                     </div>
-                    <div id="catch-phrase">
-                        <h5 >Alchimiste de la narration, <br> artisants de l'image <br> nous ferons une histoire de votre communication</h5>
+                    <div  class="grid-item--height3" id="catch-phrase">
+                        <h5 >Alchimiste de la narration, <br> artisants de l'image <br>nous ferons une histoire<br>de votre communication</h5>
                     </div>
                 </div>
                 <!--                <div class="third">
@@ -56,7 +67,7 @@ and open the template in the editor.
                                         <button>Showreel</button>
                                     </div>
                                 </div> -->
-                <div class="half">
+                <div class="grid-item--height3">
                     <div id="info-opener" >
                         <div class="custom-button custom-open-button" id="sidebar-button" >  </div>
                     </div>
@@ -64,26 +75,26 @@ and open the template in the editor.
             </div> <!--   main-info -->
             <div id="info-bar" style="display: none">
                 <div id="info-content">
-                    <div  class="row" id="info-bar-text">
+                    <div id="info-bar-text">
                         <h4 >DE L'HISTOIRE, <br> À L'IMAGE</h4>
                         <p>
                         <p>
                             Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh tellus a odio tincidunt auctor
                         </p>
                     </div>
-                    <nav  class="row" >
+                    <nav  id="services-list" >
                         <ul>
                             <li>STORYTELLING</li>
                             <li>DESIGN GRAPHIQUE</li>
                             <li>TECHNOLOGIE</li>
                         </ul>
                     </nav>
-                    <div class="row" id="manifest-button-wrapper">
-                        <!--                        <div id="manifest-opener">
-                                                    <button id="manifest" onclick="toggle('#text-bar')">Notre Manifest</button>
-                                                </div>-->
-                    </div>
-                    <div class="row social-network">
+                    <!--   <div class="row" id="manifest-button-wrapper">
+                                               <div id="manifest-opener">
+                                                     <button id="manifest" onclick="toggle('#text-bar')">Notre Manifest</button>
+                                                 </div>
+                     </div>-->
+                    <div class="social-network">
                         <h4 >CONTACT</h4>
                         <ul class="social-icons">
                             <li class="social-icon ">
@@ -119,7 +130,7 @@ and open the template in the editor.
 
                         </ul>
                     </div>
-                    <div class="row contact-infos" >
+                    <div class="contact-infos" >
                         <div class="contact-mail">
                             <a href="mailto:contact@lightinchaos.com"><span class="icon-mail">  contact@lightinchaos.com</span></a>
                         </div>
@@ -137,49 +148,57 @@ and open the template in the editor.
                     </div> <!--   main-info -->
 
 
-                    <div id="text-bar">
-                        <div id="corner-line"></div>
-                        <div class="content">
-                            <p>Création de l'ère numérique, nous sommes Light In Chaos un studio de production hybride avec une expertise<br>
-                                dans le numérique, le cinéma, l'événement et technologiques créatives. <br>
-                                Nous produisons des expériences engageantes et du contenu de marque innovant, combinant un fort sens de la narration <br>
-                                avec une valeur de production élevée. <br>
-                                Quels que soient les médias, quel que soit le budget. Les grandes idées exigent le meilleur de la création.<br>
-                                La combinaison de design, de technologie et d'animation nous donne l'avantage sur le marché et fait ressortir travaux </p>
-                        </div>        
-                    </div>
-                    <div id="Contact" style="visibility: hidden">
-                        <div class="row">
-                            <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
-                        </div>
-                        <form action="send_contact_mail.php" id="ContactForm" method="post" accept-charset="utf-8">
-                            <div class="row">
-                                <div class="medium-6 columns ">
-                                    <label> Votre Nom </label>
-                                    <input type="text" id="name" name="name" placeholder="Votre Nom" required>
-                                </div>
-                                <div class="medium-6 columns">
-                                    <label>Votre e-mail </label>
-                                    <input type="email"  id="mail" name="email" placeholder="example@domain.com" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="medium-12 columns">
-                                    <label >Votre Message </label>
-                                    <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:200px" required></textarea>
-                                </div>
-                                <div class="row" >
-                                    <div class="medium-2 columns float-right" style="padding-right: 30px;">
-                                        <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
-                                    </div>
-                                    <div class="medium-2 columns float-right">
-                                        <button  class="primary button float-right"  type="reset" value="Clear">Effacer</button>
-                                    </div>
-                                </div>   
-                            </div>
-                        </form>
-                    </div> 
+
                 </div>
+                <div id="manifest-bar">
+                    <div class="custom-line">
+                        <div class="custom-line" id="horiz-line"></div>
+                        <div class="custom-line" id="vert-line"></div>
+                    </div>
+                    <div class="custom-line">
+                        <div class="custom-line" id="left-line"></div>
+                        <div class="custom-line" id="right-line"></div>
+                    </div>
+                    <div class="content" id="manifest" >
+                        <h4>MANIFESTE</h4>
+                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. </p>
+
+                        <p>Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. 
+
+
+                    </div>        
+                </div>
+                <div id="Contact" style="visibility: hidden">
+                    <div class="row">
+                        <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
+                    </div>
+                    <form action="send_contact_mail.php" id="ContactForm" method="post" accept-charset="utf-8">
+                        <div class="row">
+                            <div class="medium-6 columns ">
+                                <label> Votre Nom </label>
+                                <input type="text" id="name" name="name" placeholder="Votre Nom" required>
+                            </div>
+                            <div class="medium-6 columns">
+                                <label>Votre e-mail </label>
+                                <input type="email"  id="mail" name="email" placeholder="example@domain.com" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="medium-12 columns">
+                                <label >Votre Message </label>
+                                <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:200px" required></textarea>
+                            </div>
+                            <div class="row" >
+                                <div class="medium-2 columns float-right" style="padding-right: 30px;">
+                                    <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
+                                </div>
+                                <div class="medium-2 columns float-right">
+                                    <button  class="primary button float-right"  type="reset" value="Clear">Effacer</button>
+                                </div>
+                            </div>   
+                        </div>
+                    </form>
+                </div> 
             </div>
             <!--sidebar-->
             <!--                <div class="background">

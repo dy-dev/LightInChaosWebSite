@@ -11,58 +11,43 @@ body {
   margin: 0;
   padding: 0; }
 
-.wrap-infos {
-  z-index: 10;
-  background: aliceblue;
-  height: 70px;
-  display: block;
-  width: 100%; }
-
 .social-network {
-  margin: 0 15% 5% 20%; }
-
-.social-info {
-  margin: 0 15% 5% 20%;
-  position: absolute;
-  bottom: 0;
-  display: inline-block;
-  line-height: 70px;
-  margin: auto; }
-  .social-info span, .social-info ul {
-    text-decoration: none;
-    padding-right: 20px; }
+  margin: 0 5% 1.7vh 20%; }
 
 .social-icons {
   display: inline-block;
   line-height: 1em;
-  margin: 0; }
+  margin: 0;
+  margin-left: -2%;
+  width: 100%; }
   .social-icons li {
     display: inline-block;
-    margin-left: 20px;
-    margin-top: -2px; }
+    margin-top: 0.7vh;
+    /* padding-right: 2%; */
+    font-size: 3vmin; }
 
-.social-icon {
-  height: 15px;
-  width: 15px; }
-  .social-icon a {
-    display: inline-block;
-    position: relative;
-    color: #000000;
-    text-align: center;
-    text-decoration: none;
-    background-size: contain; }
-  .social-icon span {
-    color: transparent;
-    font-size: 3em; }
+.social-icon a {
+  display: inline-block;
+  position: relative;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  background-size: contain; }
+.social-icon span {
+  color: transparent;
+  font-size: 6.5vmin; }
 
 .contact-infos {
-  margin: 0 10% 10% 20%;
-  border-left: thin solid #000000; }
+  margin: 0 10% 0 20%;
+  border-left: thin solid #000000;
+  font-size: 1.2em; }
   .contact-infos .contact-mail {
-    margin-bottom: 20px; }
+    margin-bottom: 1vh;
+    font-size: 1.65vmin; }
   .contact-infos .contact-id {
-    margin-left: 10px;
-    margin-bottom: 10px; }
+    margin-left: 4%;
+    margin-bottom: 1vh;
+    font-size: 1.5vmin; }
   .contact-infos a {
     display: inline-block;
     position: relative;
@@ -70,9 +55,9 @@ body {
     text-align: center;
     text-decoration: none;
     background-size: contain;
-    margin-left: 10px; }
+    margin-left: 3%; }
   .contact-infos span {
-    margin-left: 10px;
+    margin-left: 3%;
     position: relative;
     display: block; }
 
@@ -81,13 +66,31 @@ body {
 span {
   position: relative; }
 
-#social-phone:before {
-  position: relative;
-  top: 2px;
-  margin-right: 2px;
-  content: "\e090"; }
+@media screen and (min-width: 0px) and (max-width: 1210px) {
+  .social-icon span {
+    font-size: 4.5vmin; }
 
-#social-phone {
-  margin-right: 13px; }
+  .contact-infos .contact-mail {
+    font-size: 1.4vmin; } }
+@media screen and (min-device-width: 800px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+  .contact-infos a {
+    margin-left: 0px; }
+  .contact-infos span {
+    font-size: 0.8em; }
+
+  .social-icons li {
+    margin-right: 18px;
+    margin-left: 0px; }
+
+  .social-icon {
+    height: 5px;
+    width: 5px; } }
+@media screen and (min-device-width: 1024px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
+  .contact-infos span {
+    font-size: 0.9em; }
+
+  .social-icons li {
+    margin-right: 18px;
+    margin-left: 0px; } }
 
 /*# sourceMappingURL=social-infos.css.map */

@@ -18,10 +18,10 @@
 
 [class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
+    //font-family: 'icomoon' !important;
     speak: none;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-variant: normal;
     text-transform: none;
     line-height: 1;
@@ -33,30 +33,16 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+/*
 .icon-phone:before {
     content: "\e942";
 }
 
-#top-header a
-{
-    text-decoration: none !important; 
-}
 .icon-mail:before {
     text-decoration: none !important; 
     content: "\ea85";
 }
-.icon-google-plus:before {
-    content: "\ea8b";
-}
-.icon-facebook:before {
-    content: "\ea90";
-}
-.icon-twitter:before {
-    content: "\ea96";
-}
-
-
+*/
 .linkedIn {
     background: url(../img/SocialNW/Linkedin.png) no-repeat center;
 }
@@ -86,27 +72,6 @@
 
 /*- foundation fonts-icons styling*/
 
-.glyph {
-    border-bottom: 1px dotted #ccc;
-    padding: 10px 0 20px;
-    margin-bottom: 20px;
-}
-
-.preview-glyphs { vertical-align: bottom; } 
-
-.preview-scale { 
-    color: #888;
-    font-size: 12px; 
-    margin-top: 5px;
-}
-
-.step {
-    display: inline-block;
-    line-height: 1;
-    width: 10%;
-}
-
-
 .size-12 { font-size: 12px; }
 
 .size-14 { font-size: 14px; }
@@ -126,17 +91,3 @@
 .size-60 { font-size: 60px; }
 
 .size-72 { font-size: 72px; }
-
-
-.usage { margin-top: 10px; }
-
-.usage input {
-    font-family: monospace;
-    margin-right: 3px;
-    padding: 2px 5px;
-    text-align: center;
-}
-
-.usage .point { width: 150px; }
-
-.usage .class { width: 250px; }
