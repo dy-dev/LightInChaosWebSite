@@ -21,31 +21,41 @@ and open the template in the editor.
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" defer="defer"></script>
         <script src="js/mashup.js" type="text/javascript" defer="defer"></script>
-        <script src="js/main.js" type="text/javascript" defer="defer"></script>
-        <script src="js/backgroundVideo.js" type="text/javascript" defer="defer"></script>
-        <script src="js/app.js" type="text/javascript" defer="defer"></script>
         <script src="js/libs/masonry/masonry.pkgd.min.js"  defer="defer"></script>
+        <script src="js/app.js" type="text/javascript" defer="defer"></script>
+        <script src="js/backgroundVideo.js" type="text/javascript" defer="defer"></script>
+        <script src="js/main.js" type="text/javascript" defer="defer"></script>
+        <script src="js/circle.js" type="text/javascript" defer="defer"></script>
     </head>
     <body>
         <div style="position: fixed; z-index: 99;">
-        <input type="checkbox" id="displayBG" value="checked"> <label id="cblabel">
-            Hide Background
-        </label>
+            <input type="checkbox" id="displayBG" value="checked"> <label id="cblabel">
+                Hide Background
+            </label>
+        </div>
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div  class="grid-item--height4" id="logohiding"></div>
+                <div class="grid-item--height3" id="canvasHolder">
+                    <canvas id="myCanvas"></canvas>
+                </div>
+            </div>
         </div>
         <div class="background displayon" id="backdiv">
             <div id="video-wrap" class="video-wrap"  >
 
-                <img src="./img/skyline.jpg"  id="videosubstitute" alt="" >
-                <!--                <video preload="metadata" autoplay loop id="my-video">
-                                    <source id="mp4" src="toto.mp4" type="video/mp4" >
-                                    <source id="wbm" src="toto.webm" type="video/webm">
-                                </video>-->
+                <!--<img src="./img/skyline.jpg"  id="videosubstitute" alt="" >-->
+                <video preload="metadata" autoplay loop id="my-video">
+                    <source id="mp4" src="toto.mp4" type="video/mp4" >
+                    <source id="wbm" src="toto.webm" type="video/webm">
+                </video>
             </div>
         </div>
 
-        <div class="wrapper-bars">
-            <div class="sidebar" class="grid">
-                <div class="grid-item--height4">
+        <div id="wrapper-bars" class='onload'>
+            <div id="sidebar">
+                <div class="grid-item--height4" id="logo-phrase">
                     <div  class="grid-item--height4" >
                         <div id="logo_container">
                             <a href="#">
