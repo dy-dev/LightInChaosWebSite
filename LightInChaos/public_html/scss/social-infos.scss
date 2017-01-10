@@ -17,22 +17,18 @@ body
 
 .social-network
 {
-    margin: 0 5% 1.7vh 20%;
+    margin: 0 60px 6px 90px;
 }
 
 .social-icons
 {
     display: inline-block;
     line-height: 1em;
-    margin: 0;
-    margin-left: -2%;
+    margin: 18px -3px;
     width: 100%;
     li 
     {
         display: inline-block;
-        margin-top: 0.7vh;
-        /* padding-right: 2%; */
-        font-size: 3vmin;
     }
 }
 
@@ -52,26 +48,27 @@ body
     span 
     {
         color: transparent;
-        font-size: 6.5vmin;
+        font-size: 5em;
+        letter-spacing: 5px;
     }
 
 }
 
 .contact-infos
 {
-    margin: 0 10% 0 20%;
+    margin: 5px 20px 5px 92px;
     border-left: thin solid #000000;
     font-size: 1.2em;
     .contact-mail
     {
-        margin-bottom: 1vh;
-        font-size: 1.65vmin;
+        margin-bottom: 14px;
+        margin-left: 5px;
     }
     .contact-id
     {
-        margin-left: 4%;
-        margin-bottom: 1vh;
-        font-size: 1.5vmin;
+        margin-left: 12px;
+        margin-bottom: 11px;
+        letter-spacing: -0.6px;
     }
     a 
     {

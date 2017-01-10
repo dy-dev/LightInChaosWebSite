@@ -1,11 +1,4 @@
 @font-face {
-    font-family: "Roboto";
-    src: url(https://fonts.google.com/specimen/Roboto?selection.family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i) format("truetype");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'icomoon';
     src:  url('../fonts/icomoon-icons/icomoon.eot?m9qo9e');
     src:  url('../fonts/icomoon-icons/icomoon.eot?m9qo9e#iefix') format('embedded-opentype'),

@@ -28,13 +28,10 @@ function finishUp()
     $('#info-opener').animate({opacity: '1'}, 'slow');
     $('body').css({'overflow': 'visible'});
     $('#sidebar').css({'background': 'rgba(35, 31, 32, 1)'});
-    $('#status').delay(500).fadeOut('slow', function ()
+    $('#preloader').delay(500).fadeOut('slow', function ()
     {
-        $('#preloader').delay(500).fadeOut('slow', function ()
-        {
-            $('#backdiv').animate({opacity: '1'}, 'slow');
-            
-        });
+        $('#backdiv').animate({opacity: '1'}, 'slow');
+        $('#status').delay(500).fadeOut('slow');
     });
 }
 
@@ -47,7 +44,7 @@ $(document).ready(function ()
     $('#vert-line').toggle('height');
     $('#left-line').toggle('width');
     $('#right-line').toggle('width');
-    $('#manifest').toggle('height');
+    $('#manifest-bar').toggle('left');
     $('#info-bar').toggle('visibility');
     $('#logo-phrase').css("opacity", 0);
     $('#info-opener').css("opacity", 0);
@@ -56,23 +53,23 @@ $(document).ready(function ()
         itemSelector: '.grid-item',
         columnWidth: 160
     });
-    $('#status').animate({height: '53%'}, {complete: function () {
-            $('#status').animate({width: '21.7%'}, {complete: function () {
-                    $('#wrapper-bars').removeClass('onload');
-                    $('#logo-phrase').animate({opacity: '1'}, {duration: 2, complete: function () {
-//$('#logohiding').fadeOut('slow');//, {complete: function () {
-//}});
+    $('#status').animate({height: '630px'}, 'slow');
+    $('#status').animate({width: '416px'}, 'slow', function () {
+        $('#wrapper-bars').removeClass('onload');
+        $('#logo-phrase').animate({opacity: '1'}, {
+            duration: 2500,
+            specialEasing: {
+                opacity: "swing"
+            }});
 
-
-                            $('#canvasHolder').animate({opacity: '1'}, {complete: myCircle()});
-                            if ($("#canvasHolder").hasClass("finished") && $("#preloader").hasClass('remove'))
-                            {
-                                finishUp();
-                            }
-                        }});
-                }});
-        }});
+        $('#canvasHolder').animate({opacity: '1'}, {complete: myCircle()});
+        if ($("#canvasHolder").hasClass("finished") && $("#preloader").hasClass('remove'))
+        {
+            finishUp();
+        }
+    });
 });
+
 $('a[href^="#"]').on('click', function (event) {
     var target = $(this.getAttribute('href'));
     var offset = 180;
@@ -89,35 +86,66 @@ $('a[href^="#"]').on('click', function (event) {
         }, 1000);
     }
 });
-$('#sidebar-button').click(function () {
 
-    if ($("#info-content").position().left === 0)
+$('.custom-button').mouseenter(function () {
+    if ($(this).hasClass('custom-open-button') && !$(this).hasClass('animate-open-button'))
     {
-        $('#sidebar-button').removeClass('custom-open-button');
-        $('#sidebar-button').addClass('custom-close-button');
-        $('#info-content').animate({left: 'toggle'}, "slow", growHorizLine);
+        $(this).addClass('animate-open-button');
+    }
+});
+
+
+$('.close-icon').click(function ()
+{
+    var myButtonName = $(this).get(0).getAttribute("data-correspond-button");
+    var myButton = document.getElementById(myButtonName);
+    $(myButton).click();
+});
+
+$('.custom-button').click(function ()
+{
+    var myDivName = $(this).get(0).getAttribute("data-div");
+    var myDiv = document.getElementById(myDivName);
+    if ($(myDiv).position().left === 0)
+    {
+        $(this).removeClass('custom-open-button');
+        $(this).removeClass('animate-open-button');
+        $(this).addClass('custom-close-button');
+
     }
     else
     {
-        $('#sidebar-button').removeClass('custom-close-button');
-        $('#sidebar-button').addClass('custom-open-button');
-        shrinkContent();
+        $(this).removeClass('custom-close-button');
+        $(this).addClass('custom-open-button');
+
+        var myDivDependantName = $(this).get(0).getAttribute("data-div-control");
+        if (typeof myDivDependantName === 'string' || myDivDependantName instanceof String)
+        {
+            var myDivDependant = document.getElementById(myDivDependantName);
+            if ($(myDivDependant).position().left !== 0)
+            {
+                $(myDiv).find('.custom-button').click();
+            }
+        }
     }
+    $(myDiv).animate({left: 'toggle'}, "slow");
 });
-function growHorizLine() {
-    $('#horiz-line').animate({width: 'toggle'}, growVertLine);
-}
 
-
-function growVertLine() {
-    $('#vert-line').animate({height: 'toggle'}, growStartContent);
-}
-
-function growStartContent() {
-    $('#left-line').animate({width: 'toggle'});
-    $('#right-line').animate({width: 'toggle'}, growContent);
-}
-
+/*
+ function growHorizLine() {
+ $('#horiz-line').animate({width: 'toggle'}, growVertLine);
+ }
+ 
+ 
+ function growVertLine() {
+ $('#vert-line').animate({height: 'toggle'}, growStartContent);
+ }
+ 
+ function growStartContent() {
+ $('#left-line').animate({width: 'toggle'});
+ $('#right-line').animate({width: 'toggle'}, growContent);
+ }
+ */
 function growContent()
 {
     $('#manifest').animate({height: 'toggle'});
@@ -126,22 +154,22 @@ function growContent()
 
 function shrinkContent()
 {
-    $('#manifest').animate({height: 'toggle'}, shrinkStartContent);
+    $('#manifest').animate({height: 'toggle'}/*, shrinkStartContent*/);
 }
-
-function shrinkStartContent() {
-    $('#left-line').animate({width: 'toggle'});
-    $('#right-line').animate({width: 'toggle'}, shrinkVertLine);
-}
-
-function shrinkVertLine() {
-    $('#vert-line').animate({height: 'toggle'}, shrinkHorizLine);
-}
-
-function shrinkHorizLine() {
-    $('#horiz-line').animate({width: 'toggle'}, shrinkInfoContent);
-}
-
+/*
+ function shrinkStartContent() {
+ $('#left-line').animate({width: 'toggle'});
+ $('#right-line').animate({width: 'toggle'}, shrinkVertLine);
+ }
+ 
+ function shrinkVertLine() {
+ $('#vert-line').animate({height: 'toggle'}, shrinkHorizLine);
+ }
+ 
+ function shrinkHorizLine() {
+ $('#horiz-line').animate({width: 'toggle'}, shrinkInfoContent);
+ }
+ */
 function shrinkInfoContent() {
     $('#info-content').animate({left: 'toggle'});
 }
@@ -157,6 +185,7 @@ $('input[type="checkbox"]').on('change', function () {
     }
 
 });
+
 function manageInfoDisplay()
 {
     /*  if ($("#text-bar").is(":visible"))
@@ -209,7 +238,7 @@ function myCircle()
     function createCircle() {
         var x = canvas.width / 2;
         var y = 3.93 * canvas.height / 6;
-        var radius = canvas.height / 5;
+        var radius = 44;
         var endPercent = 101;
         var curPerc = 0;
         var circ = Math.PI * 2;

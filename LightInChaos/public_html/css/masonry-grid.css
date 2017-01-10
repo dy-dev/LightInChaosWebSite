@@ -40,12 +40,15 @@ and open the template in the editor.
   width: 640px; }
 
 .grid-item--height2 {
-  height: 50%; }
+  height: 30%;
+  margin: 35px 0; }
 
 .grid-item--height3 {
-  height: 35%; }
+  height: 252px;
+  margin: 14px 0; }
 
 .grid-item--height4 {
-  height: 65%; }
+  height: 54%;
+  margin: 66px 10px 35px 10px; }
 
 /*# sourceMappingURL=masonry-grid.css.map */
