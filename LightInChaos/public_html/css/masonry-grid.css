@@ -41,14 +41,14 @@ and open the template in the editor.
 
 .grid-item--height2 {
   height: 30%;
-  margin: 35px 0; }
+  margin: 25px 0; }
 
 .grid-item--height3 {
-  height: 252px;
+  height: 215px;
   margin: 14px 0; }
 
 .grid-item--height4 {
   height: 54%;
-  margin: 66px 10px 35px 10px; }
+  margin: 57px 10px 35px 10px; }
 
 /*# sourceMappingURL=masonry-grid.css.map */

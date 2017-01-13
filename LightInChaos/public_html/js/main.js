@@ -9,25 +9,14 @@ $(window).on('load', function ()
     {
         $("#preloader").addClass('remove');
     }
-    // will first fade out the loading animation 
-    // will fade out the white DIV that covers the website. 
-    /*
-     $('#sidebar').width('3px');
-     $('#wrapper-bars').addClass('showbar');
-     $('#sidebar').animate({height: '53%'}, function () {
-     $('#sidebar').animate({width: '21.7%'}, function () {
-     $('div[class^="grid-item--height"]').animate({opacity: '1'}, function() {
-     $('div[class^="grid-item--height"]').removeClass('firstload');
-     });
-     });
-     });*/
 });
 
 function finishUp()
 {
     $('#info-opener').animate({opacity: '1'}, 'slow');
+
     $('body').css({'overflow': 'visible'});
-    $('#sidebar').css({'background': 'rgba(35, 31, 32, 1)'});
+
     $('#preloader').delay(500).fadeOut('slow', function ()
     {
         $('#backdiv').animate({opacity: '1'}, 'slow');
@@ -37,6 +26,11 @@ function finishUp()
 
 $(document).ready(function ()
 {
+    var finalHeight = ($('#status').height());
+    var finalWidth = ($('#status').width());
+    $('#status').width('3px');
+    $('#status').height('0px');
+    $('#status').css("opacity", 1);
     $('#my-video').backgroundVideo();
     $('.service-list').toggle('height');
     $('#info-content').toggle('left');
@@ -53,8 +47,9 @@ $(document).ready(function ()
         itemSelector: '.grid-item',
         columnWidth: 160
     });
-    $('#status').animate({height: '630px'}, 'slow');
-    $('#status').animate({width: '416px'}, 'slow', function () {
+    $('#status').animate({height: finalHeight}, 'slow');
+    $('#status').animate({width: finalWidth}, 'slow', function () {
+
         $('#wrapper-bars').removeClass('onload');
         $('#logo-phrase').animate({opacity: '1'}, {
             duration: 2500,
@@ -62,7 +57,30 @@ $(document).ready(function ()
                 opacity: "swing"
             }});
 
-        $('#canvasHolder').animate({opacity: '1'}, {complete: myCircle()});
+        $('#canvasHolder').animate({opacity: '1'}, {complete: function ()
+            {
+                $('#circle').circleProgress({
+                    value: 100,
+                    size: 77,
+                    thickness: 1,
+                    fill: {
+                        gradient: ["white", "white"]
+                    }
+                });
+                setTimeout(function () {
+                    $('#arrow-img').animate({left: '176px'}, 100, function ()
+                    {
+                        if (!$("#preloader").hasClass('remove'))
+                        {
+                            $("#canvasHolder").addClass("finished");
+                        }
+                        else
+                        {
+                            finishUp();
+                        }
+                    });
+                }, 1000);
+            }});
         if ($("#canvasHolder").hasClass("finished") && $("#preloader").hasClass('remove'))
         {
             finishUp();
@@ -87,19 +105,12 @@ $('a[href^="#"]').on('click', function (event) {
     }
 });
 
+
 $('.custom-button').mouseenter(function () {
     if ($(this).hasClass('custom-open-button') && !$(this).hasClass('animate-open-button'))
     {
         $(this).addClass('animate-open-button');
     }
-});
-
-
-$('.close-icon').click(function ()
-{
-    var myButtonName = $(this).get(0).getAttribute("data-correspond-button");
-    var myButton = document.getElementById(myButtonName);
-    $(myButton).click();
 });
 
 $('.custom-button').click(function ()
@@ -128,7 +139,45 @@ $('.custom-button').click(function ()
             }
         }
     }
-    $(myDiv).animate({left: 'toggle'}, "slow");
+    $(myDiv).animate({left: 'toggle'});
+});
+
+$('.close-icon').click(function ()
+{
+    var myButtonName = $(this).get(0).getAttribute("data-correspond-button");
+    var myButton = document.getElementById(myButtonName);
+    $(myButton).click();
+});
+
+$('.close-icon').hover(function ()
+{
+    var endAngle = -45;
+    var curAngle = 45;
+     
+    function animate(icon, current) {
+        if (current >= 0)
+        {
+            icon.css({
+                background: "linear-gradient(-" + current + "deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #000000 46%, #aeaeae 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%), \n\
+linear-gradient(" + current + "deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #000000 46%, #727272 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%)"
+            });
+        }
+        else
+        {
+            tmp = -current;
+            icon.css({
+                background: "linear-gradient(-" + tmp + "deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #000000 46%, #aeaeae 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%), \n\
+linear-gradient(" + tmp + "deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #000000 46%, #727272 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%)"
+            });
+        }
+        if (current > endAngle) {
+            requestAnimationFrame(function () {
+                current -= 1;
+                animate(icon, current);
+            });
+        }
+    }
+    animate($(this), curAngle);
 });
 
 /*
@@ -232,13 +281,16 @@ function myCircle()
 {
     var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext('2d');
-    context.canvas.width = $("#canvasHolder").width();
-    context.canvas.height = $("#canvasHolder").height();
+    $('#canvas-clamp').height($('#sidebar-button').height());
+    //$('#canvas-clamp').width($('#sidebar-button').width());
+    context.canvas.width = $('#canvas-clamp').width();
+    context.canvas.height = $('#canvas-clamp').height() + 4;
     createCircle();
     function createCircle() {
+        var radius = $('#sidebar-button').height() / 2.0;
         var x = canvas.width / 2;
-        var y = 3.93 * canvas.height / 6;
-        var radius = 44;
+        var y = radius + 2;
+        // var y = 3.93 * canvas.height / 6;
         var endPercent = 101;
         var curPerc = 0;
         var circ = Math.PI * 2;

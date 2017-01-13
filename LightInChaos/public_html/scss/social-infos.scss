@@ -17,14 +17,14 @@ body
 
 .social-network
 {
-    margin: 0 60px 6px 90px;
+    margin: 0 60px 6px 80px;
 }
 
 .social-icons
 {
     display: inline-block;
-    line-height: 1em;
-    margin: 18px -3px;
+    line-height: 11px;
+    margin: 5px -3px 20px -3px;
     width: 100%;
     li 
     {
@@ -56,35 +56,51 @@ body
 
 .contact-infos
 {
-    margin: 5px 20px 5px 92px;
-    border-left: thin solid #000000;
-    font-size: 1.2em;
-    .contact-mail
+    #border-info
     {
-        margin-bottom: 14px;
-        margin-left: 5px;
-    }
-    .contact-id
-    {
-        margin-left: 12px;
-        margin-bottom: 11px;
-        letter-spacing: -0.6px;
-    }
-    a 
-    {
+        margin: 9px 5px 5px 82px;
+        border-left: thin solid #231f20;
         display: inline-block;
-        position: relative;
-        color: #000000;
-        text-align: center;
-        text-decoration: none;
-        background-size: contain;
-        margin-left: 3%;
+        height: 117px;
+        vertical-align: top;
     }
-    span
+    #content-infos
     {
-        margin-left: 3%;
-        position: relative;
-        display: block;
+        display:inline-block;
+
+        .contact-mail
+        {
+            margin-bottom: 14px;
+            margin-left: 5px;
+            span
+            {
+                font-weight: 400;
+            }
+        }
+        .contact-id
+        {
+            margin-left: 12px;
+            margin-bottom: 11px;
+            letter-spacing: -0.6px;
+            font-weight: 300; 
+        }
+        a 
+        {
+            display: inline-block;
+            position: relative;
+            color: #231f20;
+            text-align: center;
+            text-decoration: none;
+            background-size: contain;
+            margin-left: 3%;
+        }
+        span
+        {
+            margin-left: 3%;
+            position: relative;
+            display: block;
+            font-weight: 300;
+        }
     }
 }
 
@@ -95,6 +111,44 @@ span {
 }
 
 
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: landscape) 
+{
+    .social-icons {
+        line-height: 0.9em;
+        margin: -3px 0px;
+    }
+    .social-icon span {
+        font-size: 4.6em;
+        letter-spacing: 0;
+    }
+    .social-network
+    {
+        margin-left: 15%;
+        h4
+        {
+            padding:0;
+            line-height: 1.3;
+        }
+    }
+    .contact-infos {
+        margin: 0 15% 10px 15%;
+        font-size: 1em;
+        .contact-mail {
+            margin-bottom: 3px;
+        }
+        span {
+            font-size: 0.9em;
+        }
+        .contact-id {
+            margin-left: 30px;
+            margin-bottom: 4px;
+        }
+    }
+}
+/*
 @media screen 
 and (min-width: 0px) 
 and (max-width: 1210px){
@@ -150,4 +204,4 @@ and (-webkit-min-device-pixel-ratio: 1) {
         margin-right: 18px;
         margin-left: 0px;
     }
-}
+}*/
