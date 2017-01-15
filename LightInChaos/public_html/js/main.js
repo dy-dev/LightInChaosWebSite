@@ -67,8 +67,8 @@ $(document).ready(function ()
                         gradient: ["white", "white"]
                     }
                 });
-                setTimeout(function () {
-                    $('#arrow-img').animate({left: '176px'}, 100, function ()
+               setTimeout(function () {
+                    $('#arrow-img').animate({left: '176px'}, 300, function ()
                     {
                         if (!$("#preloader").hasClass('remove'))
                         {
@@ -153,11 +153,19 @@ $('.close-icon').hover(function ()
 {
     var endAngle = -45;
     var curAngle = 45;
-     
+
     function animate(icon, current) {
+        var deltapx = Math.cos((current * Math.PI) / 180) * 12.02 - 8.5;
+        var deltatop = -18 - deltapx;
+        var deltaright = 41 - deltapx;
+
+
         if (current >= 0)
         {
             icon.css({
+                width: 2 * Math.cos((current * Math.PI) / 180) * 12.02,
+                height: 2 * Math.cos((current * Math.PI) / 180) * 12.02,
+                margin: deltatop + "px " + deltaright + "px 0px 0px",
                 background: "linear-gradient(-" + current + "deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #000000 46%, #aeaeae 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%), \n\
 linear-gradient(" + current + "deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #000000 46%, #727272 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%)"
             });
@@ -165,14 +173,17 @@ linear-gradient(" + current + "deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #
         else
         {
             tmp = -current;
-            icon.css({
+
+            icon.css({width: 2 * Math.cos((current * Math.PI) / 180) * 12.02,
+                height: 2 * Math.cos((current * Math.PI) / 180) * 12.02,
+                margin: deltatop + "px " + deltaright + "px 0px 0px",
                 background: "linear-gradient(-" + tmp + "deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #000000 46%, #aeaeae 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%), \n\
 linear-gradient(" + tmp + "deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #000000 46%, #727272 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%)"
             });
         }
         if (current > endAngle) {
             requestAnimationFrame(function () {
-                current -= 1;
+                current -= 3;
                 animate(icon, current);
             });
         }

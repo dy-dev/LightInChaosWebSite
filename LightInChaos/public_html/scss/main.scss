@@ -94,7 +94,7 @@ body {
 #button-cache
 {
     position: absolute;
-    left: 126px;
+    left: 117px;
     top: 442px;
     height: 80px;    
 }
@@ -102,7 +102,7 @@ body {
 #arrow-img
 {
     position: absolute;
-    left: 125px;
+    left: 117px;
     top: 476px;
 }
 
@@ -165,8 +165,8 @@ h5
     opacity:0;
     &.displayon
     {
-        background-size: cover;
         background: url("../img/site-web-lic_V2.png") no-repeat center;
+        background-size: cover;
     }       
 }
 

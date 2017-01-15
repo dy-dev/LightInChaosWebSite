@@ -51,13 +51,13 @@ body {
 
 #button-cache {
   position: absolute;
-  left: 126px;
+  left: 117px;
   top: 442px;
   height: 80px; }
 
 #arrow-img {
   position: absolute;
-  left: 125px;
+  left: 117px;
   top: 476px; }
 
 #circle-canvas {
@@ -103,8 +103,8 @@ h5 {
   z-index: -1;
   opacity: 0; }
   .background.displayon {
-    background-size: cover;
-    background: url("../img/site-web-lic_V2.png") no-repeat center; }
+    background: url("../img/site-web-lic_V2.png") no-repeat center;
+    background-size: cover; }
 
 #videosubstitute {
   display: none; }
