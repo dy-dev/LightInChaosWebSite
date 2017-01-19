@@ -12,27 +12,27 @@ and open the template in the editor.
 /* ---- grid ---- */
 
 .grid {
-  background: #EEE;
-  max-width: 1200px;
+    background: #EEE;
+    max-width: 1200px;
 }
 
 /* clearfix */
 .grid:after {
-  content: '';
-  display: block;
-  clear: both;
+    content: '';
+    display: block;
+    clear: both;
 }
 
 /* ---- grid-item ---- */
 
 .grid-item {
-  width: 160px;
-  height: 120px;
-  float: left;
-  background: #D26;
-  border: 2px solid #333;
-  border-color: hsla(0, 0%, 0%, 0.5);
-  border-radius: 5px;
+    width: 160px;
+    height: 120px;
+    float: left;
+    background: #D26;
+    border: 2px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.5);
+    border-radius: 5px;
 }
 
 .grid-item--width2 { background: #038; width: 320px; }
@@ -42,3 +42,15 @@ and open the template in the editor.
 .grid-item--height2 { height: 30%; margin: 25px 0; }
 .grid-item--height3 { height: 215px; margin: 14px 0; }
 .grid-item--height4 { height: 54%; margin: 57px 10px 35px 10px;}
+
+
+
+@media only screen 
+and (min-device-height: 600px) 
+and (max-device-height: 899px) 
+and (orientation: landscape) 
+{
+    .grid-item--height3 {
+        height: 185px;
+    }
+}

@@ -11,6 +11,8 @@ and open the template in the editor.
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link rel="icon" href="favicon.ico" />
+
         <link rel="stylesheet" href="css/foundation.css">
         <link rel="stylesheet" href="css/masonry-grid.css">
         <link rel="stylesheet" href="css/main.css">
@@ -30,18 +32,6 @@ and open the template in the editor.
         <script src="js/main.js" type="text/javascript" defer="defer"></script>
     </head>
     <body>
-
-        <div style="position: fixed; z-index: 99;">
-            <input type="checkbox" id="displayBG" value="checked"> <label id="cblabel">
-                Hide Background
-            </label>
-            <!--            <input id="progress_width" value="0">
-                        <div id="circle2">
-                            <strong>100<i>%</i></strong>
-                        </div>
-            <div class='bar' id='bar1'>  </div>-->
-
-        </div>
         <!-- Preloader -->
         <div id="preloader">
             <div id="status">
@@ -68,7 +58,7 @@ and open the template in the editor.
         </div>
 
         <div id="wrapper-bars" class='onload'>
-            <div id="sidebar">
+            <div id="sidebar" class ='primary-bloc'>
                 <div class="grid-item--height4" id="logo-phrase">
                     <div  class="grid-item--height3" >
                         <div id="logo_container">
@@ -78,25 +68,25 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div  class="grid-item--height2" id="catch-phrase">
-                        <h5 >Alchimiste de la narration, <br> artisants de l'image <br>nous ferons une histoire<br>de votre communication</h5>
+                        <h5 >Alchimistes de la narration, <br> artisans de l'image <br>nous ferons une histoire<br>de votre communication</h5>
                     </div>
                 </div>
 
                 <div class="grid-item--height3">
                     <div id="info-opener" >
-                        <div class="custom-button custom-open-button animate-open-button" id="sidebar-button" data-div="info-content" data-div-control="manifest-bar">  </div>
+                        <div class="custom-button custom-open-button animate-open-button" id="sidebar-button" data-div="info-content" data-div-control="manifest-bar"  data-parent="sidebar">  </div>
                     </div>
                 </div>
             </div> <!--   main-info -->
             <div id="info-bar" style="display: none">
                 <div id="info-content">
-                    <div class="close-icon" data-correspond-button="sidebar-opener-button"></div>
+                    <div class="close-icon" data-correspond-button="sidebar-button"></div>
                     <div id="info-bar-text">
                         <h4 >DE L'HISTOIRE, <br> À L'IMAGE</h4>
 
                         <!--<p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh tellus a odio tincidunt auctor-->
                         <p>
-                            "Conteurs de l'Ère Digitale", nous élaborons des Histoires, en créant une synergie entre la narration, le graphisme et la technologie. 
+                            Conteurs de l'Ère Digitale, nous élaborons des Histoires, en créant une synergie entre la narration, le graphisme et la technologie. 
                         </p>
                         <!-- nous ouvrons au maximum le champ des possibles pour permettre à nos client de toucher émotionnellement leur public--> 
                     </div>
@@ -169,7 +159,7 @@ and open the template in the editor.
                     </div> <!--   main-info -->
                     <div id="manifest-opener">
                         <div id="manifest-opener-text">Manifeste</div>
-                        <div class="custom-button custom-open-button" id="manifeste-opener-button" data-div="manifest-bar"></div>
+                        <div class="custom-button custom-open-button" id="manifeste-opener-button" data-div="manifest-bar" data-parent="info-content"></div>
                     </div>
                 </div>
                 <div id="manifest-bar">

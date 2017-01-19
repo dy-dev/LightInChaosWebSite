@@ -51,4 +51,8 @@ and open the template in the editor.
   height: 54%;
   margin: 57px 10px 35px 10px; }
 
+@media only screen and (min-device-height: 600px) and (max-device-height: 899px) and (orientation: landscape) {
+  .grid-item--height3 {
+    height: 185px; } }
+
 /*# sourceMappingURL=masonry-grid.css.map */

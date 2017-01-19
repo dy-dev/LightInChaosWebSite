@@ -71,31 +71,6 @@ body {
 span {
   position: relative; }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .social-icons {
-    line-height: 0.9em;
-    margin: -3px 0px; }
-
-  .social-icon span {
-    font-size: 4.6em;
-    letter-spacing: 0; }
-
-  .social-network {
-    margin-left: 15%; }
-    .social-network h4 {
-      padding: 0;
-      line-height: 1.3; }
-
-  .contact-infos {
-    margin: 0 15% 10px 15%;
-    font-size: 1em; }
-    .contact-infos .contact-mail {
-      margin-bottom: 3px; }
-    .contact-infos span {
-      font-size: 0.9em; }
-    .contact-infos .contact-id {
-      margin-left: 30px;
-      margin-bottom: 4px; } }
 /*
 @media screen 
 and (min-width: 0px) 
