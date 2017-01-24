@@ -110,9 +110,27 @@ span {
     position: relative;
 }
 
-
-
 /*
+@media only screen 
+and (min-height: 200px) 
+and (max-height: 720px) 
+{
+    .social-network {
+        margin: 0 60px 6px 23px;
+    }
+    .contact-infos #border-info {
+        margin: 9px 5px 5px 28px;
+        #content-infos 
+        {
+            .contact-id
+            {
+
+                margin-bottom: 5.5%;
+            }
+        }
+    }
+}
+
 @media screen 
 and (min-width: 0px) 
 and (max-width: 1210px){

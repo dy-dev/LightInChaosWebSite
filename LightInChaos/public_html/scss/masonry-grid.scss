@@ -46,11 +46,46 @@ and open the template in the editor.
 
 
 @media only screen 
-and (min-device-height: 600px) 
-and (max-device-height: 899px) 
-and (orientation: landscape) 
+and (max-height: 650px) 
 {
+    .grid-item--height4 {
+        height: 70%;
+        padding-top: 2%;
+    }
     .grid-item--height3 {
-        height: 185px;
+        height: 67%;
+        margin: 3%;
+    }
+    .grid-item--height2 {
+        height: 30%;
+        margin: 4%;
+    }
+}
+
+@media only screen 
+and (min-height: 651px) 
+and (max-height: 899px) 
+{
+    .grid-item--height4 {
+        height: 70%;
+        padding-top: 2%;
+    }
+    .grid-item--height3 {
+        height: 67.5%;
+    }
+}
+
+
+@media only screen 
+and (max-width: 500px) 
+{
+    .grid-item--height4 {
+        height: 70%;
+        padding-top: 2%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .grid-item--height3 {
+        height: 67.5%;
     }
 }
