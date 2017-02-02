@@ -9,8 +9,8 @@ var coeffSlowMediumToTablette = 100 / (breakMediumScreen - breakTabletAndSmallSc
 var coeffMediumToTablette = 232 / (breakMediumScreen - breakTabletAndSmallScreen);
 
 var breakBigScreenHeight = 900;
-var breakMediumScreenHeight = 650;
-var breakSmallScreenHeight = 320;
+var breakMediumScreenHeight = 750;
+var breakSmallScreenHeight = 480;
 
 function getElementValBigToMedium(MaxSideBarHeight, MinSideBarHeight, CurrentoDocHeight)
 {
@@ -37,16 +37,16 @@ $(window).on('load', function ()
 
 function finishUp()
 {
+    window.onresize();
     $('#info-opener').animate({opacity: '1'}, 'slow');
 
     $('body').css({'overflow': 'visible'});
-    // $('#preloader').css({opacity: '0.5'});
+   // $('#preloader').css({opacity: '0.5'});
 
     $('#preloader').delay(500).fadeOut('slow', function ()
     {
         $('#backdiv').animate({opacity: '1'}, 'slow');
         $('#status').delay(500).fadeOut('slow');
-        window.onresize();
     });
 }
 
@@ -80,20 +80,20 @@ $(document).ready(function ()
     $('#sidebar').removeClass('resizing');
     $('#status').removeClass('resizing');
     var finalHeight = ($('#status').height());
-    var finalWidth = ($('#status').width());
+    var finalWidth = ($('#status').outerWidth());
     if (window.innerWidth < breakPhoneScreen)
     {
-        $('#arrow-img').css({left: window.innerWidth / 2 - $('#arrow-img').width() / 2 - 58 + 'px'});
-        $('#button-cache').css({left: window.innerWidth / 2 - $('#button-cache').width() / 2 + 'px'});
+        $('#arrow-img').css({left: window.innerWidth / 2 - $('#arrow-img').width() / 2 - 57 + 'px'});
+        $('#button-cache').css({left: (window.innerWidth / 2 - $('#button-cache').width() / 2) + 'px'});
     }
-    if (window.innerHeight < breakBigScreenHeight && window.innerHeight > breakMediumScreenHeight)
+    if (window.innerHeight < breakBigScreenHeight && window.innerHeight >= breakMediumScreenHeight)
     {
-        var arrowTop = $('#arrow-img').position().top;
-        var buttonTop = $('#button-cache').position().top;
-        $('#arrow-img').css({top: getElementValBigToMedium(476, 442, window.innerHeight) + 'px'});
-        $('#button-cache').css({top: getElementValBigToMedium(442, 409, window.innerHeight) + 'px'});
+        $('#arrow-img').css({top: getElementValBigToMedium(476, 411, window.innerHeight) + 'px'});
+        $('#button-cache').css({top: getElementValBigToMedium(442, 378, window.innerHeight) + 'px'});
     }
+
     adaptSideBarElement();
+
     $('#status').width('3px');
     $('#status').height('0px');
     $('#status').css("opacity", 1);
@@ -117,19 +117,47 @@ $(document).ready(function ()
     $('#status').animate({width: finalWidth}, 'slow', function () {
 
         $('#wrapper-bars').removeClass('onload');
-        if (window.innerWidth < breakPhoneScreen)
+
+        if (window.innerHeight < breakMediumScreenHeight)
+        {
+            if (window.innerWidth < breakPhoneScreen)
+            {
+                $('#canvas-clamp').css({top: getElementValMediumToSmall(33, 10, window.innerHeight) + 'px'});
+//                $('#arrow-img').css({top: getElementValMediumToSmall(553.5, 400, window.innerHeight) + 'px'});
+//                $('#button-cache').css({top: getElementValMediumToSmall(519, 374, window.innerHeight) + 'px'});
+                $('#button-cache').css({top: $('#circle').offset().top + 'px'});
+                $('#button-cache').css({height: getElementValMediumToSmall(80, 65, window.innerHeight)});
+
+                $('#arrow-img').css({top: ($('#circle').offset().top + $('#button-cache').height() / 2 - $('#arrow-img').height() / 2 - 1) + 'px'});
+                $('#arrow-img').css({width: getElementValMediumToSmall(26, 20, window.innerHeight)});
+                //$('#arrow-img').css({top: $('#info-opener').offset().top + $('#button-cache').height() / 2 - $('#arrow-img').height() / 2 - 3 + 'px'});
+            }
+            else if (window.innerHeight > breakSmallScreenHeight)
+            {
+                $('#arrow-img').css({top: getElementValMediumToSmall(412, 344, window.innerHeight) + 'px'});
+                $('#button-cache').css({top: getElementValMediumToSmall(379, 310, window.innerHeight) + 'px'});
+            }
+            else
+            {
+                $('#arrow-img').css({top: '373px'});
+                $('#button-cache').css({top: '340px'});
+            }
+        }
+        else if (window.innerWidth < breakPhoneScreen)
         {
             $('#button-cache').css({top: $('#info-opener').offset().top - 1 + 'px'});
             $('#arrow-img').css({top: $('#info-opener').offset().top + $('#button-cache').height() / 2 - $('#arrow-img').height() / 2 - 1 + 'px'});
         }
+
         $('#logo-phrase').animate({opacity: '1'}, {
             duration: 2500,
             specialEasing: {
                 opacity: "swing"
             }});
+
         $('#canvasHolder').animate({opacity: '1'}, {complete: function ()
             {
-                statusCircleSize = window.innerHeight < breakMediumScreenHeight ? getElementValMediumToSmall(77, 60, window.innerHeight) : 77;
+                statusCircleSize = window.innerHeight <= breakMediumScreenHeight && window.innerWidth < breakPhoneScreen ? getElementValMediumToSmall(77, 60, window.innerHeight) : 77;
                 $('#circle').circleProgress({
                     value: 100,
                     size: statusCircleSize,
@@ -321,7 +349,6 @@ function getDivPosition(myDiv, isParent)
     myDiv.css({marginLeft: '', marginRight: ''});
     if (width < breakTabletAndSmallScreen)
     {
-        console.log($('#sidebar').height());
         //The div must be centered if the window size is between phone and tablette
         if (width > breakPhoneScreen && width < breakTabletAndSmallScreen)
         {
@@ -348,7 +375,15 @@ function getDivPosition(myDiv, isParent)
 
             else if (myDiv.get(0) === $('#manifest-bar').get(0))
             {
-                return $(window).width() / 2 - myDiv.width() / 2 - $('#info-bar').position().left;
+                if (width <= breakPhoneScreen)
+                {
+                    return 0;
+                }
+                else
+                {
+                    console.log($('#manifest-bar').outerWidth());
+                    return $(window).innerWidth() / 2 - $('#manifest-bar').outerWidth() / 2 - $('#info-bar').position().left;
+                }
             }
         }
     }
@@ -363,19 +398,22 @@ function getDivPosition(myDiv, isParent)
             deltaLeft = coeffSlowMediumToTablette * width - 220;
         }
 
-        console.log(myDiv);
-        console.log("(myDiv.get(0) === $('#sidebar').get(0) && $('#sidebar').hasClass('primary-bloc')) : " + (myDiv.get(0) === $('#sidebar').get(0) && $('#sidebar').hasClass('primary-bloc')));
-        console.log("(myDiv.get(0) === $('#sidebar').get(0) && $('#info-content').hasClass('primary-bloc') && ($('#manifest-bar').hasClass('closing-bloc') || $('#info-content').hasClass('closing-bloc') || $('#sidebar').hasClass('resizing')) ) : " + (myDiv.get(0) === $('#sidebar').get(0) && $('#info-content').hasClass('primary-bloc') && ($('#manifest-bar').hasClass('closing-bloc') || $('#info-content').hasClass('closing-bloc') || $('#sidebar').hasClass('resizing'))));
-        console.log("(myDiv.get(0) === $('#sidebar').get(0) && isParent && $('#manifest-bar').hasClass('primary-bloc')) : " + (myDiv.get(0) === $('#sidebar').get(0) && isParent && $('#manifest-bar').hasClass('primary-bloc')));
-        console.log(" (myDiv.get(0) === $('#info-content').get(0) && !$('#info-content').hasClass('primary-bloc') && !myDiv.hasClass('resizing')) : " + (myDiv.get(0) === $('#info-content').get(0) && !$('#info-content').hasClass('primary-bloc') && !myDiv.hasClass('resizing')));
+//        console.log(myDiv);
+        // console.log("(myDiv.get(0) === $('#sidebar').get(0) && $('#sidebar').hasClass('primary-bloc')) : " + (myDiv.get(0) === $('#sidebar').get(0) && $('#sidebar').hasClass('primary-bloc')));
+        //   console.log("(myDiv.get(0) === $('#sidebar').get(0) && $('#info-content').hasClass('primary-bloc') && ($('#manifest-bar').hasClass('closing-bloc') || $('#info-content').hasClass('closing-bloc') || $('#sidebar').hasClass('resizing')) ) : " + (myDiv.get(0) === $('#sidebar').get(0) && $('#info-content').hasClass('primary-bloc') && ($('#manifest-bar').hasClass('closing-bloc') || $('#info-content').hasClass('closing-bloc') || $('#sidebar').hasClass('resizing'))));
+        //   console.log("(myDiv.get(0) === $('#sidebar').get(0) && isParent && $('#manifest-bar').hasClass('primary-bloc')) : " + (myDiv.get(0) === $('#sidebar').get(0) && isParent && $('#manifest-bar').hasClass('primary-bloc')));
+        //   console.log(" (myDiv.get(0) === $('#info-content').get(0) && !$('#info-content').hasClass('primary-bloc') && !myDiv.hasClass('resizing')) : " + (myDiv.get(0) === $('#info-content').get(0) && !$('#info-content').hasClass('primary-bloc') && !myDiv.hasClass('resizing')));
         if (((myDiv.get(0) === $('#sidebar').get(0) && $('#sidebar').hasClass('primary-bloc')) ||
                 (myDiv.get(0) === $('#sidebar').get(0) && $('#info-content').hasClass('primary-bloc') &&
                         ($('#manifest-bar').hasClass('closing-bloc') || $('#info-content').hasClass('closing-bloc') || $('#sidebar').hasClass('resizing'))) ||
                 (myDiv.get(0) === $('#sidebar').get(0) && isParent && $('#manifest-bar').hasClass('primary-bloc')) ||
-                (myDiv.get(0) === $('#info-content').get(0) && !$('#info-content').hasClass('primary-bloc') && !myDiv.hasClass('resizing'))))
+                (myDiv.get(0) === $('#info-content').get(0) && !$('#info-content').hasClass('primary-bloc') && !myDiv.hasClass('resizing')) ||
+                (myDiv.get(0) === $('#info-content').get(0) && $('#info-content').hasClass('primary-bloc') && myDiv.hasClass('resizing'))))
         {
             console.log("deltaLeft : " + deltaLeft);
-            var value = Math.min(100, width / 2 - $('#info-content').width() / 2 - $('#sidebar').width() / 2);
+            console.log("$('#info-content').outerWidth() : " + $('#info-content').outerWidth());
+            console.log("$('#sidebar')outerWidth() : " + $('#sidebar').outerWidth());
+            var value = Math.min(100, outerWidth / 2 - $('#info-content').outerWidth() / 2 - $('#sidebar').outerWidth() / 2);
             deltaLeft = Math.max(20, value);
             console.log("deltaLeft : " + deltaLeft);
         }
@@ -387,7 +425,7 @@ function getDivPosition(myDiv, isParent)
             }
             else
             {
-                console.log("deltaLeft : " + deltaLeft);
+                // console.log("deltaLeft : " + deltaLeft);
                 return deltaLeft + 20;
             }
         }
@@ -415,6 +453,7 @@ function getDivPosition(myDiv, isParent)
                     isParent ||
                     (myDiv.hasClass('resizing') && myDiv.position().left > 0))
             {
+                console.log("deltaleft : " + deltaLeft);
                 return deltaLeft + 807;
             }
             else
@@ -426,9 +465,9 @@ function getDivPosition(myDiv, isParent)
         else if (myDiv.get(0) === $('#manifest-bar').get(0))
         {
             if (width < breakBigScreen && width >= breakMediumScreen)
-                deltaLeft = coeffSpeedBigToMedium * width - 950;
+                deltaLeft = coeffSpeedBigToMedium * width - 980;
             else if (width >= breakTabletAndSmallScreen && width < breakMediumScreen)
-                deltaLeft = coeffMediumToTablette * width - 941;
+                deltaLeft = coeffMediumToTablette * width - 980;
 
             if (hideDiv)
             {
@@ -443,50 +482,6 @@ function getDivPosition(myDiv, isParent)
 }
 ;
 
-//
-//
-//
-//;
-//document.addEventListener('touchstart', handleTouchStart, false);
-//document.addEventListener('touchmove', handleTouchMove, false);
-//
-//var xDown = null;
-//var yDown = null;
-//
-//function handleTouchStart(evt) {
-//    xDown = evt.touches[0].clientX;
-//    yDown = evt.touches[0].clientY;
-//};
-//
-//function handleTouchMove(evt) {
-//    if (!xDown || !yDown) {
-//        return;
-//    }
-//
-//    var xUp = evt.touches[0].clientX;
-//    var yUp = evt.touches[0].clientY;
-//
-//    var xDiff = xDown - xUp;
-//    var yDiff = yDown - yUp;
-//
-//    if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
-//        if (xDiff > 0) {
-//           $('.primary-bloc').find($('.custom-button')).get(0).click();
-//        } else {
-//            $('.primary-bloc').find($('.close-icon')).get(0).click();
-//        }
-//    } else {
-//        if (yDiff > 0) {
-//            /* up swipe */
-//        } else {
-//            /* down swipe */
-//        }
-//    }
-//    /* reset values */
-//    xDown = null;
-//    yDown = null;
-//}
-//;
 function getDivVerticalDimAndPos(myDiv)
 {
     var height = window.innerHeight;
@@ -498,14 +493,14 @@ function getDivVerticalDimAndPos(myDiv)
         }
         else if (myDiv.get(0) === $('#info-content').get(0))
         {
-            return [782, 74];
+            return [782, 84];
         }
         else if (myDiv.get(0) === $('#manifest-bar').get(0))
         {
-            return [680, 69];
+            return [630, 69];
         }
     }
-    else if (height < breakBigScreenHeight && height > breakSmallScreenHeight)
+    else if (height < breakBigScreenHeight && height >= breakMediumScreenHeight)
     {
         if (myDiv.get(0) === $('#sidebar').get(0))
         {
@@ -513,19 +508,36 @@ function getDivVerticalDimAndPos(myDiv)
         }
         else if (myDiv.get(0) === $('#info-content').get(0))
         {
-            return [getElementValBigToMedium(782, 635, height), getElementValBigToMedium(74, 7, height)];
+            return [getElementValBigToMedium(782, 722, height), getElementValBigToMedium(84, 7, height)];
         }
 
         else if (myDiv.get(0) === $('#manifest-bar').get(0))
         {
-            return [getElementValBigToMedium(680, 600, height), getElementValBigToMedium(69, 15, height)];
+            return [630, getElementValBigToMedium(69, 15, height)];
+        }
+    }
+
+    else if (height < breakMediumScreenHeight && height >= breakSmallScreenHeight)
+    {
+        if (myDiv.get(0) === $('#sidebar').get(0))
+        {
+            return [getElementValBigToMedium(590, 530, height), getElementValMediumToSmall(60, 20, height)];
+        }
+        else if (myDiv.get(0) === $('#info-content').get(0))
+        {
+            return [getElementValBigToMedium(670, 635, height), getElementValBigToMedium(84, 7, height)];
+        }
+
+        else if (myDiv.get(0) === $('#manifest-bar').get(0))
+        {
+            return [getElementValMediumToSmall(630, 530, height), getElementValMediumToSmall(15, 5, height)];
         }
     }
     else
     {
         if (myDiv.get(0) === $('#sidebar').get(0))
         {
-            return [height, 0];
+            return [480, 0];
         }
         else if (myDiv.get(0) === $('#info-content').get(0))
         {
@@ -541,76 +553,152 @@ function getDivVerticalDimAndPos(myDiv)
 
 window.onresize = function (event)
 {
-    $('#sidebar').addClass('resizing');
-    $('#info-content').addClass('resizing');
-    $('#manifest-bar').addClass('resizing');
-
-    $('#sidebar').css({left: getDivPosition($('#sidebar')) + 'px'});
-    $('#sidebar').css({height: getDivVerticalDimAndPos($('#sidebar'))[0] + 'px'});
-    $('#sidebar').css({top: getDivVerticalDimAndPos($('#sidebar'))[1] + 'px'});
     adaptSideBarElement();
-
-    $('#info-content').css({left: getDivPosition($('#info-content')) + 'px'});
-    $('#info-bar').css({height: getDivVerticalDimAndPos($('#info-content'))[0] + 'px'});
-    $('#info-bar').css({top: getDivVerticalDimAndPos($('#info-content'))[1] + 'px'});
-    var myMargin = 40;
-    var myFontSize = 17;
-
-    if (window.innerHeight < breakBigScreenHeight && window.innerHeight > breakSmallScreenHeight)
-    {
-        myMargin = getElementValBigToMedium(40, 15, window.innerHeight);
-        myFontSize = getElementValBigToMedium(17, 15, window.innerHeight);
-    }
-
-    $('#services-list').css({marginTop: myMargin + 'px'});
-    $('#services-list').css({marginBottom: myMargin + 'px'});
-
-    $('#manifest-bar').find($('p')).css({fontSize: myFontSize + 'px'});
-    $('#info-content').find($('p')).css({fontSize: myFontSize + 'px'});
-
-    $('#manifest-bar').css({left: getDivPosition($('#manifest-bar')) + 'px'});
-    $('#manifest-bar').css({height: getDivVerticalDimAndPos($('#manifest-bar'))[0] + 'px'});
-    $('#manifest-bar').css({top: getDivVerticalDimAndPos($('#manifest-bar'))[1] + 'px'});
-
-    $('#sidebar').removeClass('resizing');
-    $('#info-content').removeClass('resizing');
-    $('#manifest-bar').removeClass('resizing');
+    adaptInfoContentElement();
+    adaptManifestBarElement();
 };
 
 
 function adaptSideBarElement()
 {
+    $('#sidebar').addClass('resizing');
+    $('#sidebar').css({left: getDivPosition($('#sidebar')) + 'px'});
+    $('#sidebar').css({height: getDivVerticalDimAndPos($('#sidebar'))[0] + 'px'});
+    $('#sidebar').css({top: getDivVerticalDimAndPos($('#sidebar'))[1] + 'px'});
+
     var myFontSize = 18;
     var myLineHeight = 26;
     var myMarginTop = 57;
-    var myMarginBottom = 10;
-    var grid4Height = 70;
+    var myMarginBottom = 35;
+    var grid4Height = '54%';
     var InfoOpenerHeight = 220;
-
+    var InfoOpenerTop = 33;
+    console.log("window.innerHeight : " + window.innerHeight + ", breakMediumScreenHeight : " + breakMediumScreenHeight + ", breakBigScreenHeight" + breakBigScreenHeight);
     if (window.innerHeight >= breakMediumScreenHeight && window.innerHeight < breakBigScreenHeight)
     {
-        console.log("ici");
         myMarginTop = getElementValBigToMedium(57, 25, window.innerHeight);
+        if (window.innerWidth < breakPhoneScreen)
+        {
+            grid4Height = '66vh';
+        }
 
     }
-    else if (window.innerHeight < breakMediumScreenHeight)
+    else if (window.innerHeight < breakMediumScreenHeight && window.innerWidth < breakPhoneScreen)
     {
         myFontSize = getElementValMediumToSmall(18, 14, window.innerHeight);
         myLineHeight = getElementValMediumToSmall(26, 18, window.innerHeight);
-        myMarginTop = getElementValMediumToSmall(25, 0, window.innerHeight);
-        myMarginBottom = getElementValMediumToSmall(10, 0, window.innerHeight);
-        grid4Height = getElementValMediumToSmall(70, 62, window.innerHeight);
+        myMarginTop = getElementValMediumToSmall(25, 15, window.innerHeight);
+        myMarginBottom = getElementValMediumToSmall(35, 0, window.innerHeight);
+        grid4Height = getElementValMediumToSmall(66, 71, window.innerHeight) + 'vh';
+
+        if (window.innerHeight < 380)
+        {
+            grid4Height = '70%';
+        }
         InfoOpenerHeight = getElementValMediumToSmall(220, 170, window.innerHeight);
+        InfoOpenerTop = getElementValMediumToSmall(33, 10, window.innerHeight);
+    }
+    else if (window.innerHeight < breakMediumScreenHeight)
+    {
+        myMarginTop = getElementValMediumToSmall(25, 15, window.innerHeight);
     }
     $('#sidebar').find($('h5')).css({fontSize: myFontSize + 'px',
         lineHeight: myLineHeight + 'px'});
     $('.grid-item--height4').css({marginTop: myMarginTop + 'px',
         marginBottom: myMarginBottom + 'px',
-        height: grid4Height + '%'});
+        height: grid4Height});
 
-    $('#info-opener').css({height: InfoOpenerHeight + 'px'});
+    $('#info-opener').css({height: InfoOpenerHeight + 'px', top: InfoOpenerTop + 'px'});
+    $('#sidebar').removeClass('resizing');
 }
 
+function adaptInfoContentElement()
+{
+    $('#info-content').addClass('resizing');
+
+    $('#info-content').css({left: getDivPosition($('#info-content')) + 'px'});
+
+    var myMargin = 40;
+    var myFontSize = 17;
+    var myIconFontSize = 5;
+    var myPaddingTop = 17;
+    var myLineHeight = 26;
+    var myMarginBottom = 14;
+    var myBorderHeight = 117;
+    var marginBlock = 5;
+    if (window.innerHeight < breakBigScreenHeight && window.innerHeight > breakMediumScreenHeight)
+    {
+        myMargin = getElementValBigToMedium(40, 15, window.innerHeight);
+        myFontSize = getElementValBigToMedium(17, 15, window.innerHeight);
+        marginBlock = 0;
+    }
+    else if (window.innerHeight <= breakMediumScreenHeight)
+    {
+        myLineHeight = getElementValMediumToSmall(24, 18, window.innerHeight);
+        myFontSize = getElementValMediumToSmall(15, 13, window.innerHeight);
+        myIconFontSize = getElementValMediumToSmall(5, 3.5, window.innerHeight);
+        myMargin = getElementValMediumToSmall(15, 5, window.innerHeight);
+        myPaddingTop = getElementValMediumToSmall(17, 5, window.innerHeight);
+        myMarginBottom = getElementValMediumToSmall(14, 4, window.innerHeight);
+        marginBlock = getElementValMediumToSmall(10, 0, window.innerHeight);
+        myBorderHeight = getElementValMediumToSmall(117, 100, window.innerHeight);
+    }
+    $('#info-bar').find($('li')).css({fontSize: (myFontSize + 1) + 'px'});
+    $('#info-bar').find($('h4')).css({paddingTop: myPaddingTop + 'px'});
+    $('#info-bar').css({height: getDivVerticalDimAndPos($('#info-content'))[0] + 'px'});
+    $('#info-bar').css({top: getDivVerticalDimAndPos($('#info-content'))[1] + 'px'});
+
+    $('#info-bar-text').find($('p')).css({lineHeight: myLineHeight + 'px'});
+    $('#info-content').find($('p')).css({fontSize: myFontSize + 'px'});
+    $('#border-info').css({height: myBorderHeight});
+
+    $('.contact-mail').css({marginBottom: myMarginBottom + 'px'});
+    $('.contact-id').css({marginBottom: (myMarginBottom - 3) + 'px'});
+    $('.social-icon').find($('span')).css({fontSize: myIconFontSize + 'em'});
+
+    $('#info-bar').find($('.social-network')).css({marginBottom: marginBlock + '%', marginRight: marginBlock + '%'});
+    $('#info-bar').find($('nav')).css({marginBottom: marginBlock + '%', marginRight: marginBlock + '%'});
+    $('#info-bar').find($('ul')).css({marginBottom: marginBlock + '%', marginRight: marginBlock + '%'});
+
+    $('#manifest-opener-text').css({marginBottom: marginBlock + '%'});
+
+    $('#services-list').css({marginTop: myMargin + 'px', marginBottom: myMarginBottom + 'px'});
+
+    $('#info-content').removeClass('resizing');
+}
+
+function adaptManifestBarElement()
+{
+    $('#manifest-bar').addClass('resizing');
+
+    var myFontSize = 17;
+    var myLineHeight = 26;
+
+    if (window.innerHeight < breakBigScreenHeight && window.innerHeight > breakMediumScreenHeight)
+    {
+        // myFontSize = getElementValBigToMedium(17, 16, window.innerHeight);
+    }
+    else if (window.innerHeight <= breakMediumScreenHeight)
+    {
+        myFontSize = getElementValMediumToSmall(17, 16, window.innerHeight);
+        myLineHeight = getElementValMediumToSmall(26, 20, window.innerHeight);
+
+        if (window.innerHeight <= breakSmallScreenHeight && window.innerWidth < breakPhoneScreen)
+        {
+            //$('#manifest-bar').css({padding: '20px 40px'});
+            myFontSize = getElementValMediumToSmall(16, 15, window.innerHeight);
+            myLineHeight = getElementValMediumToSmall(20, 17, window.innerHeight);
+        }
+    }
+    $('#manifest-bar').find($('p')).css({fontSize: myFontSize + 'px'});
+    $('#manifest-bar').find($('p')).css({lineHeight: myLineHeight + 'px'});
+
+    $('#manifest-bar').css({left: getDivPosition($('#manifest-bar')) + 'px'});
+    $('#manifest-bar').css({height: getDivVerticalDimAndPos($('#manifest-bar'))[0] + 'px'});
+    $('#manifest-bar').css({top: getDivVerticalDimAndPos($('#manifest-bar'))[1] + 'px'});
+    $('#manifest-bar').removeClass('resizing');
+
+}
 function manageInfoDisplay()
 {
     /*  if ($("#text-bar").is(":visible"))

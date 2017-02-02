@@ -13,7 +13,7 @@ html {
   line-height: 1.4; }
 
 body {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.94);
   overflow: hidden; }
 
 .bar {
@@ -104,7 +104,7 @@ h5 {
   z-index: -1;
   opacity: 0; }
   .background.displayon {
-    background: url("../img/site-web-lic_V2.png") no-repeat center;
+    background: url("../img/Background_robot.png") no-repeat center;
     background-size: cover; }
 
 #videosubstitute {
@@ -152,6 +152,13 @@ video {
   width: 376px;
   z-index: 15;
   margin: ''; }
+  #sidebar #construction {
+    bottom: 15px;
+    position: absolute;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 13px; }
 
 #logo_container {
   background: url(../img/Logo-lic-web-white.png) no-repeat center;
@@ -224,11 +231,11 @@ video {
   height: 17px;
   background: linear-gradient(-45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #000000 46%, #aeaeae 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%), linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #000000 46%, #727272 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%);
   float: right;
-  margin-right: 41px;
-  margin-top: -18px;
+  margin-right: 30px;
+  margin-top: -7.5%;
   cursor: pointer; }
   .close-icon:hover {
-    background: linear-gradient(-45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, #000000 46%, #aeaeae 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%), linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, #000000 60%, #727272 45%, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(-45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #999999 46%, #aeaeae 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%), linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, #999999 46%, #727272 56%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0) 100%);
     cursor: pointer; }
 
 #info-bar {
@@ -243,11 +250,11 @@ video {
   z-index: 9; }
   #info-bar #info-content {
     position: relative;
-    background: white;
-    width: 442px;
+    background: rgba(255, 255, 255, 0.95);
+    width: 412px;
     left: 907px;
     height: 100%;
-    padding-top: 5.4vh;
+    padding-top: 6.4vh;
     z-index: 8; }
   #info-bar h4 {
     color: #231f20;
@@ -262,7 +269,8 @@ video {
     font-weight: 300; }
     #info-bar #info-bar-text p {
       line-height: 24px;
-      font-size: 17px; }
+      font-size: 17px;
+      padding-right: 20px; }
   #info-bar nav {
     margin: 40px 0 40px -10px;
     z-index: 10;
@@ -298,7 +306,7 @@ video {
     background-size: 10px 10px; }
 
 #manifest-opener {
-  margin-left: 25px; }
+  margin-left: -5px; }
   #manifest-opener #manifest-opener-text {
     margin-left: 238px;
     font-size: 18px;
@@ -318,22 +326,23 @@ video {
     display: inline-block;
     margin-left: 3px; }
     #manifest-opener #manifeste-opener-button.custom-open-button {
-      background-image: url("../img/Boutons/Btn-black-fleche-droite.png"); }
+      background-image: url("../img/Boutons/Btn-white-fleche-droite.png"); }
       #manifest-opener #manifeste-opener-button.custom-open-button.animate-open-button:hover {
-        background-image: url("../img/Boutons/Btn-black-fleche-droite-deform.png"); }
+        background-image: url("../img/Boutons/Btn-white-fleche-droite-deform.png"); }
     #manifest-opener #manifeste-opener-button.custom-close-button {
-      background-image: url("../img/Boutons/Btn-black-close.png"); }
+      background-image: url("../img/Boutons/Btns-white-close.png"); }
 
 #manifest-bar {
   top: 69px;
   left: 1373px;
-  width: 469px;
-  background: white;
+  width: 502px;
+  background: rgba(255, 255, 255, 0.95);
   position: absolute;
-  z-index: 2; }
+  z-index: 2;
+  padding: 20px 30px; }
   #manifest-bar .close-icon {
-    margin-top: 41px;
-    margin-right: 44px; }
+    margin-top: 10px;
+    margin-right: 0px; }
   #manifest-bar h4 {
     text-align: left;
     font-size: 20px;
@@ -343,12 +352,14 @@ video {
     line-height: 24px;
     text-align: justify;
     font-weight: 300; }
+  #manifest-bar .content {
+    padding: 0px 20px; }
 
 blockquote {
   font-family: Roboto;
   font-size: 18px;
   font-style: italic;
-  width: 400px;
+  width: 100%;
   margin: 2em 0 0 0;
   padding: 0.25em 40px;
   line-height: 1.45;
@@ -378,8 +389,7 @@ blockquote cite:before {
   content: "\2014 \2009"; }
 
 .content {
-  margin: 0;
-  padding: 49px 52px 49px 51px; }
+  margin: 0; }
 
 #ContactForm {
   margin-top: 20px;
@@ -479,110 +489,47 @@ button:active {
   -moz-border-radius: 4px;
   border-radius: 4px; }
 
-/*
-@media only screen 
-and (min-height: 200px) 
-and (max-height: 720px) 
-{
-    #status , #sidebar
-    {
-        top :60px;
-        height:500px;
-        width: 356px;
-        #arrow-img {
-            position: absolute;
-            left: 108px;
-            top: 427px;
-        }
-        #button-cache {
-            left: 108px;
-            top: 393px;
-        }
-    }
-    #info-bar 
-    {
-        top: 20px;
-        height:570px;
-        .close-icon {
-            margin-top: -5px;
-        }
-        #info-content
-        {
-            left: 887px;
-            padding-top: 20px;
-        }
-        #info-bar-text {
-            margin: 0 20px;
-            p 
-            {
-                font-size: 16px;
-            }
-        }
-        nav {
-            margin: 10px 0px -15px 0px;
-            ul {
-                margin-left: 40px;
-            }
-            li {
-                font-size: 16px;
-                line-height: 1.2;
-            }
-        }
-        h4 {
-            margin-bottom: 12px;
-        }
-        .contact-infos
-        {
-            margin-bottom: 25px;
-        }
-        .social-icons {
-            line-height: 9px;
-            margin: 0px -3px 5px -3px;
-        }
-        #manifest-opener 
-        {
-            margin-left: -37px;
-            #manifest-opener-text {
-                vertical-align: top;
-                margin-left: 200px;
-            }
-            #manifeste-opener-button {
-                top:-5px;
-            }
-        }
+@media only screen and (max-height: 580px) {
+  #manifest-bar {
+    top: 0 !important;
+    height: 100% !important; } }
+@media only screen and (max-height: 750px) {
+  #info-bar h4 {
+    margin-bottom: 1vh; }
 
-
-        #manifest-bar {
-            top: 15px;
-            left: 1340px;
-            .close-icon
-            {
-                margin-top: 19px;
-            }
-            p 
-            {
-                font-size: 16px;
-                line-height: 22px;
-            }
-            .content {
-                padding: 22px 44px 28px 41px;
-            }
-            blockquote {
-                font-size: 15px;
-                line-height: 1.15;
-                padding: 0 40px;
-                &:before {
-                    font-size: 60px;
-                    top: -25px;
-                }
-                footer {
-                    font-size: 12px;
-                }
-            }
-        }
-    }
-}*/
-@media only screen and (min-height: 651px) and (max-height: 899px) {
+  #info-bar {
+    top: 0 !important;
+    height: 100% !important; }
+    #info-bar #info-content {
+      top: 0 !important;
+      height: 100% !important; }
+    #info-bar #manifest {
+      padding: 0; }
+    #info-bar .close-icon {
+      margin-right: 10px; }
+    #info-bar #info-content {
+      padding-top: 6.4vh;
+      padding-left: 83px;
+      padding-right: 20px; }
+      #info-bar #info-content #info-bar-text,
+      #info-bar #info-content .social-network,
+      #info-bar #info-content nav,
+      #info-bar #info-content ul,
+      #info-bar #info-content #manifest-opener-text {
+        margin: 1% 5% 5% 1%; }
+      #info-bar #info-content .social-icons {
+        margin-left: -6px; }
+      #info-bar #info-content #border-info {
+        margin: 9px 0; }
+      #info-bar #info-content #manifest-opener {
+        margin-left: 150px; }
+      #info-bar #info-content nav ul {
+        margin-left: 22px; }
+    #info-bar #manifest-bar {
+      padding: 2% 5vh; }
+      #info-bar #manifest-bar h4, #info-bar #manifest-bar p {
+        padding: 0 30px 0 15px; } }
+@media only screen and (min-height: 751px) and (max-height: 899px) {
   #info-bar nav li {
     line-height: 170%;
     font-size: 112%; }
@@ -604,15 +551,19 @@ and (max-height: 720px)
       top: 0 !important;
       height: 100% !important;
       width: 100%; }
+    #sidebar #manifest,
+    #status #manifest,
+    #info-bar #manifest {
+      padding: 0; }
+    #sidebar .close-icon,
+    #status .close-icon,
+    #info-bar .close-icon {
+      margin-right: 10px;
+      margin-top: 10px; }
     #sidebar #info-content,
     #status #info-content,
     #info-bar #info-content {
-      padding: 5%; }
-      #sidebar #info-content #close-icon,
-      #status #info-content #close-icon,
-      #info-bar #info-content #close-icon {
-        margin-right: 10px;
-        margin-top: 10px; }
+      padding: 2% 5%; }
       #sidebar #info-content #info-bar-text,
       #sidebar #info-content .social-network,
       #sidebar #info-content nav,
@@ -628,7 +579,7 @@ and (max-height: 720px)
       #info-bar #info-content nav,
       #info-bar #info-content ul,
       #info-bar #info-content #manifest-opener-text {
-        margin: 0; }
+        margin: 2%; }
       #sidebar #info-content .social-icons,
       #status #info-content .social-icons,
       #info-bar #info-content .social-icons {
@@ -640,266 +591,17 @@ and (max-height: 720px)
       #sidebar #info-content #manifest-opener,
       #status #info-content #manifest-opener,
       #info-bar #info-content #manifest-opener {
-        margin-left: 150px; }
+        float: right;
+        margin: 0;
+        width: 150px;
+        margin-right: 15px; }
       #sidebar #info-content nav ul,
       #status #info-content nav ul,
       #info-bar #info-content nav ul {
-        margin-left: 22px; } }
-/*
-
-@media screen 
-and (min-height: 0px) 
-and (max-height: 239px){
-    h5 {
-        padding: 1% 7%;
-    }
-    #info-bar 
-    { 
-        #info-bar-text {
-            margin: 0 15% 2vh 20%;
-            p {
-                line-height: 0.75;
-                font-size: 0.7vmin;
-                margin-bottom: 0.5rem;
-            }
-        }
-        nav ul {
-            margin-bottom: 2vh;
-        }
-    }
-}
-
-
-@media screen 
-and (min-height: 240px) 
-and (max-height: 475px){
-    #info-bar #info-bar-text {
-        margin: 0 15% 2vh 20%;
-    }
-    #info-bar nav ul {
-        margin-bottom: 2vh;
-    }
-}
-
-@media screen 
-and (min-device-width: 240px) 
-and (max-device-width: 799px) and (orientation : landscape) {
-    video{display:none}
-
-    #videosubstitute
-    {
-        display:block;
-        width:100%;
-    }
-}
-
-@media screen 
-and (min-device-width: 240px) 
-and (max-device-width: 799px) and (orientation : portrait) { 
-    video{display:none}
-
-     //Default display the image to replace the video on all devices 
-    #videosubstitute
-    {
-        display:block;
-        height:100%;
-        margin: auto -109%;
-        max-width: 500%;
-    }
-}
-
-@media screen 
-and (min-device-width: 800px) 
-and (max-device-width: 1023px) 
-and (-webkit-min-device-pixel-ratio: 1) { 
-    #sidebar 
-    {
-        height:55%;
-    }
-    h5
-    {
-        padding: 20px 5%;
-        font-size: 0.8em;
-    }
-    #info-opener
-    {
-        top: 10%;
-    }
-    .custom-button
-    {
-        width: 60px;
-        height: 60px;
-    }
-
-    #info-bar 
-    {
-        h4 {
-            font-size: 0.9em;
-        }
-        #info-content {
-            width: 30%;
-            height: 120%;
-            top: -15%;
-        }
-        #info-bar-text 
-        {
-            margin: 0 10% 5% 15%;
-            p
-            {
-                line-height: 0.9;
-                font-size: 0.7em;
-            }
-        }
-        nav
-        {
-            ul {
-                margin-left: 3rem;
-                margin-bottom: 0;
-            }
-            li 
-            {
-                font-size: 0.9rem;
-            }
-        }
-        .social-network,.contact-infos {
-            margin: 0 10% 10% 15%;
-        }
-
-        #manifest-bar {
-            width: 110%;
-            padding: 15px;
-        }
-        .content {
-            margin: 2% 2%;
-            p
-            {
-                font-size: 1.2em;
-                line-height: 1;
-            }
-        }
-    }
-}
-
-@media screen 
-and (min-device-width: 1024px) 
-and (max-device-width: 1280px) 
-and (-webkit-min-device-pixel-ratio: 1) { 
-    #sidebar 
-    {
-        height:55%;
-    }
-    h5
-    {
-        padding: 20px 5%;
-        font-size: 1em;
-    }
-    #info-opener
-    {
-        top: 10%;
-    }
-    .custom-button
-    {
-        width: 60px;
-        height: 60px;
-    }
-
-    #info-bar 
-    {
-        h4 {
-            font-size: 1.1em;
-        }
-        #info-content {
-            width: 30%;
-            height: 95%;
-            top: 0%;
-        }
-
-        #info-bar-text 
-        {
-            margin: 0 10% 5% 15%;
-            p
-            {
-                line-height: 0.9;
-                font-size: 0.7em;
-            }
-        }
-        nav
-        {
-            ul {
-                margin-left: 4rem;
-                margin-bottom: 0;
-            }
-            li 
-            {
-                font-size: 0.9rem;
-            }
-        }
-        .social-network,.contact-infos {
-            margin: 0 10% 10% 15%;
-        }
-
-        #manifest-bar {
-            width: 115%;
-            padding: 15px;
-            height:80%;
-        }
-        .content {
-            margin: 5% 5%;
-            p
-            {
-                font-size: 1.3em;
-                line-height: 1.1;
-            }
-        }
-    }
-
-}
-
-@media screen 
-and (min-device-width: 1281px) 
-and (max-device-width: 1600px) 
-and (-webkit-min-device-pixel-ratio: 1) { 
-    h5
-    {
-        padding: 20px 10%;
-    }
-    #info-opener
-    {
-        top: 10%;
-    }
-    .custom-button
-    {
-        width: 70px;
-        height: 70px;
-    }
-    #info-bar 
-    {
-        #info-bar-text 
-        {
-            margin: 0 10% 10% 15%;
-            h4 {
-                font-size: 1.2em;
-            }
-            p
-            {
-                line-height: 1.1;
-                font-size: 0.9em;
-            }
-        }
-        nav
-        {
-            ul {
-                margin-left: 5rem;
-            }
-            li 
-            {
-                font-size: 1.2rem;
-            }
-        }
-        .social-network,.contact-infos {
-            margin: 0 10% 10% 15%;
-        }
-    }
-}*/
+        margin-left: 22px; }
+    #sidebar #manifest-bar,
+    #status #manifest-bar,
+    #info-bar #manifest-bar {
+      padding: 2% 5% !important; } }
 
 /*# sourceMappingURL=main.css.map */

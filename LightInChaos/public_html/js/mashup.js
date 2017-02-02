@@ -8,8 +8,9 @@ function getRandomInt(min, max) {
 }
 
 $(document).ready(function () {
-    var randVal = getRandomInt(1, 3);
+    var randVal = getRandomInt(1, 2);
     var fileName = "videos/Mashup" + randVal;
+  //  var fileName = "videos/BG";
 
     $('#mp4').attr("src", fileName + ".mp4");
     $('#wbm').attr("src", fileName + ".webm");
