@@ -8,236 +8,204 @@ and open the template in the editor.
     <head>
         <title>Light In Chaos</title>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="icon" href="favicon.ico" />
+        <link rel="stylesheet" href="css/font-style.css">
 
         <link rel="stylesheet" href="css/foundation.css">
-        <link rel="stylesheet" href="css/masonry-grid.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/font-style.css">
-        <link rel="stylesheet" href="css/social-infos.css">
-        <link rel="stylesheet" href="css/foundation-icons.css">
+        <link rel="stylesheet" href="css/mainPage.css">
+        <link href="css/social-infos.css" rel="stylesheet" type="text/css"/>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="js/jquery-touchswipe/jquery.touchSwipe.min.js" type="text/javascript"></script>
         <script src="js/jquery-circle-progress-1.2.1/dist/circle-progress.js"></script>
-        <!--<script src="js/preload.js" type="text/javascript"></script>-->
         <script src="js/mashup.js" type="text/javascript" defer="defer"></script>
-        <script src="js/libs/masonry/masonry.pkgd.min.js"  defer="defer"></script>
-        <script src="js/app.js" type="text/javascript" defer="defer"></script>
         <script src="js/backgroundVideo.js" type="text/javascript" defer="defer"></script>
-        <script src="js/main.js" type="text/javascript" defer="defer"></script>
+        <script src="js/mainPage.js" type="text/javascript" defer="defer"></script>
+
     </head>
     <body>
-        
         <!-- Preloader -->
         <div id="preloader">
-            <div id="status">
-                <div  class="grid-item--height4" id="logohiding"></div>
-                <div class="grid-item--height3" id="canvasHolder" >
-                    <img src="img/Boutons/arrow.png"  alt="arrow" id="arrow-img">
-                    <img src="img/Boutons/hole.png"  alt="cache" id="button-cache">
-                    <div id="canvas-clamp" >
-                        <!--<canvas id="myCanvas"></canvas>-->
-                        <div id="circle"></div>
-                    </div>
+            <div id="DropDown"></div>
+            <!--<div id="canvas-clamp" >--> 
+            <!--<canvas id="myCanvas"></canvas>-->
+            <div id="Circle"></div>
+            <!--</div>-->
+        </div>
+        <!-- Preloader -->
+
+        <div id="ContentHolder">
+            <div class="background displayon" >
+                <div id="video-wrap" class="video-wrap"  >
+
+                    <!--<img src="./img/skyline.jpg"  id="videosubstitute" alt="" >-->
+                    <video preload="metadata" autoplay loop id="my-video">
+                        <!--                        <source id="mp4" src="BG.mp4" type="video/mp4" >
+                                                <source id="wbm" src="toto.webm" type="video/webm">-->
+                        <source src="videos/Mashup1.webm" type="video/webm" >
+
+                    </video>
                 </div>
             </div>
-        </div>
-        <div class="background displayon" id="backdiv">
-            <div id="video-wrap" class="video-wrap"  >
-
-                <!--<img src="./img/skyline.jpg"  id="videosubstitute" alt="" >-->
-                                <video preload="metadata" autoplay loop id="my-video">
-                                    <source id="mp4" src="BG.mp4" type="video/mp4" >
-                                    <source id="wbm" src="toto.webm" type="video/webm">
-                                </video>
-            </div>
-        </div>
-        <div id="wrapper-bars" class='onload'>
-            <div id="sidebar" class ='primary-bloc'>
-                 <div id="construction">
-                    <span>SITE EN CONSTRUCTION</span>
-                </div>
-                <div class="grid-item--height4" id="logo-phrase">
-                    <div  class="grid-item--height3" >
-                        <div id="logo_container">
-                            <a href="#">
-                                <!--<img src="img/Logo-lic-web-white.png" alt="Light In Chaos" id="logo">-->
-                            </a>
-                        </div>
-                    </div>
-                    <div  class="grid-item--height2" id="catch-phrase">
-                        <h5 >Alchimistes de la narration, <br> artisans de l'image <br>nous ferons une histoire<br>de votre communication</h5>
-                    </div>
-                </div>
-
-                <div class="grid-item--height3">
-                    <div id="info-opener" >
-                        <div class="custom-button custom-open-button animate-open-button" id="sidebar-button" data-div="info-content" data-div-control="manifest-bar"  data-parent="sidebar">  </div>
-                    </div>
-                </div>
-               
-            </div> <!--   main-info -->
-            <div id="info-bar" style="display: none">
-                <div id="info-content">
-                    <div class="close-icon" data-correspond-button="sidebar-button"></div>
-                    <div id="info-bar-text">
-                        <h4 >DE L'HISTOIRE, <br> À L'IMAGE</h4>
-
-                        <!--<p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh tellus a odio tincidunt auctor-->
-                        <p>
-                            Conteurs de l'Ère Digitale, nous élaborons des Histoires, en créant une synergie entre la narration, le graphisme et la technologie. 
-                        </p>
-                        <!-- nous ouvrons au maximum le champ des possibles pour permettre à nos client de toucher émotionnellement leur public--> 
-                    </div>
-                    <nav  id="services-list" >
-                        <ul>
-                            <li>STORYTELLING</li>   
-                            <li>DESIGN GRAPHIQUE</li>
-                            <li>TECHNOLOGIES</li>
-                        </ul>
-                    </nav>
-                    <!--   <div class="row" id="manifest-button-wrapper">
-                                               <div id="manifest-opener">
-                                                     <button id="manifest" onclick="toggle('#text-bar')">Notre Manifest</button>
-                                                 </div>
-                     </div>-->
-                    <div class="social-network">
-                        <h4 >CONTACT</h4>
-                        <ul class="social-icons">
-                            <!--                            <li class="social-icon ">
-                                                            <a href="https://www.instagram.com/lightinchaos/" class="instagram">
-                                                                <span>a</span>
-                                                            </a>
-                                                        </li>-->
-                            <li class="social-icon">
-                                <a href="http://facebook.com/Light-In-Chaos-584085058415541/" class="facebook">
-                                    <span>a</span>
-                                </a>
-                            </li>
-                            <li class="social-icon">
-                                <a href="https://twitter.com/light_in_chaos" class="twitter">
-                                    <span>a</span>
-                                </a>
-                            </li>
-                            <li class="social-icon">
-                                <a href="https://vimeo.com/lightinchaos" class="vimeo">
-                                    <span>a</span>
-                                </a>
-                            </li>
-                            <!--                            <li class="social-icon">
-                                                            <a href="https://plus.google.com/u/0/115753659698318637488" class="google-plus">
-                                                                <span>a</span>
-                                                            </a>
-                                                        </li>-->
-                            <li class="social-icon">
-                                <a href="https://www.linkedin.com/company/light-in-chaos" class="linkedIn">
-                                    <span>a</span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                    <div class="contact-infos" >
-                        <div id="border-info">
-
-                        </div>
-                        <div id="content-infos">
-                            <div class="contact-mail">
-                                <a href="mailto:contact@lightinchaos.com"><span class="icon-mail">  contact@lightinchaos.com</span></a>
-                            </div>
-                            <div class="contact-id">
-                                <span>Walid Benhafsia - CEO </span>
-                                <span class="icon-phone"> 06 67 51 55 40 </span>
-                            </div>
-
-                            <div class="contact-id">
-                                <span>Dominique Yolin - CTO </span>
-                                <span class="icon-phone"> 06 62 15 11 26 </span>
-                            </div>
-                        </div>
-                    </div> <!--   main-info -->
-                    <div id="manifest-opener">
-                        <div id="manifest-opener-text">Manifeste</div>
-                        <div class="custom-button custom-open-button" id="manifeste-opener-button" data-div="manifest-bar" data-parent="info-content"></div>
-                    </div>
-                </div>
-                <div id="manifest-bar">
-                    <div class="close-icon" data-correspond-button="manifeste-opener-button"></div>
-                    <div class="content" id="manifest" >
-                        <h4>NOTRE CULTURE</h4>
-                        <p>Nous aidons nos clients à distiller leurs idées afin de sublimer leur marque, leurs services ou leurs produits en mettant en histoires et en images la quintessence des informations qu'ils veulent promouvoir.
-                            <br>
-                            <br>Nous les accompagnons en confectionnant des solutions créatives, visuellement percutantes  et techniquement innovantes. Nous alimentons notre créativité par l'écriture, la recherche graphique, la conception, l'animation 2D/3D, les jeux, les films... le tout agrémenté d'innovations technologiques. Nous obtenons par ce mélange, la transmutation de ces ingrédients en une campagne de communication d'un genre nouveau.</p>
-                        <blockquote cite="Arthur C. Clarke">
-                            <p>Toute technologie suffisamment avancée est indiscernable de la magie.</p>
-                            <footer>— <a href="https://fr.wikipedia.org/wiki/Trois_lois_de_Clarke">3eme Loi d'Arthur C. Clarke</a></footer>
-                        </blockquote>
-                        <!--                        <p>
-                                                    This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. 
-                                                    <br>
-                                                    <br>
-                                                    Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque.</p> -->
-
-
-                    </div>        
-                </div>
-                <div id="Contact" style="display: none">
-                    <div class="row">
-                        <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
-                    </div>
-                    <form action="send_contact_mail.php" id="ContactForm" method="post" accept-charset="utf-8">
-                        <div class="row">
-                            <div class="medium-6 columns ">
-                                <label> Votre Nom </label>
-                                <input type="text" id="name" name="name" placeholder="Votre Nom" required>
-                            </div>
-                            <div class="medium-6 columns">
-                                <label>Votre e-mail </label>
-                                <input type="email"  id="mail" name="email" placeholder="example@domain.com" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="medium-12 columns">
-                                <label >Votre Message </label>
-                                <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:200px" required></textarea>
-                            </div>
-                            <div class="row" >
-                                <div class="medium-2 columns float-right" style="padding-right: 30px;">
-                                    <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
+            <div id="video-filter"></div>
+            <div class="row content">
+                <div class="large-4 columns barContainer">
+                    <div class="small-9 small-offset-2 columns" id="SideBar">
+                        <div class="small-7 small-centered">
+                            <div class="sidebarContent" id="LogoInfos" >
+                                <div class="sidebarContent" id="logo_container" >
+                                    <a href="#">
+                                        <img src="img/Logo-lic-web-white.png" alt="Light In Chaos" id="logo">
+                                    </a>
                                 </div>
-                                <div class="medium-2 columns float-right">
-                                    <button  class="primary button float-right"  type="reset" value="Clear">Effacer</button>
+                                <div class="sidebarContent"  id="catch-phrase">
+                                    <h5 >Alchimistes de la narration, <br> artisans de l'image <br>nous ferons une histoire<br>de votre communication</h5>
                                 </div>
-                            </div>   
+                            </div>
+                            <ul class="sidebarContent"  id="links">
+                                <li>
+                                    <div class="about" onclick="displayAbout()">A propos</div>
+                                </li>
+                                <li>
+                                    Projects
+                                </li>
+                                <li>
+                                    Blog
+                                </li>
+                            </ul>
+                            <div class="sidebarContent" id="construction">
+                                <span>SITE EN CONSTRUCTION</span>
+                            </div>
                         </div>
-                    </form>
+                    </div>     
                 </div> 
-            </div>
-            <!--sidebar-->
-            <!--                <div class="background">
-                                <div class="infos_services " >
-                                    <h2 class="service-title" onclick="toggle('.service-list')">Vidéo</h2>
-                                    <div class="service-list" onclick="toggle('.service-list')">
-                                        <p><span style="color: #ffffff; font-weight: 600;">Captation Live</span><br>
-                                            <span style="color: #ffffff; font-weight: 600;"> 360</span><br>
-                                            <span style="color: #ffffff; font-weight: 600;"> VFX</span><br>
-                                            <span style="color: #ffffff; font-weight: 600;"> Drone</span><br>
-                                            <span style="color: #ffffff; font-weight: 600;"> 3D</span><br>
-                                            <span style="color: #ffffff; font-weight: 600;"> Animation</span><br>
-                                            <span style="color: #ffffff; font-weight: 600;"> Motion Design</span><br>
-                                            <span style="color: #ffffff; font-weight: 600;"> …</span></p>
+                <div class="large-8 columns barContainer">
+                    <div class="small-8 small-centered" id="InfosBar">
+                        <div class="large-6 columns contentbar" >
+                            <div class="contentInfos">
+                                <h4 >DE L'HISTOIRE, À L'IMAGE</h4>
+                                <p>Nous aidons nos clients à distiller leurs idées afin de sublimer leur marque, leurs services ou leurs produits en mettant en histoires et en images la quintessence des informations qu'ils veulent promouvoir.
+                                    <br>
+                                    <br>Nous les accompagnons en confectionnant des solutions créatives, visuellement percutantes  et techniquement innovantes. Nous alimentons notre créativité par l'écriture, la recherche graphique, la conception, l'animation 2D/3D, les jeux, les films... le tout agrémenté d'innovations technologiques. Nous obtenons par ce mélange, la transmutation de ces ingrédients en une campagne de communication d'un genre nouveau.</p>
+                                <blockquote cite="Arthur C. Clarke">
+                                    <p>Toute technologie suffisamment avancée est indiscernable de la magie.</p>
+                                    <footer>— <a href="https://fr.wikipedia.org/wiki/Trois_lois_de_Clarke">3eme Loi d'Arthur C. Clarke</a></footer>
+                                </blockquote>
+                            </div>
+                            <div id="BorderBar">
+                            </div>     
+
+                        </div>
+                        <div class="large-6 columns contentbar" >
+                            <div id="Contact">
+                                <h4 >CONTACT</h4>
+                                <div  >
+                                    <div class="row">
+                                        <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
                                     </div>
+                                    <form action="send_contact_mail.php" id="ContactForm" method="post" accept-charset="utf-8">
+                                        <div class="row">
+                                            <div class="medium-6 columns ">
+                                                <label> Votre Nom </label>
+                                                <input type="text" id="name" name="name" placeholder="Votre Nom" required>
+                                            </div>
+                                            <div class="medium-6 columns">
+                                                <label>Votre e-mail </label>
+                                                <input type="email"  id="mail" name="email" placeholder="example@domain.com" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="medium-12 columns">
+                                                <label >Votre Message </label>
+                                                <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:10vh" required></textarea>
+                                            </div>
+                                            <div class="row" >
+                                                <div class="medium-4 columns float-right" style="padding-right: 30px;">
+                                                    <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
+                                                </div>
+                                                <div class="medium-2 columns float-right">
+                                                    <button  class="primary button float-right"  type="reset" value="Clear">Effacer</button>
+                                                </div>
+                                            </div>   
+                                        </div>
+                                    </form>
+                                </div> 
+                                <div class="socialNetwork">
+
+                                    <ul class="socialIcons">
+                                        <li class="social-icon ">
+                                            <a href="https://www.instagram.com/lightinchaos/" class="instagram">
+                                                <span>a</span>
+                                            </a>
+                                        </li>
+                                        <li class="socialIcon">
+                                            <a href="http://facebook.com/Light-In-Chaos-584085058415541/" class="facebook">
+                                                <span>a</span>
+                                            </a>
+                                        </li>
+                                        <li class="socialIcon">
+                                            <a href="https://twitter.com/light_in_chaos" class="twitter">
+                                                <span>a</span>
+                                            </a>
+                                        </li>
+                                        <li class="socialIcon">
+                                            <a href="https://vimeo.com/lightinchaos" class="vimeo">
+                                                <span>a</span>
+                                            </a>
+                                        </li>
+                                        <li class="social-icon">
+                                            <a href="https://plus.google.com/u/0/115753659698318637488" class="google-plus">
+                                                <span>a</span>
+                                            </a>
+                                        </li>
+                                        <li class="socialIcon">
+                                            <a href="https://www.linkedin.com/company/light-in-chaos" class="linkedIn">
+                                                <span>a</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </div>
-                            </div> .et_pb_toggle_content -->
-            <!-- .et_pb_toggle -->
-            <!--            -->
+                                <div class="contactInfos" >
+                                    <div id="border-info">
+
+                                    </div>
+                                    <div id="contentInfos">
+                                        <div class="contactMail">
+                                            <a href="mailto:contact@lightinchaos.com"><span class="icon-mail">  contact@lightinchaos.com</span></a>
+                                        </div>
+                                        <div class="contactId">
+                                            <span>Walid Benhafsia - CEO </span>
+                                            <span > 06 67 51 55 40 </span>
+                                        </div>
+
+                                        <div class="contactId">
+                                            <span>Dominique Yolin - CTO </span>
+                                            <span > 06 62 15 11 26 </span>
+                                        </div>
+                                    </div>
+                                </div>    main-info 
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <button onclick="revealShowreel()" id="ButtonDisplayShowReel"> ShowReel </button>
+                <button onclick="erase()" id="ButtonDisplayInfoBr"> info </button>
+            </div>
+        </div>
+        <div id ="ShowReelPlayerHolder">
+            <video preload="metadata" controls id="ShowReelPlayer">
+                <source src="videos/Showreel.mp4" type="video/mp4" >
+                <source src="videos/Showreel.webm" type="video/webm" >
+                Your browser does not support the video tag.
+            </video>
+            <div class="row footer">
+                <button onclick="revealShowreel()"> HideReel </button>
+            </div>
         </div>
     </body>
-
 </html>

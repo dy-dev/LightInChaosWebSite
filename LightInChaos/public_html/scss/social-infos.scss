@@ -7,20 +7,19 @@ and open the template in the editor.
     Created on : 22 nov. 2016, 11:40:47
     Author     : Dominique
 */
-$infosHeight : 70px;
 
-body
+#Contact
 {
-    margin: 0;
-    padding: 0;
+    padding: 20px 0;
+    width: 100%
 }
 
-.social-network
+.socialNetwork
 {
-    margin: 0 60px 6px 80px;
+
 }
 
-.social-icons
+.socialIcons
 {
     display: inline-block;
     line-height: 11px;
@@ -32,7 +31,7 @@ body
     }
 }
 
-.social-icon 
+.socialIcon 
 {
     //  height:15%;
     //  width:15%;
@@ -54,21 +53,22 @@ body
 
 }
 
-.contact-infos
+.contactInfos
 {
     #border-info
     {
-        margin: 9px 5px 5px 82px;
+        margin: 9px 5px 5px 0px;
         border-left: thin solid #231f20;
         display: inline-block;
         height: 117px;
         vertical-align: top;
     }
-    #content-infos
+
+    #contentInfos
     {
         display:inline-block;
 
-        .contact-mail
+        .contactMail
         {
             margin-bottom: 14px;
             margin-left: 5px;
@@ -77,7 +77,7 @@ body
                 font-weight: 400;
             }
         }
-        .contact-id
+        .contactId
         {
             margin-left: 12px;
             margin-bottom: 11px;
@@ -103,87 +103,3 @@ body
         }
     }
 }
-
-#social-phone,
-#social-email,
-span {
-    position: relative;
-}
-
-/*
-@media only screen 
-and (min-height: 200px) 
-and (max-height: 720px) 
-{
-    .social-network {
-        margin: 0 60px 6px 23px;
-    }
-    .contact-infos #border-info {
-        margin: 9px 5px 5px 28px;
-        #content-infos 
-        {
-            .contact-id
-            {
-
-                margin-bottom: 5.5%;
-            }
-        }
-    }
-}
-
-@media screen 
-and (min-width: 0px) 
-and (max-width: 1210px){
-    .social-icon 
-    {
-        span 
-        {
-            font-size: 4.5vmin;
-        }
-    }
-    .contact-infos .contact-mail {
-        font-size: 1.4vmin;
-    }
-}
-
-@media screen 
-and (min-device-width: 800px) 
-and (max-device-width: 1023px) 
-and (-webkit-min-device-pixel-ratio: 1) { 
-    .contact-infos
-    {
-        a{
-            margin-left: 0px
-        }   
-        span {
-            font-size: 0.8em;
-        }
-    }
-    .social-icons li {
-        margin-right: 18px;
-        margin-left: 0px;
-    }
-    .social-icon
-    {
-        height: 5px;
-        width: 5px;
-    }
-}
-
-
-@media screen 
-and (min-device-width: 1024px) 
-and (max-device-width: 1280px) 
-and (-webkit-min-device-pixel-ratio: 1) { 
-    .contact-infos
-    {
-        span {
-            font-size: 0.9em;
-        }
-    }
-
-    .social-icons li {
-        margin-right: 18px;
-        margin-left: 0px;
-    }
-}*/

@@ -1,0 +1,446 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7 févr. 2017, 09:03:01
+    Author     : Dominique
+*/
+
+@import "compass";
+
+$default-transition-property : all;
+$default-transition-duration : 3s;
+$quick-transition-duration : 3s;
+$default-transition-function : false;
+$default-transition-delay    : false;
+
+$error-check-bg-img :url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' 
+xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='100px' height='100px' viewBox='0 0 100 100' enable-background='new 0 0 100 100' 
+xml:space='preserve'%3E%3Cg%3E%3Cpath fill='%23FF0019' 
+d='M91.17,81.374l0.006-0.004l-0.139-0.24c-0.068-0.128-0.135-0.257-0.217-0.375L53.131,15.472 
+c-0.611-1.109-1.775-1.87-3.133-1.87c-1.47,0-2.731,0.887-3.285,2.153l-0.004-0.002L9.312,80.529l0.036,0.021 
+c-0.505,0.618-0.82,1.397-0.82,2.257c0,1.982,1.607,3.59,3.588,3.59l0,0h75.767l0,0c1.982,0,3.59-1.606,3.59-3.588 
+C91.473,82.297,91.361,81.814,91.17,81.374z M50.035,79.617c-2.874,0-5.201-2.258-5.201-5.131s2.326-5.199,5.201-5.199 
+c2.803,0,5.13,2.324,5.13,5.199C55.166,77.359,52.838,79.617,50.035,79.617z M55.165,34.25v28.299h-0.002 
+c0,0.006,0.002,0.01,0.002,0.016c0,1.174-0.95,2.095-2.095,2.095c-0.004,0-0.008-0.001-0.014-0.001v0.001h-6.093 
+c-1.174,0-2.123-0.921-2.123-2.095c0-0.004,0.002-0.01,0.002-0.016h-0.002V34.326c-0.001-0.026-0.008-0.051-0.008-0.077 
+c0-1.117,0.865-1.996,1.935-2.078v-0.016h6.289v0.001c1.148,0.007,2.073,0.897,2.103,2.039h0.005v0.053L55.165,34.25 
+C55.166,34.25,55.165,34.25,55.165,34.25z'/%3E%3C/g%3E%3C/svg%3E");
+
+$valid-check-bg-img :url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+version='1.1' id='Layer_1' x='0px' y='0px' width='100px' height='100px' viewBox='0 0 100 100' enable-background='new 0 0 100 100' 
+xml:space='preserve'%3E%3Cpath fill='%2352D452' d='M88.04,30.319L75.124,17.401c-0.454-0.453-1.067-0.709-1.71-0.709c-0.642,0-1.256,0.256-1.709,0.709L37.392,51.714 
+l-9.094-9.093c-0.945-0.944-2.474-0.944-3.419,0L11.96,55.539c-0.453,0.453-0.709,1.068-0.709,1.709c0,0.641,0.256,1.256,0.709,1.71 
+L35.607,82.6c0.453,0.453,1.067,0.708,1.709,0.708c0.029,0,0.055-0.016,0.083-0.016c0.024,0,0.05,0.014,0.075,0.014 
+c0.621,0,1.236-0.236,1.709-0.708L88.04,33.738C88.985,32.794,88.985,31.264,88.04,30.319z'/%3E%3C/svg%3E");
+
+
+html, 
+body 
+{
+    color: white;
+    font-size: 1em;
+    line-height: 1.4;
+    //background: #cc00cc;
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    font-family: "Roboto";
+}
+
+h4
+{
+    font-family: "Roboto";
+}
+
+h5
+{
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+}
+
+/* Preloader */
+
+#preloader {
+    /*opacity: 0.5;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(35, 31, 32, 1);;
+    //change if the mask should have another color then white 
+    z-index: 100;
+    opacity:1;
+    // makes sure it stays on top 
+    #DropDown
+    {
+        opacity: 0;
+        border: solid #6bc8e6 2px;
+        width: 3px;
+        margin: auto;
+        height: 0;
+    }
+    #Circle
+    {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+    }
+}
+
+#canvas-clamp
+{
+    position: relative;
+    width: auto;
+    height: 220px;
+    top: 33px;
+}
+
+.background
+{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity:1;
+    &.displayon
+    {
+        background: url("../img/Background_robot.png") no-repeat center;
+        background-size: cover;
+    }       
+}
+
+#video-filter
+{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(107, 200, 230, 0.3);
+    position: absolute;
+    z-index: 5;
+}
+
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video 
+{
+    vertical-align: middle;
+}
+
+video 
+{
+    width: 100%;
+    height: 100%;
+}
+
+.video-background
+{
+}
+
+#ContentHolder
+{
+    display: flex;
+    flex-flow: column;
+
+    width: 100%;
+    height: 100%;
+    transition: height 600ms;
+    z-index: 50;
+    position: absolute;
+    &.hidden
+    {
+        height: 0;
+    }
+}
+
+.row
+{
+    max-width: 100%;
+    &.header
+    {
+        flex: 0 1 auto;
+        height: 15%;
+        width: 100%;
+    }
+    &.footer
+    {
+        flex: 0 1 auto;
+        height: 25%;
+        width: 100%;
+        z-index: 50;
+    }
+
+    &.content
+    {
+        flex: 1 1 auto;
+        height: 1px;
+        width: 100%;
+        z-index:10;
+    }
+}
+
+.barContainer
+{
+    height:100%;
+    transition: visibility 100ms;
+    &.hidden
+    {
+        visibility: hidden;
+    }
+}
+
+#SideBar
+{
+    height:100%;
+    background: rgba(35, 31, 32, 1);
+    position: relative;
+    width: 376px;
+
+    #LogoInfos
+    {
+        padding-top:20px;
+    }
+
+    .sidebarContent
+    {
+        padding: 1vh 0;
+    }
+    .about
+    {
+        cursor: pointer;    
+    }
+
+    #construction
+    {
+        position: absolute;
+        bottom: 10px;
+    }
+}  
+
+
+#InfosBar
+{
+    height:100%;
+    color: rgba(35, 31, 32, 1);
+    display: none;
+
+    .contentbar
+    {
+        font-family: 'Roboto';
+        background-color: white;
+        margin: auto;
+        height:100%;
+        display: flex;
+
+        h4
+        {
+            text-align: left;
+            font-size: 20px;
+            padding-bottom: 9px;
+        }
+        p 
+        {
+            font-size: 17px;
+            line-height: 24px;
+            text-align: justify;
+            font-weight: 300;
+        }
+    }
+
+    .contentInfos
+    {
+        padding: 20px 10px;
+    }
+
+    #BorderBar
+    {
+        margin-left: 15px;
+        margin-top: 3vh;
+        border-left: thin solid #231f20;
+        display: inline-block;
+        height: 90%;
+        vertical-align: top;
+    }
+
+}
+
+blockquote {
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: italic;
+    width: 100%;
+    margin: 2em 0 0 0;
+    padding: 0.25em 40px;
+    line-height: 1.45;
+    position: relative;
+    color: #383838;
+    text-align: justify;
+
+    footer
+    {
+        text-align: right;
+        font-size: 14px;
+        z-index: 50;
+    }
+}
+
+blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: 10px;
+    top: -35px;
+    color: #7a7a7a;
+}
+
+
+blockquote cite {
+    color: #999999;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+
+blockquote cite:before {
+    content: "\2014 \2009";
+}
+
+
+#ShowReelPlayerHolder
+{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+#ShowReelPlayer {
+    margin: 0 auto;
+    width: 70%;
+    height:auto;
+    display: block;
+}
+
+
+#ContactForm
+{
+    padding-bottom: 20px;
+}
+
+input[type="text"], input[type="email"] {
+    @include transition-duration(0.5s);
+    @include border-radius(5px);
+    width: 100%;
+    //padding: 0.5em 3em 0.5em 0.5em;
+    font-size: 0.8em;
+    border: 1px solid #D9D9D9;
+    z-index: 12;
+}
+
+input:focus:invalid, textarea:focus:invalid
+{
+    border-color: #FF0000;
+    @include single-box-shadow(#D45252,0,0,5px);
+    background-image: $error-check-bg-img;
+    background-repeat: no-repeat;
+    background-position: 97% center;
+    background-size: 25px;
+}
+
+input:focus:valid, textarea:focus:valid
+{
+    border-color: #00FF00;
+    @include single-box-shadow(#52d452,0,0,5px);
+    background-image: $valid-check-bg-img;
+    background-repeat: no-repeat;
+    background-position: 97% center;
+    background-size: 25px;
+}
+
+textarea{
+    @include transition-duration(0.5s);
+    @include border-radius(5px);
+    width: 100%;
+    height: 200px;
+    padding: 0.5em 4.3em 0.5em 0.5em;
+    font-size: 1.2em;
+    border: 1px solid #D9D9D9;  
+    z-index: 12;
+}
+
+@mixin font-smoothing($value: antialiased) {
+    @if $value == antialiased {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+button {
+    float: left;
+    border-radius: 3px;
+    font-size: 0.9vmin;
+    padding: 0.5rem 0.8em;
+    background: #69c773;
+    border-bottom: 1px solid #498b50;
+    color: white;
+    @include font-smoothing();
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    width:90px;
+}
+
+
+button:hover, button:focus {
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+button:active {
+    opacity: 1;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1) inset;
+}
+
+.success {
+    padding: 1em;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #468847;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.error {
+    padding: 1em;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #b94a48;
+    background-color: #f2dede;
+    border: 1px solid rgba(185, 74, 72, 0.3);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
