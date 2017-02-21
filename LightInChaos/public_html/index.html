@@ -8,7 +8,8 @@ and open the template in the editor.
     <head>
         <title>Light In Chaos</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1">
 
         <link rel="icon" href="favicon.ico" />
         <link rel="stylesheet" href="css/font-style.css">
@@ -16,15 +17,18 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/foundation.css">
         <link rel="stylesheet" href="css/mainPage.css">
         <link href="css/social-infos.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive-nav.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="js/jquery-touchswipe/jquery.touchSwipe.min.js" type="text/javascript"></script>
         <script src="js/jquery-circle-progress-1.2.1/dist/circle-progress.js"></script>
         <script src="js/mashup.js" type="text/javascript" defer="defer"></script>
         <script src="js/backgroundVideo.js" type="text/javascript" defer="defer"></script>
         <script src="js/mainPage.js" type="text/javascript" defer="defer"></script>
+        <script src="js/responsive-nav.js" defer="defer" type="text/javascript"></script>
 
     </head>
     <body>
@@ -37,7 +41,9 @@ and open the template in the editor.
             <!--</div>-->
         </div>
         <!-- Preloader -->
+        <div id="Eraser">
 
+        </div>
         <div id="ContentHolder">
             <div class="background displayon" >
                 <div id="video-wrap" class="video-wrap"  >
@@ -52,160 +58,193 @@ and open the template in the editor.
                 </div>
             </div>
             <div id="video-filter"></div>
-            <div class="row content">
-                <div class="large-4 columns barContainer">
-                    <div class="small-9 small-offset-2 columns" id="SideBar">
-                        <div class="small-7 small-centered">
+            <div class="row">
+                <nav id="Menu" class="nav-collapse">
+                    <ul >
+                        <li>
+                            <div class="links home" onclick="displayHome()">Home</div>
+                        </li>
+                        <li>
+                            <div class="links about" onclick="displayAbout()"><a href="About">A propos</a></div>
+                        </li>
+                        <li>
+                            <div class="links contactLink" onclick="displayContact()">Contact</div>
+                        </li>
+                        <li>
+                            <div class="links" onclick="goToNewPage('Projects.html')">Projects</div>  
+                        </li>
+                        <li>
+                            <div class="links" onclick="goToNewPage('Blog')">Blog</div>  
+                        </li>
+                    </ul>
+                </nav>
+                <div class="barContainer">
+                    <div id="SideBar" >
+                        <div id="SideBarContainer" class="small-8 small-centered">
                             <div class="sidebarContent" id="LogoInfos" >
-                                <div class="sidebarContent" id="logo_container" >
-                                    <a href="#">
-                                        <img src="img/Logo-lic-web-white.png" alt="Light In Chaos" id="logo">
-                                    </a>
+                                <div class="WrapperLogo">
+                                    <div class="sidebarContent" id="LogoContainer" >
+                                        <a href="#">
+                                            <img src="img/Logo-lic-web-white.png" alt="Light In Chaos" id="Logo">
+                                        </a>
+                                    </div>
                                 </div>
+
+                                <ul class="sidebarContent"  id="links">
+                                    <li>
+                                        <div class="links about" onclick="displayAbout()"><a id="aboutSideMenu" href="#About">A propos</a></div>
+                                    </li>
+                                    <li>
+                                        <div class="links contactLink" onclick="displayContact()"><a id="contactSideMenu" href="#Contact">Contact</a></div>
+                                    </li>
+                                    <li>
+                                        <div class="links" onclick="goToNewPage('Projects.html')">Projects</div>  
+                                    </li>
+                                    <li>
+                                        <div class="links" onclick="goToNewPage('Blog')">Blog</div>  
+                                    </li>
+                                </ul>
                                 <div class="sidebarContent"  id="catch-phrase">
-                                    <h5 >Alchimistes de la narration, <br> artisans de l'image <br>nous ferons une histoire<br>de votre communication</h5>
+                                    <h5 >"Alchimistes de la narration, <br> artisans de l'image <br>nous ferons une histoire<br>de votre communication"</h5>
                                 </div>
-                            </div>
-                            <ul class="sidebarContent"  id="links">
-                                <li>
-                                    <div class="about" onclick="displayAbout()">A propos</div>
-                                </li>
-                                <li>
-                                    Projects
-                                </li>
-                                <li>
-                                    Blog
-                                </li>
-                            </ul>
-                            <div class="sidebarContent" id="construction">
-                                <span>SITE EN CONSTRUCTION</span>
+                                <div id="construction">
+                                    SITE EN CONSTRUCTION
+                                </div>
+                                <div class="sidebarContent"  id="AccessShowReel">
+                                    <div id="ShowReelButtonContainer">
+                                        <button onclick="manageShowreelDisplay('show')" class="buttonManageDisplayShowReel"> ShowReel </button>
+                                        <!--<div id="AccessBar"></div>--></div>
+                                </div>
                             </div>
                         </div>
                     </div>     
                 </div> 
-                <div class="large-8 columns barContainer">
-                    <div class="small-8 small-centered" id="InfosBar">
-                        <div class="large-6 columns contentbar" >
-                            <div class="contentInfos">
-                                <h4 >DE L'HISTOIRE, À L'IMAGE</h4>
-                                <p>Nous aidons nos clients à distiller leurs idées afin de sublimer leur marque, leurs services ou leurs produits en mettant en histoires et en images la quintessence des informations qu'ils veulent promouvoir.
-                                    <br>
-                                    <br>Nous les accompagnons en confectionnant des solutions créatives, visuellement percutantes  et techniquement innovantes. Nous alimentons notre créativité par l'écriture, la recherche graphique, la conception, l'animation 2D/3D, les jeux, les films... le tout agrémenté d'innovations technologiques. Nous obtenons par ce mélange, la transmutation de ces ingrédients en une campagne de communication d'un genre nouveau.</p>
-                                <blockquote cite="Arthur C. Clarke">
-                                    <p>Toute technologie suffisamment avancée est indiscernable de la magie.</p>
-                                    <footer>— <a href="https://fr.wikipedia.org/wiki/Trois_lois_de_Clarke">3eme Loi d'Arthur C. Clarke</a></footer>
-                                </blockquote>
+                <div class="barContainer">
+                    <div id="AboutBar" class="infos hidden">
+                        <div class="contentbar" >
+                            <div class="content-wrapper">
+                                <div class="close-icon" data-parent="AboutBar"></div>
+                                <div class="contentInfos" id="Culture">
+                                    <h4 >DE L'HISTOIRE, À L'IMAGE</h4>
+                                    <p>Nous aidons nos clients à distiller leurs idées afin de sublimer leur marque, leurs services ou leurs produits en mettant en histoires et en images la quintessence des informations qu'ils veulent promouvoir.
+                                        <br>
+                                        <br>Nous les accompagnons en confectionnant des solutions créatives, visuellement percutantes  et techniquement innovantes. Nous alimentons notre créativité par l'écriture, la recherche graphique, la conception, l'animation 2D/3D, les jeux, les films... le tout agrémenté d'innovations technologiques. Nous obtenons par ce mélange, la transmutation de ces ingrédients en une campagne de communication d'un genre nouveau.</p>
+                                    <blockquote cite="Arthur C. Clarke">
+                                        <p>Toute technologie suffisamment avancée est indiscernable de la magie.</p>
+                                        <footer>— <a href="https://fr.wikipedia.org/wiki/Trois_lois_de_Clarke">3eme Loi d'Arthur C. Clarke</a></footer>
+                                    </blockquote>
+                                </div>    
                             </div>
-                            <div id="BorderBar">
-                            </div>     
 
                         </div>
-                        <div class="large-6 columns contentbar" >
-                            <div id="Contact">
-                                <h4 >CONTACT</h4>
-                                <div  >
-                                    <div class="row">
-                                        <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
-                                    </div>
-                                    <form action="send_contact_mail.php" id="ContactForm" method="post" accept-charset="utf-8">
+                    </div>
+                    <div id="ContactBar" class="infos hidden" >
+                        <div class="contentbar" >
+                            <div class="content-wrapper">
+                                <div class="close-icon" data-parent="ContactBar"></div>
+                                <div id="ContactForm">
+                                    <h4 >CONTACT</h4>
+                                    <div  >
                                         <div class="row">
-                                            <div class="medium-6 columns ">
-                                                <label> Votre Nom </label>
-                                                <input type="text" id="name" name="name" placeholder="Votre Nom" required>
-                                            </div>
-                                            <div class="medium-6 columns">
-                                                <label>Votre e-mail </label>
-                                                <input type="email"  id="mail" name="email" placeholder="example@domain.com" required>
-                                            </div>
+                                            <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
                                         </div>
-                                        <div class="row">
-                                            <div class="medium-12 columns">
-                                                <label >Votre Message </label>
-                                                <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:10vh" required></textarea>
+                                        <form action="send_contact_mail.php" id="ContactForm" method="post" accept-charset="utf-8">
+                                            <div class="row">
+                                                <div class="medium-6 columns ">
+                                                    <label> Votre Nom </label>
+                                                    <input type="text" id="name" name="name" placeholder="Votre Nom" required>
+                                                </div>
+                                                <div class="medium-6 columns">
+                                                    <label>Votre e-mail </label>
+                                                    <input type="email"  id="mail" name="email" placeholder="example@domain.com" required>
+                                                </div>
                                             </div>
-                                            <div class="row" >
-                                                <div class="medium-4 columns float-right" style="padding-right: 30px;">
-                                                    <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
+                                            <div class="row">
+                                                <div class="medium-12 columns">
+                                                    <label >Votre Message </label>
+                                                    <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:10vh" required></textarea>
                                                 </div>
-                                                <div class="medium-2 columns float-right">
-                                                    <button  class="primary button float-right"  type="reset" value="Clear">Effacer</button>
-                                                </div>
-                                            </div>   
-                                        </div>
-                                    </form>
-                                </div> 
-                                <div class="socialNetwork">
-
-                                    <ul class="socialIcons">
-                                        <li class="social-icon ">
-                                            <a href="https://www.instagram.com/lightinchaos/" class="instagram">
-                                                <span>a</span>
-                                            </a>
-                                        </li>
-                                        <li class="socialIcon">
-                                            <a href="http://facebook.com/Light-In-Chaos-584085058415541/" class="facebook">
-                                                <span>a</span>
-                                            </a>
-                                        </li>
-                                        <li class="socialIcon">
-                                            <a href="https://twitter.com/light_in_chaos" class="twitter">
-                                                <span>a</span>
-                                            </a>
-                                        </li>
-                                        <li class="socialIcon">
-                                            <a href="https://vimeo.com/lightinchaos" class="vimeo">
-                                                <span>a</span>
-                                            </a>
-                                        </li>
-                                        <li class="social-icon">
-                                            <a href="https://plus.google.com/u/0/115753659698318637488" class="google-plus">
-                                                <span>a</span>
-                                            </a>
-                                        </li>
-                                        <li class="socialIcon">
-                                            <a href="https://www.linkedin.com/company/light-in-chaos" class="linkedIn">
-                                                <span>a</span>
-                                            </a>
-                                        </li>
-
-                                    </ul>
+                                                <div class="row" >
+                                                    <div class="small-4 columns float-right" >
+                                                        <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
+                                                    </div>
+                                                    <div class="small-4 columns float-right">
+                                                        <button  class="primary button float-right"  type="reset" value="Clear">Effacer</button>
+                                                    </div>
+                                                </div>   
+                                            </div>
+                                        </form>
+                                    </div> 
                                 </div>
-                                <div class="contactInfos" >
-                                    <div id="border-info">
-
+                                <div id="WrapperSocialInfos"> 
+                                    <div class="socialNetwork">
+                                
+                                        <ul class="socialIcons">
+                                            <!--                                            <li class="social-icon ">
+                                                                                            <a href="https://www.instagram.com/lightinchaos/" class="instagram">
+                                                                                                <span>a</span>
+                                                                                            </a>
+                                                                                        </li>-->
+                                            <li class="socialIcon">
+                                                <a href="http://facebook.com/Light-In-Chaos-584085058415541/" class="facebook">
+                                                    <span>a</span>
+                                                </a>
+                                            </li>
+                                            <li class="socialIcon">
+                                                <a href="https://twitter.com/light_in_chaos" class="twitter">
+                                                    <span>a</span>
+                                                </a>
+                                            </li>
+                                            <li class="socialIcon">
+                                                <a href="https://vimeo.com/lightinchaos" class="vimeo">
+                                                    <span>a</span>
+                                                </a>
+                                            </li>
+                                            <!--                                            <li class="social-icon">
+                                                                                            <a href="https://plus.google.com/u/0/115753659698318637488" class="google-plus">
+                                                                                                <span>a</span>
+                                                                                            </a>
+                                                                                        </li>-->
+                                            <li class="socialIcon">
+                                                <a href="https://www.linkedin.com/company/light-in-chaos" class="linkedIn">
+                                                    <span>a</span>
+                                                </a>
+                                            </li>
+                                
+                                        </ul>
                                     </div>
-                                    <div id="contentInfos">
-                                        <div class="contactMail">
-                                            <a href="mailto:contact@lightinchaos.com"><span class="icon-mail">  contact@lightinchaos.com</span></a>
+                                    <div class="contactInfos" >
+                                        <div id="border-info">
+                                
                                         </div>
-                                        <div class="contactId">
-                                            <span>Walid Benhafsia - CEO </span>
-                                            <span > 06 67 51 55 40 </span>
+                                        <div id="contentInfos">
+                                            <div class="contactMail">
+                                                <a href="mailto:contact@lightinchaos.com"><span class="icon-mail">  contact@lightinchaos.com</span></a>
+                                            </div>
+                                            <div class="contactId">
+                                                <span>Walid Benhafsia - CEO </span>
+                                                <span > 06 67 51 55 40 </span>
+                                            </div>
+                                
+                                            <div class="contactId">
+                                                <span>Dominique Yolin - CTO </span>
+                                                <span > 06 62 15 11 26 </span>
+                                            </div>
                                         </div>
-
-                                        <div class="contactId">
-                                            <span>Dominique Yolin - CTO </span>
-                                            <span > 06 62 15 11 26 </span>
-                                        </div>
-                                    </div>
-                                </div>    main-info 
+                                    </div>  
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div> 
-                <button onclick="revealShowreel()" id="ButtonDisplayShowReel"> ShowReel </button>
-                <button onclick="erase()" id="ButtonDisplayInfoBr"> info </button>
+                </div>
+            </div> 
+            <div id ="ShowReelPlayerHolder">
+                <button onclick="manageShowreelDisplay('hide')" class="buttonManageDisplayShowReel" id="HideShowReel"> Retour </button>
+                <video preload="metadata" controls id="ShowReelPlayer">
+                    <source src="videos/Showreel.mp4" type="video/mp4" >
+                    <source src="videos/Showreel.webm" type="video/webm" >
+                    Your browser does not support the video tag.
+                </video>
             </div>
-        </div>
-        <div id ="ShowReelPlayerHolder">
-            <video preload="metadata" controls id="ShowReelPlayer">
-                <source src="videos/Showreel.mp4" type="video/mp4" >
-                <source src="videos/Showreel.webm" type="video/webm" >
-                Your browser does not support the video tag.
-            </video>
-            <div class="row footer">
-                <button onclick="revealShowreel()"> HideReel </button>
-            </div>
-        </div>
     </body>
 </html>

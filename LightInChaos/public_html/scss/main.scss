@@ -260,7 +260,7 @@ video
     }
 }
 
-#logo_container
+#LogoContainer
 {
     //margin: 15% 22% 5% 22%;
     background: url(../img/Logo-lic-web-white.png) no-repeat center;
@@ -429,18 +429,13 @@ video
     }
 }
 
-#Contact
+#ContactForm 
 {
     color: black;
     padding-bottom: 60px;
     position: absolute;
     bottom: 0;
     //display: inline-block;
-}
-
-
-#Contact
-{
     label
     {
         display: inline;

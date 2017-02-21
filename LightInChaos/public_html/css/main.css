@@ -166,12 +166,12 @@ video {
     width: 100%;
     font-size: 13px; }
 
-#logo_container {
+#LogoContainer {
   background: url(../img/Logo-lic-web-white.png) no-repeat center;
   background-size: contain;
   height: 100%;
   cursor: pointer; }
-  #logo_container a {
+  #LogoContainer a {
     display: block;
     height: 100%; }
 
@@ -293,23 +293,22 @@ video {
       margin: 0;
       line-height: 1.67; }
 
-#Contact {
+#ContactForm {
   color: black;
   padding-bottom: 60px;
   position: absolute;
   bottom: 0; }
-
-#Contact label {
-  display: inline;
-  font-size: 1.2vmin;
-  margin-top: 2em;
-  margin-bottom: 0.5em;
-  color: #666666; }
-  #Contact label::after {
-    content: " ";
-    padding: 0 10px;
-    background: url("../img/required.png") right top no-repeat;
-    background-size: 10px 10px; }
+  #ContactForm label {
+    display: inline;
+    font-size: 1.2vmin;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    color: #666666; }
+    #ContactForm label::after {
+      content: " ";
+      padding: 0 10px;
+      background: url("../img/required.png") right top no-repeat;
+      background-size: 10px 10px; }
 
 #manifest-opener {
   margin-left: -5px; }

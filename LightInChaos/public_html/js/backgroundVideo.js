@@ -11,7 +11,6 @@
 
 ;(function ( $, window, document, undefined ) {
     "use strict";
-
     // Create the defaults once
     var pluginName = "backgroundVideo",
         defaults = {
@@ -20,9 +19,9 @@
             $window: $(window),
             minimumVideoWidth: 50,
             preventContextMenu: false,
-            parallax: true,
+            parallax: false,
             parallaxOptions: {
-                effect: 1
+                effect: 0
             },
             pauseVideoOnViewLoss: false
         };

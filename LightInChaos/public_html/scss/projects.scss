@@ -1,0 +1,194 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20 févr. 2017, 22:14:48
+    Author     : Dominique
+*/
+
+html, 
+body 
+{
+    color: white;
+    font-size: 1em;
+    line-height: 1.4;
+    background:  rgba(35, 31, 32, 1);
+    height: 100%;
+    margin: 0;
+    font-family: "Roboto";
+}
+
+h4
+{
+    font-family: "Roboto";
+}
+
+h5
+{
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+}
+
+#Menu
+{
+    display:none;
+}
+
+#Eraser
+{
+    width: 250px;
+    height: 100%;
+    z-index: 200;
+    background-color: rgba(0,0,0,0);
+    display: block;
+    position: absolute;
+    right: 0px;
+}
+
+#SideBar
+{
+    //width: 310px;
+    display: flex;
+    justify-content: center;
+    margin-top: -10%;
+    min-height:100vh;
+
+    #SideBarContainer
+    {
+        align-self: center;
+    }
+    #WrapperLogo
+    {
+        position: absolute;
+    }
+
+    #LogoInfos
+    {
+        margin-top: -20%;
+        #Logo
+        {
+            padding: 10px 20px;
+        }
+    }
+
+    .sidebarContent
+    {
+        position: relative;
+        padding: 1.1vh 0;
+    }
+
+
+    #construction
+    {
+        text-align: center;
+        color:#6bc8e6;
+    }
+    ul
+    {
+        list-style-type: none;
+        text-align: center;
+        font-size: 1.3em;
+        margin: 0;
+    }
+
+    #ShowReelButtonContainer
+    {
+        width: 150px;
+        padding-top: 0.6vh;
+        margin: auto;
+    }
+}
+
+#MainContent
+{
+    opacity: 0;
+}
+
+#Navigation
+{
+    height: 140px;
+    margin-left: 0; 
+    display: flex;
+    justify-content: center;    
+}
+
+#NavigationContent
+{
+    width: 100%;
+    align-self: flex-end;
+    a {
+        color: #6bc8e6;
+        text-decoration: none;
+        line-height: inherit;
+        cursor: pointer;
+        &:hover, &:focus {
+            color: #4f92a8;
+        }
+    }
+    #Path
+    {
+        transform: translateY(100%);
+    }
+
+}
+.links
+{
+    cursor: pointer;    
+}
+
+.socialIcons
+{
+    text-align: right;
+}
+
+.active
+{
+    text-decoration: underline;
+}
+
+.project
+{
+    height: 400px;
+    background-color: beige;
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.projectRow
+{
+    margin-left: 0 !important; 
+}
+
+#Incarna
+{
+    background: url(../Projects/Incarna/Cover.png) no-repeat;
+    background-size: cover;
+}
+
+.projectContent
+{
+    height: 400px;
+    background-color: rgba(84, 146, 166, 0.51);
+    padding: 10px;
+    position: relative;
+    bottom: -85%;
+
+    transition: all 0.5s ease;
+    h3 {
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .project:hover &{
+        background-color:  rgba(84, 146, 166, 0.91);
+        bottom: -15%;
+    }
+}

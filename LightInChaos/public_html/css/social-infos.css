@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Dominique
 */
 #Contact {
-  padding: 20px 0;
+  padding: 10px 0;
   width: 100%; }
 
 .socialIcons {
@@ -62,5 +62,9 @@ and open the template in the editor.
     position: relative;
     display: block;
     font-weight: 300; }
+
+@media only screen and (max-height: 650px) {
+  .socialIcon span {
+    font-size: 2.7vmin; } }
 
 /*# sourceMappingURL=social-infos.css.map */

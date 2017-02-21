@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>LIC : Incarna</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1">
+        <link rel="icon" href="../favicon.ico" />
+
+
+         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1">
+        <link rel="icon" href="favicon.ico" />
+
+
+        <link rel="stylesheet" type="text/css" href="../css/font-style.css">
+        <link rel="stylesheet" type="text/css" href="../css/foundation.css">
+        <link rel="stylesheet" type="text/css" href="../css/social-infos.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/responsive-nav.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/project.css"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../js/jquery-touchswipe/jquery.touchSwipe.min.js"></script>
+        <script type="text/javascript" src="../js/responsive-nav.js"></script>
+        <script type="text/javascript" src="../js/projects.js"></script>
+        
+    </head>
+    <body>
+        <div id="Eraser"></div>
+        <div class="row expanded ">
+            <nav id="Menu" class="nav-collapse">
+                <ul >
+                    <li>
+                        <div class="links home" onclick="displayHome()">Home</div>
+                    </li>
+                    <li>
+                        <div class="links about" onclick="displayAbout()">A propos</div>
+                    </li>
+                    <li>
+                        <div class="links contactLink" onclick="displayContact()">Contact</div>
+                    </li>
+                    <li>
+                        <div class="links" onclick="goToNewPage('Projects.html')">Projects</div>  
+                    </li>
+                    <li>
+                        <div class="links" onclick="goToNewPage('Blog')">Blog</div>  
+                    </li>
+                </ul>
+            </nav>
+            <div id="SideBar" class="small-2 columns">
+                <div id="SideBarContainer" class="small-8 small-centered">
+                    <div class="sidebarContent" id="LogoInfos" >
+                        <div class="WrapperLogo">
+                            <div class="sidebarContent" id="LogoContainer" >
+                                <a href="index.html">
+                                    <img src="../img/Logo-lic-web-white.png" alt="Light In Chaos" id="logo" style="background-color: rgba(35, 31, 32, 1);">
+                                </a>
+                            </div>
+                        </div>
+
+                        <ul class="sidebarContent"  id="links">
+                            <li>
+                                <div class="links about" onclick="goHome('./#About')">A propos</div>
+                            </li>
+                            <li>
+                                <div class="links contactLink" onclick="goHome('./#Contact')">Contact</div>
+                            </li>
+                            <li>
+                                <div class="links active" onclick=")">Projects</div>  
+                            </li>
+                            <li>
+                                <div class="links" onclick="goToNewPage('Blog')">Blog</div>  
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>     
+            <div id="MainContent" class="small-10 columns">
+                <!--<div class="row expanded">-->
+                <div class="row" id="Navigation">
+                    <div id="NavigationContent">
+                        <div id="Path" class="small-3 columns"><a href=".">Light In Chaos</a> / Projects</div>
+                        <div class="small-6 columns"> <br> </div>
+                        <div id="WrapperSocialInfos" class="small-3 columns"> 
+                            <div class="socialNetwork">
+                                <ul class="socialIcons">
+                                    <li class="socialIcon">
+                                        <a href="http://facebook.com/Light-In-Chaos-584085058415541/" class="facebook">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+                                    <li class="socialIcon">
+                                        <a href="https://twitter.com/light_in_chaos" class="twitter">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+                                    <li class="socialIcon">
+                                        <a href="https://vimeo.com/lightinchaos" class="vimeo">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+                                    <li class="socialIcon">
+                                        <a href="https://www.linkedin.com/company/light-in-chaos" class="linkedIn">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
