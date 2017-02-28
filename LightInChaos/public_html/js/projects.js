@@ -6,52 +6,88 @@
 
 $(window).on('load', function ()
 {
-    projectContentPosition();
+    $('#Circle').circleProgress({
+        value: 100,
+        size: 70,
+        thickness: 35,
+        fill: {
+            gradient: ["#6bc8e6", "#6bc8e6"]
+        }
+    });
     setTimeout(function () {
-        $("#Eraser").delay(500).css({'right': '-250px', 'background-color': '#6bc8e6'});
-    }, 1000);
-    $("#MainContent").animate({
-        opacity: 1
-    }, 1000);
+        $('#preloader').delay(500).fadeOut('slow', function ()
+        {
+            $("#Eraser").delay(500).css({'right': '-250px', 'background-color': '#6bc8e6', "width": '0'});
+
+        });
+        $("#MainContent").animate({
+            opacity: 1
+        }, 500, function ()
+        {
+            $('.nav-toggle').animate({opacity: '1'}, 1000, function () {
+                $('#MenuWrapper').css({'z-index': '100'});
+                $('#MenuWrapper').animate({opacity: '1'}, 1000);
+                $('#Menu').css({opacity: '1'});
+            });
+        });
+    }, 500);
+
+
 
 });
-
-window.onresize = function (event)
-{
-    projectContentPosition();
-}
-
-function projectContentPosition()
-{
-    $(".projectContent").each(function (index) {
-       // $(this).css('bottom', ($(this).find('h3').height() - $(this).height()) + 'px');
-    });
-}
 
 $(document).ready(function () {
+    $('.nav-toggle').css({opacity: '0'});
+    if (!(/Mobi/.test(navigator.userAgent))) {
+        $('.mobileAccessInfos').css({opacity: '0'});
+    }
     nav = responsiveNav(".nav-collapse");
-    $('.nav-toggle').css({'z-index': '0'});
-    $('.nav-toggle').css({'position': 'absolute'});
+//    $('.nav-toggle').css({'z-index': '0'});
+//    $('.nav-toggle').css({'position': 'absolute'});
 });
 
-function goHome(activeLink)
+function goTo(activeLink, event)
 {
-    $('#ShowReelPlayerHolder').css({opacity: 0});
-    $("#Eraser").animate({right: window.innerWidth}, 500);
-    if ($("#SideBar").is(":visible"))
+    if (event === undefined || !($(event.srcElement).hasClass('mobileAccessInfos')))
     {
-        $("#SideBar").toggle("slide", {direction: 'left'}, 600);
-    }
-    if ($("#Menu").is(":visible"))
-    {
-        $('.nav-toggle').slideUp();
-        nav.close();
-    }
+        $("#Eraser").css({"width": '250px'});
+        $("#Eraser").animate({right: window.innerWidth}, 500);
+        if ($("#SideBar").is(":visible"))
+        {
+            $("#SideBar").toggle("slide", {direction: 'left'}, 600);
+        }
+        if ($("#Menu").is(":visible"))
+        {
+            $('.nav-toggle').slideUp();
+            nav.close();
+        }
+        $("#MainContent").toggle("slide", {direction: 'left'}, 600);
 
-    setTimeout(
-            function () {
-                window.location.href = activeLink;
-            }, 1000);
 
+        setTimeout(
+                function () {
+                    window.location.href = activeLink;
+                }, 500);
+    }
+}
+
+function displayInfos(event)
+{
+    var element = $(event.currentTarget.offsetParent);
+    console.log(element[0].style.bottom);
+    $(event.currentTarget).hasClass('chevronUp') ? slideUpProjectContent(element) : slideDownProjectContent(element);
+}
+
+function slideUpProjectContent(element)
+{
+    $(event.currentTarget).switchClass('chevronUp', 'chevronDown', 1000, "easeInOutQuad");
+    element.css({'bottom': '-15%'});
+}
+
+
+function slideDownProjectContent(element)
+{
+    $(event.currentTarget).switchClass('chevronDown', 'chevronUp', 1000, "easeInOutQuad");
+    element.css({'bottom': '-85%'});
 }
 

@@ -114,6 +114,11 @@ video {
   #ContentHolder.hidden {
     height: 0; }
 
+#MenuWrapper {
+  position: fixed;
+  width: 100%;
+  z-index: 0; }
+
 #Menu {
   display: none; }
 
@@ -151,7 +156,7 @@ video {
     padding: 1.1vh 0; }
   #SideBar #construction {
     text-align: center;
-    color: #6bc8e6; }
+    color: #ffae00; }
   #SideBar ul {
     list-style-type: none;
     text-align: center;
@@ -189,10 +194,11 @@ video {
   transition: left 400ms;
   z-index: 10;
   position: relative;
-  left: 5%; }
+  left: 5%;
+  background-color: white;
+  height: 630px; }
   .infos .contentbar {
     font-family: 'Roboto';
-    background-color: white;
     height: 100%;
     padding: 35px;
     display: flex;
@@ -202,8 +208,8 @@ video {
       font-size: 20px;
       padding-bottom: 9px; }
     .infos .contentbar p {
-      font-size: 17px;
-      line-height: 24px;
+      font-size: 1.25em;
+      line-height: 23px;
       text-align: justify;
       font-weight: 300; }
   .infos .contentInfos {
@@ -219,7 +225,6 @@ video {
   left: 5%;
   align-self: center;
   position: absolute;
-  height: 630px;
   overflow: hidden;
   width: 510px;
   z-index: 10;
@@ -304,7 +309,7 @@ blockquote cite:before {
   margin: 0 auto;
   position: relative;
   width: 70%;
-  height: auto;
+  max-height: 70%;
   display: block;
   top: 50%;
   transform: translateY(-50%); }
@@ -409,8 +414,9 @@ button:active {
   border-radius: 4px; }
 
 @media only screen and (max-width: 850px) {
-  button {
-    font-size: 3.5vmin; }
+  .button {
+    font-size: 2.5vmin;
+    width: 100%; }
 
   .barContainer {
     display: inline-block;
@@ -426,9 +432,6 @@ button:active {
     width: 100% !important;
     height: 100%;
     position: absolute; }
-    #AboutBar p,
-    #ContactBar p {
-      font-size: 3vmin; }
 
   #SideBarContainer {
     align-self: center; }
@@ -458,7 +461,7 @@ button:active {
       display: hidden; }
 
   .contentbar {
-    padding: 10% !important; }
+    padding: 65px 5% 0% 5% !important; }
 
   .buttonManageDisplayShowReel {
     font-size: 1.3em; } }
@@ -494,7 +497,7 @@ button:active {
     #SideBar ul {
       font-size: 1em; }
     #SideBar h5 {
-      font-size: 1em;
+      font-size: 0.9em;
       line-height: 20px; }
 
   .buttonManageDisplayShowReel {
@@ -503,10 +506,9 @@ button:active {
   #HideShowReel {
     left: 20px;
     position: absolute;
-    top: 50%;
     transform: translateY(-50%);
     width: 80px;
-    bottom: auto; }
+    bottom: 10%; }
 
   #ContactBar,
   #AboutBar {
@@ -514,10 +516,25 @@ button:active {
     height: 100%; }
 
   .infos .contentbar h4 {
-    font-size: 4vmin; }
+    font-size: 1.2em; }
   .infos .contentbar p {
-    font-size: 3vmin;
-    line-height: 3.5vmin; }
+    font-size: 1em;
+    line-height: 3.7vmin; }
+
+  blockquote {
+    font-size: 0.9em;
+    margin: 1em 0 0 0;
+    padding: 0.25em 20px;
+    line-height: 1.15; }
+    blockquote footer {
+      font-size: 10px; }
+
+  blockquote:before {
+    font-size: 50px;
+    top: -20px; }
+
+  blockquote cite {
+    font-size: 10px; }
 
   #ContactForm {
     padding-bottom: 0; }
@@ -526,17 +543,21 @@ button:active {
       line-height: 01.3; }
     #ContactForm input[type="text"], #ContactForm input[type="email"], #ContactForm textarea {
       height: 1.5rem;
-      margin: 0 0 0.5rem; }
+      margin: 0 0 0.5rem;
+      font-size: 1em; }
     #ContactForm #ContactBar {
       width: 510px;
       position: absolute; }
 
   .contactInfos #contentInfos span {
-    font-size: 13vmin; }
+    font-size: 3vmin; }
 
   .button {
     padding: 0.5em 1em;
-    margin: 0; } }
+    margin: 0; }
+
+  .socialIcon span {
+    font-size: 8vmin !important; } }
 /*
 @media only screen 
 and (min-height: 651px) 

@@ -57,7 +57,7 @@ and open the template in the editor.
 {
     #border-info
     {
-        margin: 9px 5px 5px 0px;
+        margin: 0px 5px 5px 0px;
         border-left: thin solid #231f20;
         display: inline-block;
         height: 117px;
@@ -102,14 +102,4 @@ and open the template in the editor.
             font-weight: 300;
         }
     }
-}
-@media only screen 
-and (max-height: 650px) 
-{
-    
-    .socialIcon{
-        span {
-            font-size: 2.7vmin;
-        } 
-    } 
 }

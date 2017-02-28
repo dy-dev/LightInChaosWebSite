@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>LIC : Enedis</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1">
+        <link rel="icon" href="/favicon.ico" />
+
+        <link rel="icon" href="../../favicon.ico" />
+
+
+        <link rel="stylesheet" type="text/css" href="../../css/project.css"/>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../js/jquery-touchswipe/jquery.touchSwipe.min.js"></script>
+        <script type="text/javascript" src="../../js/jquery-circle-progress-1.2.1/dist/circle-progress.min.js"></script>
+        <script type="text/javascript" src="../../js/responsive-nav.min.js"></script>
+        <script type="text/javascript" src="../../js/projects.js"></script>
+
+        <script src="../../jwplayer-7.9.3/jwplayer.js"></script>
+        <script>jwplayer.key = "eHDLhj7CypCmtx3BTai7P36Y3M0n5mOCGPkkBA==";</script>
+
+    </head>
+    <body>
+        <div id="preloader">
+            <div id="Circle"></div>
+        </div>
+        <div id="Eraser"></div>
+        <div id="MenuWrapper" >
+            <nav id="Menu" class="nav-collapse">
+                <ul >
+                    <li>
+                        <div class="links home" onclick="goTo('../../')">Home</div>
+                    </li>
+                    <li>
+                        <div class="links" onclick="goTo('../../#About')">A propos</div>
+                    </li>
+                    <li>
+                        <div class="links" onclick="goTo('../../#Contact')">Contact</div>
+                    </li>
+                    <li>
+                        <div class="links active" onclick="goTo('../')">Projets</div>  
+                    </li>
+                    <li>
+                        <div class="links" onclick="goTo('../../Blog/')">Blog</div>  
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="SideBar" class="columns">
+            <div id="SideBarContainer" class="small-8 small-centered">
+                <div class="sidebarContent" id="LogoInfos" >
+                    <div class="WrapperLogo">
+                        <div class="sidebarContent" id="LogoContainer" >
+                            <a > <img src="../../img/Logo_LIC.png" alt="Light In Chaos" id="Logo" onclick="goTo('../../')"></a>
+                        </div>
+                    </div>
+
+                    <ul class="sidebarContent"  id="links">
+                        <li>
+                            <div class="links home" onclick="goTo('../../')">Home</div>
+                        </li>
+                        <li>
+                            <div class="links" onclick="goTo('../../#About')">A propos</div>
+                        </li>
+                        <li>
+                            <div class="links" onclick="goTo('../../#Contact')">Contact</div>
+                        </li>
+                        <li>
+                            <div class="links active" onclick="goTo('../')">Projets</div>
+                            <ul class='underlinks'>
+                                <li class="links" onclick="goTo('../Incarna')">Incarna</li>
+                                <li class="links" onclick="goTo('../CNIT')">CNIT</li>
+                                <li class="links" onclick="goTo('../Cuisine360')">Cuisine360</li>
+                                <li class="links" onclick="goTo('../DTWorkshop')">DTWorkshop</li>
+                                <li class="links" onclick="goTo('../SSL')">Sport Saber League</li>
+                                <li class="links active" onclick="goTo('../Enedis')">Enedis</li>
+                                <li class="links" onclick="goTo('../Kourandero')">Kourandero</li>
+                                <li class="links" onclick="goTo('../Piticrock')">Piticrock</li>
+                            </ul>  
+                        </li>
+                        <li>
+                            <div class="links" onclick="goTo('../../Blog/')">Blog</div>  
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+        </div> 
+
+        <div id="MainContent" class="row expanded">
+            <!--<div class="row expanded">-->
+            <div class="small-12 columns">
+                <!--<div class="row expanded">-->
+                <div class="row" id="Navigation">
+                    <div id="NavigationContent">
+                        <div id="Path" class="small-6 columns"><a  onclick="goTo('../../')">Light In Chaos </a>/ <a  onclick="goTo('../')">Projets</a> / Enedis </div>
+                        <div id="WrapperSocialInfos" class="small-6 columns"> 
+                            <div class="socialNetwork">
+                                <ul class="socialIcons">
+                                    <li class="socialIcon">
+                                        <a href="http://facebook.com/Light-In-Chaos-584085058415541/" class="facebook">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+                                    <li class="socialIcon">
+                                        <a href="https://twitter.com/light_in_chaos" class="twitter">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+                                    <li class="socialIcon">
+                                        <a href="https://vimeo.com/lightinchaos" class="vimeo">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+                                    <li class="socialIcon">
+                                        <a href="https://www.linkedin.com/company/light-in-chaos" class="linkedIn">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--                    <video id="ShowReelPlayer" class="video-js vjs-default-skin" controls preload="metadata" data-setup="{}">
+                                            <source src="../../videos/360 Kitchen VR Unreal Engine.mp4" type="video/mp4" >
+                                            <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                                        </video>-->
+                    <!--<div class="valiant" data-video-src="../../videos/360 Kitchen VR Unreal Engine.mp4"></div>-->
+
+                    <div id='myElement'>Loading the player...</div>
+                    <script type='text/javascript'>
+                        jwplayer("myElement").setup({
+                            width: "60%",
+                            aspectratio: "16:9",
+                            playlist: [{
+                                    title: 'Cuisine 360',
+                                    mediaid: 'AgqYcfAT',
+                                    image: "medias/cover.png",
+                                    file: "medias/ENEDIS.mp4"
+                                }]
+                        });
+                    </script>
+                </div>
+                <div class="row">
+                    <p style="text-align: justify">Lorem
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p>
+                        Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
+                    </p>
+                    <p>
+                        Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris, sed placerat ipsum urna sed risus. In convallis tellus a mauris. Curabitur non elit ut libero tristique sodales. Mauris a lacus. Donec mattis semper leo. In hac habitasse platea dictumst. Vivamus facilisis diam at odio. Mauris dictum, nisi eget consequat elementum, lacus ligula molestie metus, non feugiat orci magna ac sem. Donec turpis. Donec vitae metus. Morbi tristique neque eu mauris. Quisque gravida ipsum non sapien. Proin turpis lacus, scelerisque vitae, elementum at, lobortis ac, quam. Aliquam dictum eleifend risus. In hac habitasse platea dictumst. Etiam sit amet diam. Suspendisse odio. Suspendisse nunc. In semper bibendum libero.
+                    </p>
+                    <p>
+                        Proin nonummy, lacus eget pulvinar lacinia, pede felis dignissim leo, vitae tristique magna lacus sit amet eros. Nullam ornare. Praesent odio ligula, dapibus sed, tincidunt eget, dictum ac, nibh. Nam quis lacus. Nunc eleifend molestie velit. Morbi lobortis quam eu velit. Donec euismod vestibulum massa. Donec non lectus. Aliquam commodo lacus sit amet nulla. Cras dignissim elit et augue. Nullam non diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Aenean vestibulum. Sed lobortis elit quis lectus. Nunc sed lacus at augue bibendum dapibus.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+<link rel="stylesheet" type="text/css" href="../../css/font-style.css">
+<link rel="stylesheet" type="text/css" href="../../css/foundation.css">
+<link rel="stylesheet" type="text/css" href="../../css/social-infos.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/responsive-nav.css"/>

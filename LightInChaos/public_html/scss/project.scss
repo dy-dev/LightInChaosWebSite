@@ -7,17 +7,61 @@ and open the template in the editor.
     Created on : 20 févr. 2017, 22:14:48
     Author     : Dominique
 */
+@import "compass";
+
+$default-transition-property : all;
+$default-transition-duration : 3s;
+$quick-transition-duration : 3s;
+$default-transition-function : false;
+$default-transition-delay    : false;
+
+$darkColor : rgba(35, 31, 32, 1);
+$blueColor : #6bc8e6;
 
 html, 
 body 
 {
-    color: white;
+    color: $darkColor;
     font-size: 1em;
     line-height: 1.4;
-    background: white;
+    background:  white;
     height: 100%;
     margin: 0;
     font-family: "Roboto";
+}
+
+#preloader {
+    /*opacity: 0.5;*/
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(35, 31, 32, 1);;
+    //change if the mask should have another color then white 
+    z-index: 100;
+    opacity:1;
+    display: flex;
+    justify-content: center;
+    // makes sure it stays on top 
+    #DropDown
+    {
+        opacity: 0;
+        border: solid #6bc8e6 2px;
+        width: 3px;
+        margin: auto;
+        height: 0;
+    }
+    #Circle
+    {
+        position: absolute;
+        width: 100px;
+        margin: auto;
+        align-self: center;
+    }
+    #circle-canvas
+    {
+        display: block;
+        margin: inherit;
+    }
 }
 
 h4
@@ -33,6 +77,19 @@ h5
     font-size: 16px;
     line-height: 26px;
     text-align: center;
+}
+#Logo
+{
+    cursor: pointer;
+}
+
+
+#MenuWrapper
+{
+    position:fixed; 
+    width: 100%; 
+    z-index: 0;
+    opacity: 0;
 }
 
 #Menu
@@ -53,13 +110,13 @@ h5
 
 #SideBar
 {
-    //width: 310px;
-    display: flex;
-    justify-content: center;
-    margin-top: -10%;
+    position: fixed;
+    width: 310px;
+    //display: flex;
+    //justify-content: center;
+    margin-top: 15vmin;
     min-height:100vh;
-    color: #231f20;
-    
+
     #SideBarContainer
     {
         align-self: center;
@@ -88,8 +145,9 @@ h5
     #construction
     {
         text-align: center;
-        color:#6bc8e6;
+        color: $blueColor;
     }
+
     ul
     {
         list-style-type: none;
@@ -109,11 +167,13 @@ h5
 #MainContent
 {
     opacity: 0;
+    display: flex;
+    margin-left: 260px;
 }
 
 #Navigation
 {
-    height: 140px;
+    height: 120px;
     margin-left: 0; 
     display: flex;
     justify-content: center;    
@@ -124,23 +184,29 @@ h5
     width: 100%;
     align-self: flex-end;
     a {
-        color: #6bc8e6;
+        color: $blueColor;
         text-decoration: none;
         line-height: inherit;
         cursor: pointer;
         &:hover, &:focus {
-            color: #4f92a8;
+            color: darken($blueColor, 25);// #4f92a8;
         }
     }
     #Path
     {
-        transform: translateY(100%);
+        transform: translateY(50%);
     }
 
 }
 .links
 {
     cursor: pointer;    
+}
+
+.underlinks
+{
+    font-size: 0.8em !important;
+    text-align: justify !important;
 }
 
 .socialIcons
@@ -153,43 +219,44 @@ h5
     text-decoration: underline;
 }
 
-.project
-{
-    height: 400px;
-    background-color: beige;
-    margin: 10px 0;
-    overflow: hidden;
+
+#ShowReelPlayer {
+    margin: 0 auto;
     position: relative;
-    cursor: pointer;
+    width: 70%;
+    max-height: 450px;
+    display: block;
 }
 
-.projectRow
+#myElement
 {
-    margin-left: 0 !important; 
+    margin: 40px auto !important;
 }
 
-#Incarna
+@media only screen 
+and (max-width: 470px) 
 {
-    background: url(../Projects/Incarna/Cover.png) no-repeat;
-    background-size: cover;
-}
 
-.projectContent
-{
-    height: 400px;
-    background-color: rgba(84, 146, 166, 0.51);
-    padding: 10px;
-    position: relative;
-    bottom: -85%;
-
-    transition: all 0.5s ease;
-    h3 {
-        font-size: 1.5em;
-        margin-bottom: 0.5em;
+    #Navigation
+    {
+        height: 150px;
     }
+}
 
-    .project:hover &{
-        background-color:  rgba(84, 146, 166, 0.91);
-        bottom: -15%;
+@media only screen 
+and (max-width: 850px) 
+{
+    #SideBar
+    {
+        display: none;
+    }
+    #MainContent
+    {
+        margin-left: 0;
+    }
+    #Menu
+    {
+        display : block;
+        color:white;
     }
 }

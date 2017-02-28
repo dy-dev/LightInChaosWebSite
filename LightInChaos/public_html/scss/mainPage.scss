@@ -185,6 +185,14 @@ video
     }
 }
 
+
+#MenuWrapper
+{
+    position: fixed; 
+    width: 100%; 
+    z-index: 0;
+}
+
 #Menu
 {
     display:none;
@@ -245,7 +253,7 @@ video
     #construction
     {
         text-align: center;
-        color:#6bc8e6;
+        color:#ffae00;
     }
     ul
     {
@@ -302,16 +310,18 @@ video
     z-index: 10;
     position: relative;
     left: 5%;
+    background-color: white;
+    height : 630px;
 
     .contentbar
     {
         font-family: 'Roboto';
-        background-color: white;
+
         height:100%;
         padding: 35px;
         display: flex;
         justify-content: center; 
-
+        //margin-top: -25px;
         h4
         {
             text-align: left;
@@ -320,8 +330,8 @@ video
         }
         p 
         {
-            font-size: 17px;
-            line-height: 24px;
+            font-size: 1.25em;
+            line-height: 23px;
             text-align: justify;
             font-weight: 300;
         }
@@ -349,7 +359,6 @@ video
     align-self: center;
 
     position: absolute;
-    height: 630px;
     overflow: hidden;
     width: 510px;
     z-index: 10;
@@ -467,7 +476,7 @@ blockquote cite:before {
     margin: 0 auto;
     position: relative;
     width: 70%;
-    height: auto;
+    max-height: 70%;
     display: block;
     top: 50%;
     transform: translateY(-50%);
@@ -589,9 +598,10 @@ button:active {
 @media only screen 
 and (max-width: 850px) 
 {
-    button
+    .button
     {
-        font-size: 3.5vmin;
+        font-size: 2.5vmin;
+        width: 100%;
     }
     .barContainer 
     {
@@ -613,7 +623,7 @@ and (max-width: 850px)
 
         p
         {
-            font-size: 3vmin;
+            // font-size: 2.5vmin;
         }
     }
 
@@ -660,14 +670,13 @@ and (max-width: 850px)
     }
     .contentbar 
     {
-        padding: 10%!important;
+        padding: 65px 5% 0% 5%!important;
     }
 
     .buttonManageDisplayShowReel
     {
         font-size: 1.3em;
     }
-
 }
 
 @media only screen 
@@ -724,7 +733,7 @@ and (max-height: 650px)
         h5 {
             //font-size: 1.5vmax;
             // line-height: 100%;
-            font-size: 1em;
+            font-size: 0.9em;
             line-height: 20px;
         }
     } 
@@ -737,10 +746,9 @@ and (max-height: 650px)
     #HideShowReel {
         left: 20px;
         position: absolute;
-        top: 50%;
         transform: translateY(-50%);
         width: 80px;
-        bottom: auto;
+        bottom: 10%;
     }
 
     #ContactBar,
@@ -754,15 +762,37 @@ and (max-height: 650px)
         .contentbar{
             h4
             {
-                font-size: 4vmin;
+                font-size: 1.2em;
             }
             p 
             {
-                font-size: 3vmin;
-                line-height: 3.5vmin;
+                font-size: 1em;
+                line-height: 3.7vmin;
             }
         }
     }
+
+    blockquote {
+        font-size: 0.9em;
+        margin: 1em 0 0 0;
+        padding: 0.25em 20px;
+        line-height: 1.15;
+
+        footer
+        {
+            font-size: 10px;
+        }
+    }
+
+    blockquote:before {
+        font-size: 50px;
+        top: -20px;
+    }
+
+    blockquote cite {
+        font-size: 10px;
+    }
+
     #ContactForm {
         padding-bottom: 0;
         label {
@@ -774,6 +804,7 @@ and (max-height: 650px)
         {
             height: 1.5rem;
             margin: 0 0 0.5rem;
+            font-size: 1em;
         }
 
         #ContactBar
@@ -786,7 +817,7 @@ and (max-height: 650px)
     .contactInfos{
         #contentInfos{
             span {
-                font-size: 13vmin;  
+                font-size: 3vmin;  
             }
         } 
     }
@@ -795,6 +826,12 @@ and (max-height: 650px)
         padding: 0.5em 1em;
         margin: 0 ;
     }
+
+    .socialIcon{
+        span {
+            font-size: 8vmin !important;
+        } 
+    } 
 }
 /*
 @media only screen 

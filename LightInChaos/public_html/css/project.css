@@ -10,13 +10,38 @@ and open the template in the editor.
 */
 html,
 body {
-  color: white;
+  color: #231f20;
   font-size: 1em;
   line-height: 1.4;
   background: white;
   height: 100%;
   margin: 0;
   font-family: "Roboto"; }
+
+#preloader {
+  /*opacity: 0.5;*/
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #231f20;
+  z-index: 100;
+  opacity: 1;
+  display: flex;
+  justify-content: center; }
+  #preloader #DropDown {
+    opacity: 0;
+    border: solid #6bc8e6 2px;
+    width: 3px;
+    margin: auto;
+    height: 0; }
+  #preloader #Circle {
+    position: absolute;
+    width: 100px;
+    margin: auto;
+    align-self: center; }
+  #preloader #circle-canvas {
+    display: block;
+    margin: inherit; }
 
 h4 {
   font-family: "Roboto"; }
@@ -28,6 +53,15 @@ h5 {
   font-size: 16px;
   line-height: 26px;
   text-align: center; }
+
+#Logo {
+  cursor: pointer; }
+
+#MenuWrapper {
+  position: fixed;
+  width: 100%;
+  z-index: 0;
+  opacity: 0; }
 
 #Menu {
   display: none; }
@@ -42,11 +76,10 @@ h5 {
   right: 0px; }
 
 #SideBar {
-  display: flex;
-  justify-content: center;
-  margin-top: -10%;
-  min-height: 100vh;
-  color: #231f20; }
+  position: fixed;
+  width: 310px;
+  margin-top: 15vmin;
+  min-height: 100vh; }
   #SideBar #SideBarContainer {
     align-self: center; }
   #SideBar #WrapperLogo {
@@ -72,10 +105,12 @@ h5 {
     margin: auto; }
 
 #MainContent {
-  opacity: 0; }
+  opacity: 0;
+  display: flex;
+  margin-left: 260px; }
 
 #Navigation {
-  height: 140px;
+  height: 120px;
   margin-left: 0;
   display: flex;
   justify-content: center; }
@@ -89,12 +124,16 @@ h5 {
     line-height: inherit;
     cursor: pointer; }
     #NavigationContent a:hover, #NavigationContent a:focus {
-      color: #4f92a8; }
+      color: #1e8fb3; }
   #NavigationContent #Path {
-    transform: translateY(100%); }
+    transform: translateY(50%); }
 
 .links {
   cursor: pointer; }
+
+.underlinks {
+  font-size: 0.8em !important;
+  text-align: justify !important; }
 
 .socialIcons {
   text-align: right; }
@@ -102,33 +141,28 @@ h5 {
 .active {
   text-decoration: underline; }
 
-.project {
-  height: 400px;
-  background-color: beige;
-  margin: 10px 0;
-  overflow: hidden;
+#ShowReelPlayer {
+  margin: 0 auto;
   position: relative;
-  cursor: pointer; }
+  width: 70%;
+  max-height: 450px;
+  display: block; }
 
-.projectRow {
-  margin-left: 0 !important; }
+#myElement {
+  margin: 40px auto !important; }
 
-#Incarna {
-  background: url(../Projects/Incarna/Cover.png) no-repeat;
-  background-size: cover; }
+@media only screen and (max-width: 470px) {
+  #Navigation {
+    height: 150px; } }
+@media only screen and (max-width: 850px) {
+  #SideBar {
+    display: none; }
 
-.projectContent {
-  height: 400px;
-  background-color: rgba(84, 146, 166, 0.51);
-  padding: 10px;
-  position: relative;
-  bottom: -85%;
-  transition: all 0.5s ease; }
-  .projectContent h3 {
-    font-size: 1.5em;
-    margin-bottom: 0.5em; }
-  .project:hover .projectContent {
-    background-color: rgba(84, 146, 166, 0.91);
-    bottom: -15%; }
+  #MainContent {
+    margin-left: 0; }
+
+  #Menu {
+    display: block;
+    color: white; } }
 
 /*# sourceMappingURL=project.css.map */

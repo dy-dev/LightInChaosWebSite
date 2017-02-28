@@ -40,6 +40,17 @@ $(window).on('load', function ()
         {
             $('#backdiv').animate({opacity: '1'}, 'slow');
             $("#Eraser").delay(500).css({'right': '-250px', 'background-color': '#6bc8e6'});
+
+            $("#aboutSideMenu").animate({"color": "#6bc8e6"}, 300, function ()
+            {
+                $("#contactSideMenu").animate({"color": "#6bc8e6"}, 300, function ()
+                {
+                    $("#projectsSideMenu").animate({"color": "#6bc8e6"}, 300, function ()
+                    {
+                        $("#blogSideMenu").animate({"color": "#6bc8e6"}, 300);
+                    });
+                });
+            });
         });
     }, 1000);
 
@@ -106,14 +117,22 @@ $(document).ready(function () {
     nav = responsiveNav(".nav-collapse");
     $('.nav-toggle').css({'z-index': '0'});
     $('.nav-toggle').css({'position': 'absolute'});
+
+
     var hash = window.location.hash.substr(1);
-    if(hash === "About")
+    if (hash === "About")
     {
         displayAbout();
+        $('#MenuWrapper').css({'z-index': '100'});
     }
-    else if( hash === "Contact")
+    else if (hash === "Contact")
     {
         displayContact();
+        $('#MenuWrapper').css({'z-index': '100'});
+    }
+    else
+    {
+        $('#MenuWrapper').css({'z-index': '0'});
     }
 });
 
@@ -203,6 +222,7 @@ function manageShowReelZIndex()
 
 window.onresize = function (event)
 {
+    $("#border-info").height($("#contentInfos").height() - 10);
     if (window.innerWidth <= 850 && currentState === "normal")
     {
         currentState = "small";
@@ -247,7 +267,7 @@ function displayAbout()
 
 function displayContact()
 {
-    
+
     hideAndManage($("#AboutBar"), $(".about"), $("#ContactBar"), $(".contactLink"));
     $("#ContactBar").position().left > 0 ? $("#contactSideMenu").attr("href", "#home") : $("#contactSideMenu").attr("href", "#Contact");
 
@@ -297,6 +317,7 @@ function manageHamburger(divToManage)
 
             $('.nav-toggle').css({'position': 'relative'});
             $('.nav-toggle').css({'z-index': '100'});
+            $('#MenuWrapper').css({'z-index': '100'});
             // $('.nav-toggle').css({display: 'block'});
         }
         else
@@ -304,6 +325,7 @@ function manageHamburger(divToManage)
             $('#SideBar').slideDown();
             // $('.nav-toggle').css({display: 'none'});
             $('.nav-toggle').slideUp();
+
             nav.close();
         }
     }

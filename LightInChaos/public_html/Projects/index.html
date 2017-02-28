@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>LIC : Projets</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1">
+
+        <link rel="icon" href="../favicon.ico" />
+
+
+        <link rel="stylesheet" type="text/css" href="../css/font-style.css">
+        <link rel="stylesheet" type="text/css" href="../css/foundation.css">
+        <link rel="stylesheet" type="text/css" href="../css/social-infos.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/responsive-nav.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/projects.css"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../js/jquery-touchswipe/jquery.touchSwipe.min.js"></script>
+        <script type="text/javascript" src="../js/jquery-circle-progress-1.2.1/dist/circle-progress.min.js"></script>
+        <script type="text/javascript" src="../js/responsive-nav.min.js"></script>
+        <script type="text/javascript" src="../js/projects.js"></script>
+
+    </head>
+    <body>
+        <div id="preloader">
+            <div id="Circle"></div>
+        </div>
+        <div id="Eraser"></div>
+
+        <div id="MenuWrapper">
+            <nav id="Menu" class="nav-collapse">
+                <ul >
+                    <li>
+                        <div class="links home" onclick="goTo('../')">Home</div>
+                    </li>
+                    <li>
+                        <div class="links" onclick="goTo('../#About')">A propos</div>
+                    </li>
+                    <li>
+                        <div class="links" onclick="goTo('../#Contact')">Contact</div>
+                    </li>
+                    <li>
+                        <div class="links active" onclick="goTo('./')">Projets</div>  
+                    </li>
+                    <li>
+                        <div class="links" onclick="goTo('../Blog/')">Blog</div>  
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="SideBar" class="columns">
+            <div id="SideBarContainer" class="small-8 small-centered">
+                <div class="sidebarContent" id="LogoInfos" >
+                    <div class="WrapperLogo">
+                        <div class="sidebarContent" id="LogoContainer" >
+                            <img src="../img/Logo-lic-web-white.png" alt="Light In Chaos" id="Logo" onclick="goTo('../')" style="background-color: rgba(35, 31, 32, 1);">
+                        </div>
+                    </div>
+
+                    <ul class="sidebarContent"  id="links">
+                        <li>
+                            <div class="links home" onclick="goTo('../')">Home</div>
+                        </li>
+                        <li>
+                            <div class="links about" onclick="goTo('../#About')">A propos</div>
+                        </li>
+                        <li>
+                            <div class="links contactLink" onclick="goTo('../#Contact')">Contact</div>
+                        </li>
+                        <li>
+                            <div class="links active" onclick="goTo('Project/')">Projets</div>  
+                        </li>
+                        <li>
+                            <div class="links" onclick="goTo('Blog')">Blog</div>  
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+        </div>     
+        <div id="MainContent" class="row expanded">
+            <div class="small-12 columns">
+                <!--<div class="row expanded">-->
+                <div class="row" id="Navigation">
+                    <div id="NavigationContent">
+                        <div id="Path" class="small-6 columns"><a onclick="goTo('../')">Light In Chaos </a>/ Projets</div>
+                        <div id="WrapperSocialInfos" class="small-6 columns"> 
+                            <div class="socialNetwork">
+                                <ul class="socialIcons">
+                                    <li class="socialIcon">
+                                        <a href="http://facebook.com/Light-In-Chaos-584085058415541/" class="facebook">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+                                    <li class="socialIcon">
+                                        <a href="https://twitter.com/light_in_chaos" class="twitter">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+                                    <li class="socialIcon">
+                                        <a href="https://vimeo.com/lightinchaos" class="vimeo">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+                                    <li class="socialIcon">
+                                        <a href="https://www.linkedin.com/company/light-in-chaos" class="linkedIn">
+                                            <span>a</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row projectRow" >
+                    <div class="large-4 columns">
+                        <div id="Incarna" class="project" onclick="goTo('./Incarna/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>Incarna</h3>
+                                    <p>À la croisée du cinéma, de l’escape Game et du jeu de rôle. Incarna est la nouvelle génération de loisir en salle.<br>
+                                    Nous avons réalisé leur film de communication
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="large-4 columns">
+                        <div id="CNIT" class="project" onclick="goTo('./CNIT/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>CNIT</h3>
+                                    <p>Captation d'un évenement culinaire pour Artemis Event</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="large-4 columns">
+                        <div id="Cuisine360" class="project" onclick="goTo('./Cuisine360/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>Réalité virtuelle</h3>
+                                    <p> Light in Chaos produit et capture des expérience de réalité virtuelle immersive ! <br>
+                                        Le rêve à trouver son langage : la réalité virtuelle.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row projectRow">
+                    <div class="large-4 columns">
+                        <div id="DTWorkshop" class="project" onclick="goTo('./DTWorkshop/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>DTWorkshop</h3>
+                                    <p>Organisation de la campagne réussie d'un crowdfunding pour des artistes en papercraft 3D</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="large-4 columns">
+                        <div id="SSL" class="project" onclick="goTo('./SSL/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>Sport Saber League</h3>
+                                    <p>Réalisation de la vidéo de présentation de la ligue française de Sabre Laser </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="large-4 columns">
+                        <div id="Enedis" class="project" onclick="goTo('./Enedis/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>Enedis</h3>
+                                    <p>Réalisation d'une vidéo de motion design pour expliquer le fonctionnement d'un service d'Enedis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row projectRow">
+                    <div class="large-4 columns">
+                        <div id="Kourandero" class="project" onclick="goTo('./Kourandero/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>Kourandero</h3>
+                                    <p>consectetur adipisicing elit. Sint natus itaque ex laborum praesentium soluta velit repudiandae deserunt magni ut dolorem obcaecati labore voluptatem reiciendis placeat tempora nisi ab laboriosam.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                    <div class="large-4 columns">
+                        <div id="Piticrock" class="project" onclick="goTo('./Piticrock/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>Piticrock</h3>
+                                    <p>Organisation d'une campagne de crowdfunding pour un roman graphique pour enfant sur un petit Dragon impatient de grandir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="large-4 columns">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
