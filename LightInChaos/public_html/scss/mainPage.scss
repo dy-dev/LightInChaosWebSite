@@ -49,6 +49,17 @@ body
     margin: 0;
     font-family: "Roboto";
 }
+h1
+{
+     font-family: "Roboto";
+}
+h2
+{
+    text-align: left;
+    font-size: 20px;
+    padding-bottom: 9px;
+    font-family: "Roboto";
+}
 
 h4
 {
@@ -65,6 +76,14 @@ h5
     text-align: center;
 }
 
+a
+{
+    color:white;
+    &:hover
+    {
+       color:#6bc8e6;
+    }
+}
 /* Preloader */
 
 #preloader {
@@ -90,7 +109,7 @@ h5
     #Circle
     {
         position: absolute;
-        width: 100px;
+        width: 70px;
         margin: auto;
         align-self: center;
     }
@@ -118,7 +137,7 @@ h5
     opacity:1;
     &.displayon
     {
-        background: url("../img/Background_robot.png") no-repeat center;
+        background: url("../img/Background_robot.jpg") no-repeat center;
         background-size: cover;
     }       
 }
@@ -167,12 +186,12 @@ video
 {
     margin: 0!important;
     height: 100%;
-    width:100%
+    width:100%;
+    max-width: 90rem;
 }
 
 #ContentHolder
 {
-
     width: 100%;
     height: 100%;
     transition: height 600ms;
@@ -217,7 +236,7 @@ video
 {
     align-self: center;
     position: relative;
-    height: 630px;
+    height: 730px;
     background: rgba(35, 31, 32, 1);
     overflow: hidden;
     width: 310px;
@@ -311,7 +330,7 @@ video
     position: relative;
     left: 5%;
     background-color: white;
-    height : 630px;
+    height : 730px;
 
     .contentbar
     {
@@ -322,7 +341,7 @@ video
         display: flex;
         justify-content: center; 
         //margin-top: -25px;
-        h4
+        h2
         {
             text-align: left;
             font-size: 20px;
@@ -348,9 +367,14 @@ video
     align-self: center;
 }
 
+#contentContact
+{
+    width:80%;
+}
+
 .hidden
 {
-    left: -1200px!important;
+    left: -2000px!important;
 }
 
 #AboutBar
@@ -405,12 +429,16 @@ video
     display: none;
 }
 
-#ContactBar
+#ContactBar, #TrustBar
 {
     align-self: center;
-
     position: absolute;
-    width: 470px;
+    width: 660px;
+    img
+    {
+        padding: 30px 0;
+        max-height: 170px;
+    }
 }
 
 blockquote {
@@ -475,12 +503,22 @@ blockquote cite:before {
 #ShowReelPlayer {
     margin: 0 auto;
     position: relative;
-    width: 70%;
-    max-height: 70%;
     display: block;
-    top: 50%;
-    transform: translateY(-50%);
+    align-self: center;
+}
 
+.videoWrapper
+{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.ShowReelPositionner
+{
+    width: 60%;
+    margin: auto;
+    align-self: center;
 }
 
 #Contact
@@ -612,7 +650,8 @@ and (max-width: 850px)
     }
 
     #AboutBar,
-    #ContactBar
+    #ContactBar,
+    #TrustBar
     {
         top: 0;
         left: 0;
@@ -752,7 +791,8 @@ and (max-height: 650px)
     }
 
     #ContactBar,
-    #AboutBar
+    #AboutBar,
+    #TrustBar
     {
         top: 0;
         height: 100%
@@ -760,7 +800,7 @@ and (max-height: 650px)
     .infos
     {
         .contentbar{
-            h4
+            h2
             {
                 font-size: 1.2em;
             }

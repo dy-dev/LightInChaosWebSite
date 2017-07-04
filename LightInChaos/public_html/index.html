@@ -9,20 +9,34 @@ and open the template in the editor.
         <title>Light In Chaos</title>
         <meta charset="UTF-8">
         <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1">
+        <meta name="viewport" content="widsth=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1">
 
         <link rel="icon" href="favicon.ico" />
-
+        <!--<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>-->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery-circle-progress-1.2.1/dist/circle-progress.min.js"></script>
-        <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js" defer="defer"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="video.js/dist/video.js"></script>
+        <!--<script type="text/javascript" src="//vjs.zencdn.net/5.4.6/video.min.js"></script>-->
         <script type="text/javascript" src="js/jquery-touchswipe/jquery.touchSwipe.min.js" defer="defer"></script>
         <script type="text/javascript" src="js/mashup.js" defer="defer"></script>
         <script type="text/javascript" src="js/backgroundVideo.js" defer="defer"></script>
         <script type="text/javascript" src="js/mainPage.js" defer="defer"></script>
         <script type="text/javascript" src="js/responsive-nav.min.js" defer="defer" ></script>
+        <script type="text/javascript" src="js/googleAnalytics.js" defer="defer"></script>
 
+        <!--<script src="jwplayer-7.9.3/jwplayer.js" defer="defer"></script>-->
+
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
+        <!--<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">-->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+        <link rel="stylesheet" type="text/css" href="css/font-style.css">
+        <link rel="stylesheet" type="text/css" href="css/foundation.css">
+        <link rel="stylesheet" type="text/css" href="css/mainPage.css">
+        <link rel="stylesheet" type="text/css" href="css/social-infos.css"/>
+        <link rel="stylesheet" type="text/css" href="css/responsive-nav.css"/>
+        <link rel="stylesheet" type="text/css" href="video.js/dist/video-js.min.css"/>
+        <!--<link rel="stylesheet" href="vjs.zencdn.net/5.4.6/video-js.min.css">-->
     </head>
     <body>
         <!-- Preloader -->
@@ -56,19 +70,39 @@ and open the template in the editor.
                     <nav id="Menu" class="nav-collapse">
                         <ul >
                             <li>
-                                <div class="links home" onclick="displayHome()">Home</div>
+                                <div class="links home" id="nav-home" onclick="displayHome()">Home</div>
                             </li>
                             <li>
-                                <div class="links about" onclick="displayAbout()">A propos</div>
+                                <div class="links about"  id="nav-about" onclick="displayAbout()">Présentation</div>
                             </li>
                             <li>
-                                <div class="links contactLink" onclick="displayContact()">Contact</div>
+                                <div class="links trust"  id="nav-trust" onclick="displayTrust()">Nos Clients</div>
                             </li>
                             <li>
-                                <div class="links" onclick="goToNewPage('Projects/')">Projets</div>  
+                                <div class="links contactLink"  id="nav-contact" onclick="displayContact()">Contact</div>
                             </li>
                             <li>
-                                <div class="links" onclick="goToNewPage('Blog/')">Blog</div>  
+                                <a href="About/">
+                                    <div class="links" onclick="goToNewPage('About/', event)">Qui sommes nous?</div> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Projects/">
+                                    <div class="links" onclick="goToNewPage('Projects/', event)">Projets
+                                    </div> 
+                                </a>
+                            </li>
+                            <li>
+                                <!--                            <li>
+                                                                <div class="links" onclick="goToNewPage('Portfolio/')">Portfolio
+                                                                    <a href="Portfolio/"></a>
+                                                                </div>  
+                                                            </li>-->
+                            <li>
+                                <a href="Blog/">
+                                    <div class="links" onclick="goToNewPage('Blog/', event)">Blog  
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </nav>
@@ -81,7 +115,9 @@ and open the template in the editor.
                                 <div class="WrapperLogo">
                                     <div class="sidebarContent" id="LogoContainer" >
                                         <a href="#">
-                                            <img src="img/Logo-lic-web-white.png" alt="Light In Chaos" id="Logo">
+                                            <h1>
+                                                <img src="img/Logo-lic-web-white.png" alt="Studio créatif en storytelling transmedia" id="Logo">
+                                            </h1>
                                         </a>
                                     </div>
                                 </div>
@@ -89,16 +125,35 @@ and open the template in the editor.
 
                             <ul class="sidebarContent"  id="links">
                                 <li>
-                                    <div class="links about" onclick="displayAbout()"><a id="aboutSideMenu">A propos</a></div>
+                                    <div class="sideLinks links" onclick="displayAbout()" data-nav="nav-about"><div id="aboutSideMenu">Présentation</div></div>
                                 </li>
                                 <li>
-                                    <div class="links contactLink" onclick="displayContact()"><a id="contactSideMenu">Contact</a></div>
+                                    <div class="sideLinks links" onclick="displayTrust()" data-nav="nav-trust"><div id="trustSideMenu">Nos Clients</div></div>
                                 </li>
                                 <li>
-                                    <div class="links" onclick="goToNewPage('Projects/')"><a id="projectsSideMenu">Projets</a></div>  
+                                    <div class="sideLinks links" onclick="displayContact()" data-nav="nav-contact"><div id="contactSideMenu">Contact</div></div>
+                                <li>
+                                    <a href="About/">
+                                        <div class="sideLinks links" onclick="goToNewPage('About/', event)"><div id="WhoSideMenu">Qui sommes nous?</div>
+                                        </div>  
+                                    </a>
                                 </li>
                                 <li>
-                                    <div class="links" onclick="goToNewPage('Blog/')"><a id="blogSideMenu">Blog</a></div>  
+                                    <a href="Projects/">
+                                        <div class="sideLinks links" onclick="goToNewPage('Projects/', event)"><div id="projectsSideMenu">Projets</div>
+                                        </div>  
+                                    </a>
+                                </li>
+                                <!--                                 <li>
+                                                                    <div class="sideLinks links" onclick="goToNewPage('Portfolio/')"><div id="portfolioSideMenu">Portfolio</div>
+                                                                        <a href="Portfolio/"></a>
+                                                                    </div>  
+                                                                </li>-->
+                                <li>
+                                    <a href="Blog/">
+                                        <div class="sideLinks links" onclick="goToNewPage('Blog/', event)"><div id="blogSideMenu">Blog</div>
+                                        </div> 
+                                    </a>
                                 </li>
                             </ul>
                             <div class="sidebarContent"  id="catch-phrase">
@@ -109,7 +164,7 @@ and open the template in the editor.
                             </div>
                             <div class="sidebarContent"  id="AccessShowReel">
                                 <div id="ShowReelButtonContainer">
-                                    <button onclick="manageShowreelDisplay('show')" class="buttonManageDisplayShowReel"> ShowReel </button>
+                                    <button onclick="manageShowreelDisplay('show', event)" class="buttonManageDisplayShowReel"> ShowReel </button>
                                     <!--<div id="AccessBar"></div>--></div>
                             </div>
                         </div>
@@ -122,10 +177,11 @@ and open the template in the editor.
                             <div class="content-wrapper">
                                 <div class="close-icon" data-parent="AboutBar"></div>
                                 <div class="contentInfos" id="Culture">
-                                    <h4 >DE L'HISTOIRE, À L'IMAGE</h4>
+                                    <h2 >DE L'HISTOIRE, À L'IMAGE</h2>
                                     <p>Nous aidons nos clients à distiller leurs idées afin de sublimer leur marque, leurs services ou leurs produits en mettant en histoires et en images la quintessence des informations qu'ils veulent promouvoir.
                                         <br>
                                         <br>Nous les accompagnons en confectionnant des solutions créatives, visuellement percutantes  et techniquement innovantes. Nous alimentons notre créativité par l'écriture, la recherche graphique, la conception, l'animation 2D/3D, les jeux, les films... le tout agrémenté d'innovations technologiques. Nous obtenons par ce mélange, la transmutation de ces ingrédients en une campagne de communication d'un genre nouveau.</p>
+
                                     <blockquote cite="Arthur C. Clarke">
                                         <p>Toute technologie suffisamment avancée est indiscernable de la magie.</p>
                                         <footer>— <a href="https://fr.wikipedia.org/wiki/Trois_lois_de_Clarke">3eme Loi d'Arthur C. Clarke</a></footer>
@@ -135,12 +191,43 @@ and open the template in the editor.
 
                         </div>
                     </div>
-                    <div id="ContactBar" class="infos hidden" >
+                    <div id="TrustBar" class="infos hidden">
                         <div class="contentbar" >
                             <div class="content-wrapper">
+                                <div class="close-icon" data-parent="TrustBar"></div>
+                                <div class="contentInfos" id="TrustLogos">
+                                    <h2 >ILS NOUS ONT FAIT CONFIANCE</h2>
+                                    <div class="row expanded">
+                                        <div class="small-4 columns">
+                                            <img src="img/Clients/Artemis_Events_logo.png" alt=""/>
+                                            <img src="img/Clients/CNIT_logo.jpeg" alt=""/>
+                                            <img src="img/Clients/DTWorkshop_logo.png" alt=""/>
+                                        </div>
+                                        <div class="small-4 columns">
+                                            <img src="img/Clients/Enedis_logo.png" alt=""/>
+                                            <img src="img/Clients/Incarna_logo.jpg" alt=""/>
+                                            <img src="img/Clients/SSL_logo.jpg" alt=""/>
+                                        </div>
+                                        <div class="small-4 columns">
+                                            <img src="img/Clients/ScienceAccueil_logo.jpg" alt=""/>
+                                            <div style="display: flex">
+                                                <img style="margin: auto" src="img/Clients/VirtualAssociation_logo.png" alt=""/>
+                                            </div>
+                                            <div style="display: flex">
+                                                <img style="margin: auto" src="img/Clients/lacoolco_logo.png" alt=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ContactBar" class="infos hidden" >
+                        <div class="contentbar" >
+                            <div id="contentContact" class="content-wrapper">
                                 <div class="close-icon" data-parent="ContactBar"></div>
                                 <div id="ContactForm">
-                                    <h4 >CONTACT</h4>
+                                    <h2 >CONTACT</h2>
                                     <div  >
                                         <div class="row">
                                             <div id="FormResultMessages" class="medium-8 columns medium-offset-2"></div>
@@ -162,7 +249,7 @@ and open the template in the editor.
                                                     <textarea id="FormMessage" name="FormMessage" placeholder="Votre Message" style="height:10vh" required></textarea>
                                                 </div>
                                                 <div class="row" >
-                                                    <div class="small-5 columns float-right" >
+                                                    <div class="small-4 columns float-right" >
                                                         <button class="primary button float-right" type="submit" value="Send">Envoyer</button>
                                                     </div>
                                                     <div class="small-4 columns float-right">
@@ -237,12 +324,29 @@ and open the template in the editor.
             </div> 
         </div>
         <div id ="ShowReelPlayerHolder">
-            <button onclick="manageShowreelDisplay('hide')" class="buttonManageDisplayShowReel" id="HideShowReel"> Retour </button>
-            <video id="ShowReelPlayer" class="video-js vjs-default-skin" controls preload="metadata" data-setup="{}">
-                <source src="videos/Showreel.mp4" type="video/mp4" >
-                <source src="videos/Showreel.webm" type="video/webm" >
-                <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-            </video>
+            <button onclick="manageShowreelDisplay('hide', event)" class="buttonManageDisplayShowReel" id="HideShowReel"> Retour </button>
+            <!--            <div id='myElement'>Loading the player...</div>
+                        <script type='text/javascript'>
+                            jwplayer("myElement").setup({
+                                width: "60%",
+                                aspectratio: "16:9",
+                                playlist: [{
+                                        title: 'Showreel',
+                                        mediaid: 'AgqYcfAT',
+                                        image: "",
+                                        file: "videos/Showreel.webm"
+                                    }]
+                            });
+                        </script>-->
+            <div class="videoWrapper">
+                <div class="ShowReelPositionner">
+                    <video id="ShowReelPlayer" width="60%" class="video-js vjs-default-skin vjs-16-9 vjs-big-play-centered" controls preload="metadata" data-setup="{}">
+                        <!--<source src="videos/Showreel.mp4" type="video/mp4" >-->
+                        <source src="videos/Showreel.webm" type="video/webm" >
+                        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                    </video>
+                </div>
+            </div>
             <!--            <video class="mejs-player" preload="metadata" controls id="ShowReelPlayer">
                             <source src="videos/Showreel.mp4" type="video/mp4" >
                             <source src="videos/Showreel.webm" type="video/webm" >
@@ -251,12 +355,3 @@ and open the template in the editor.
         </div>
     </body>
 </html>
-
-<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
-<link rel="stylesheet" type="text/css" href="css/font-style.css">
-<link rel="stylesheet" type="text/css" href="css/foundation.css">
-<link rel="stylesheet" type="text/css" href="css/mainPage.css">
-<link rel="stylesheet" type="text/css" href="css/social-infos.css"/>
-<link rel="stylesheet" type="text/css" href="css/responsive-nav.css"/>
-<link rel="stylesheet" type="text/css" href="video.js/dist/video-js.min.css"/>

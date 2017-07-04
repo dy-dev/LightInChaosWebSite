@@ -41,16 +41,17 @@ $(window).on('load', function ()
             $('#backdiv').animate({opacity: '1'}, 'slow');
             $("#Eraser").delay(500).css({'right': '-250px', 'background-color': '#6bc8e6'});
 
-            $("#aboutSideMenu").animate({"color": "#6bc8e6"}, 300, function ()
-            {
-                $("#contactSideMenu").animate({"color": "#6bc8e6"}, 300, function ()
-                {
-                    $("#projectsSideMenu").animate({"color": "#6bc8e6"}, 300, function ()
-                    {
-                        $("#blogSideMenu").animate({"color": "#6bc8e6"}, 300);
-                    });
-                });
-            });
+//            $("#aboutSideMenu").animate({"color": "#6bc8e6"}, 300, function ()
+//            {
+//                $("#contactSideMenu").animate({"color": "#6bc8e6"}, 300, function ()
+//                {
+//                    $("#projectsSideMenu").animate({"color": "#6bc8e6"}, 300, function ()
+//                    {
+//                        $("#blogSideMenu").animate({"color": "#6bc8e6"}, 300);
+//                    });
+//                });
+//            });
+            colorizeMenu($(".sideLinks"), 0);
         });
     }, 1000);
 
@@ -111,8 +112,20 @@ $(window).on('load', function ()
 //});
 });
 
+function colorizeMenu(menuList, index)
+{
+    if (index < menuList.length)
+    {
+        var ref = $(menuList[index]).find("div");
+        var element = $(ref).get(0);
+        $(element).animate({"color": "#6bc8e6"}, 500, function () {
+            colorizeMenu(menuList, index + 1);
+        });
+    }
+}
 
 $(document).ready(function () {
+//    jwplayer.key = "eHDLhj7CypCmtx3BTai7P36Y3M0n5mOCGPkkBA==";
     $('#my-video').backgroundVideo();
     nav = responsiveNav(".nav-collapse");
     $('.nav-toggle').css({'z-index': '0'});
@@ -123,6 +136,11 @@ $(document).ready(function () {
     if (hash === "About")
     {
         displayAbout();
+        $('#MenuWrapper').css({'z-index': '100'});
+    }
+    else if (hash === "Trust")
+    {
+        displayTrust();
         $('#MenuWrapper').css({'z-index': '100'});
     }
     else if (hash === "Contact")
@@ -139,28 +157,12 @@ $(document).ready(function () {
 
 $('.close-icon').click(function ()
 {
-    displayHome();
+    //displayHome();
+    hideAndManage(null, null);
 });
 
-function manageShowreelDisplay(action)
+function manageShowreelDisplay(action, event)
 {
-//
-//    var newHeight = $("#ContentHolder").height();
-//    newHeight !== 0 ? newHeight = 0 : newHeight = '100%';
-//    if (newHeight === '100%')
-//        manageShowReelZIndex();
-//
-//    $("#ContentHolder").animate({height: newHeight}, 300, function () {
-//
-//        $('.barContainer').css('opacity') === "1" ? $('.barContainer').animate({opacity: 0}, 300) : $('.barContainer').animate({opacity: 1}, 300);
-//
-//        $('.background').css('opacity') === "1" ? $('.background').animate({opacity: 0}) : $('.background').animate({opacity: 1});
-//        $('#video-filter').css('opacity') === "1" ? $('#video-filter').animate({opacity: 0}, 300) : $('#video-filter').animate({opacity: 1}, 300);
-//
-//        if (newHeight === 0)
-//            setTimeout(manageShowReelZIndex, 500);
-//    });
-
     if (action === "show")
     {
         if ($('#ShowReelPlayerHolder').length) {
@@ -182,8 +184,9 @@ function manageShowreelDisplay(action)
 
 }
 ;
-function goToNewPage(page)
+function goToNewPage(page, event)
 {
+    event.preventDefault();
     $('#ShowReelPlayerHolder').css({opacity: 0});
     $("#Eraser").animate({right: window.innerWidth}, 500);
     if ($("#SideBar").is(":visible"))
@@ -193,6 +196,10 @@ function goToNewPage(page)
     if ($("#AboutBar").is(":visible"))
     {
         $("#AboutBar").toggle("slide", {direction: 'left'}, 600);
+    }
+    if ($("#TrustBar").is(":visible"))
+    {
+        $("#TrustBar").toggle("slide", {direction: 'left'}, 600);
     }
     if ($("#ContactBar").is(":visible"))
     {
@@ -237,67 +244,74 @@ window.onresize = function (event)
 
 function displayAbout()
 {
-    hideAndManage($("#ContactBar"), $(".contactLink"), $("#AboutBar"), $(".about"));
+    hideAndManage($("#AboutBar"), $("#aboutSideMenu"));
     $("#AboutBar").position().left > 0 ? $("#aboutSideMenu").attr("href", "#home") : $("#aboutSideMenu").attr("href", "#About");
-    /* $(".about").toggleClass('active');
-     $(".contactLink").removeClass('active');
-     
-     $("#ContactBar").addClass('hidden');
-     
-     $("#AboutBar").toggleClass('hidden');
-     if (window.innerWidth < 850)
-     {
-     if (!($("#AboutBar").hasClass('hidden')))
-     {
-     $('#SideBar').slideUp();
-     $('.nav-toggle').css({'position': 'relative'});
-     $('.nav-toggle').css({'z-index': '100'});
-     
-     $('.nav-toggle').css({display: 'block'});
-     }
-     else
-     {
-     $('#SideBar').slideDown();
-     $('.nav-toggle').css({display: 'none'});
-     nav.close();
-     }
-     }*/
+}
+
+
+function displayTrust()
+{
+    hideAndManage($("#TrustBar"), $("#trustSideMenu"));
+    $("#TrustBar").position().left > 0 ? $("#trustSideMenu").attr("href", "#home") : $("#trustSideMenu").attr("href", "#Trust");
 }
 
 
 function displayContact()
 {
 
-    hideAndManage($("#AboutBar"), $(".about"), $("#ContactBar"), $(".contactLink"));
+    hideAndManage($("#ContactBar"), $("#contactSideMenu"));
     $("#ContactBar").position().left > 0 ? $("#contactSideMenu").attr("href", "#home") : $("#contactSideMenu").attr("href", "#Contact");
-
-    /*    $("#ContactLink").toggleClass('active');
-     $(".about").removeClass('active');
-     $("#AboutBar").addClass('hidden');
-     
-     $("#ContactBar").toggleClass('hidden');
-     //$("#").offset().left === -1500 ? $("#InfosBar").animate({left: newLeft + 'px'}, 400) : $("#InfosBar").animate({left: '-1500px'}, 400);*/
-
 }
+
 
 function displayHome()
 {
-    $(".contactLink").removeClass('active');
-    $(".about").removeClass('active');
-    $("#AboutBar").addClass('hidden');
-    $("#ContactBar").addClass('hidden');
+    hideAndManage(null, null);
 
     manageHamburger($("#AboutBar"));
 }
 
-function hideAndManage(divToHide, linkToDeActivate, divToManage, linkToManage)
+function hideAndManage(divToManage, linkToManage)
 {
-    linkToManage.toggleClass('active');
-    linkToDeActivate.removeClass('active');
-    divToHide.addClass('hidden');
-    divToManage.toggleClass('hidden');
+    var navLinkName;
+    var navLink;
+    if (linkToManage !== null)
+    {
+        linkToManage.parent().toggleClass('active');
+        navLinkName = linkToManage.parent().get(0).getAttribute("data-nav");
+        navLink = document.getElementById(navLinkName);
+        $(navLink).toggleClass('active');
+    }
+    $('.sideLinks').each(function ()
+    {
+        var ref = $(this).find("div");
+        if (linkToManage === null || $(ref).get(0) !== linkToManage.get(0))
+        {
+            navLinkName = $(this).get(0).getAttribute("data-nav");
+            navLink = document.getElementById(navLinkName);
+            $(navLink).removeClass('active');
+            $(this).removeClass('active');
+        }
+    });
 
-    manageHamburger(divToManage);
+
+    $('.infos').each(function ()
+    {
+        if (divToManage === null || $(this).get(0) !== divToManage.get(0))
+        {
+            $(this).addClass('hidden');
+        }
+    });
+    if (divToManage !== null)
+    {
+        divToManage.toggleClass('hidden');
+        manageHamburger(divToManage);
+    }
+    else
+    {
+        manageHamburger($("#AboutBar"));
+    }
+
     nav.close();
 }
 

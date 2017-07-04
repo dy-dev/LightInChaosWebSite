@@ -53,7 +53,7 @@ body
     #Circle
     {
         position: absolute;
-        width: 100px;
+        width: 70px;
         margin: auto;
         align-self: center;
     }
@@ -111,7 +111,7 @@ h5
 #SideBar
 {
     position: fixed;
-    width: 310px;
+    //width: 310px;
     //display: flex;
     //justify-content: center;
     margin-top: 15vmin;
@@ -121,9 +121,9 @@ h5
     {
         align-self: center;
     }
-    #WrapperLogo
+    .WrapperLogo
     {
-        position: absolute;
+        min-width: 170px;
     }
 
     #LogoInfos
@@ -151,7 +151,7 @@ h5
     ul
     {
         list-style-type: none;
-        text-align: center;
+        text-align: justify;
         font-size: 1.3em;
         margin: 0;
     }
@@ -168,7 +168,7 @@ h5
 {
     opacity: 0;
     display: flex;
-    margin-left: 260px;
+    //margin-left: 260px;
 }
 
 #Navigation
@@ -207,7 +207,44 @@ h5
 {
     font-size: 0.8em !important;
     text-align: justify !important;
+    margin-left: 50% !important;
+    margin-top: 15% !important;
+    &.nav 
+    {
+        margin-top: 0% !important;
+    }
 }
+
+
+.chevronUp,
+.chevronDown
+{
+    display: inline;
+    position:relative;
+    display:block;
+}
+
+.chevronDown:before,
+.chevronDown:after{
+    position:absolute;
+    display:block;
+    content:"";
+    border:15px solid transparent;/*adjust size*/
+    margin-left: 50%;
+    margin-top: -20%;
+}
+/*Change four 'top' values below to rotate (top/right/bottom/left)*/
+.chevronDown:before{
+    top: 16px;
+    left: 8px;
+    border-top-color: $blueColor;
+}
+.chevronDown:after{
+    top: 9px;
+    left: 8px;
+    border-top-color: #fefefe;
+}
+
 
 .socialIcons
 {
@@ -228,9 +265,24 @@ h5
     display: block;
 }
 
+.playerContainer
+{
+    margin: 40px 0;     
+}
+
 #myElement
 {
-    margin: 40px auto !important;
+    margin: 0 auto !important;
+}
+
+.contentHolder
+{
+    display: flex; 
+    margin :25px 15px;
+    img
+    {
+        width: 100%;
+    }
 }
 
 @media only screen 
@@ -244,7 +296,7 @@ and (max-width: 470px)
 }
 
 @media only screen 
-and (max-width: 850px) 
+and (max-width: 1024px) 
 {
     #SideBar
     {
@@ -258,5 +310,40 @@ and (max-width: 850px)
     {
         display : block;
         color:white;
+    }
+    .contentHolder
+    {
+        display: initial; 
+    }
+
+    .js .nav-collapse.closed {
+        max-height: available !important;
+    }
+    .nav-toggle {
+        display: block !important;
+    }
+    img
+    {
+        margin-bottom: 20px;
+    }
+}
+
+
+@media only screen 
+and (max-width: 1460px) 
+{
+    #SideBar 
+    {
+        ul
+        {
+            font-size: 1em!important;
+
+            .underlinks {
+                font-size: 0.7em!important;
+            }
+        }
+        .chevronDown:before, .chevronDown:after {
+            margin-top: -30%;
+        }
     }
 }

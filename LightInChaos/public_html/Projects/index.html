@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1">
 
-        <link rel="icon" href="../favicon.ico" />
+        <link rel="icon" href="..//favicon.ico" />
 
 
         <link rel="stylesheet" type="text/css" href="../css/font-style.css">
@@ -18,14 +18,17 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="../css/social-infos.css"/>
         <link rel="stylesheet" type="text/css" href="../css/responsive-nav.css"/>
         <link rel="stylesheet" type="text/css" href="../css/projects.css"/>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+        <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
 
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+        <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+        <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+        <!--<script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
         <script type="text/javascript" src="../js/jquery-touchswipe/jquery.touchSwipe.min.js"></script>
         <script type="text/javascript" src="../js/jquery-circle-progress-1.2.1/dist/circle-progress.min.js"></script>
-        <script type="text/javascript" src="../js/responsive-nav.min.js"></script>
+        <script type="text/javascript" src="../js/responsive-nav.js"></script>
         <script type="text/javascript" src="../js/projects.js"></script>
 
     </head>
@@ -39,19 +42,37 @@ and open the template in the editor.
             <nav id="Menu" class="nav-collapse">
                 <ul >
                     <li>
-                        <div class="links home" onclick="goTo('../')">Home</div>
+                        <a href="../">
+                            <div class="links home" onclick="goTo('', event)">Home</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="links" onclick="goTo('../#About')">A propos</div>
+                        <a href="../">
+                            <div class="links" onclick="goTo('#About', event)">Présentation</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="links" onclick="goTo('../#Contact')">Contact</div>
+                        <a href="../">
+                            <div class="links" onclick="goTo('#Trust', event)">Nos Clients</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="links active" onclick="goTo('./')">Projets</div>  
+                        <a href="../">
+                            <div class="links" onclick="goTo('#Contact', event)">Contact</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="links" onclick="goTo('../Blog/')">Blog</div>  
+                        <a href="../About">
+                            <div class="links" onclick="goTo('About', event)">Qui sommes nous</div>  
+                        </a>
+                    </li>
+                    <li>
+                        <div class="links active">Projets</div>  
+                    </li>
+                    <li>
+                        <a href="../Blog">
+                            <div class="links" onclick="goTo('Blog/', event)">Blog</div>  
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -61,25 +82,43 @@ and open the template in the editor.
                 <div class="sidebarContent" id="LogoInfos" >
                     <div class="WrapperLogo">
                         <div class="sidebarContent" id="LogoContainer" >
-                            <img src="../img/Logo-lic-web-white.png" alt="Light In Chaos" id="Logo" onclick="goTo('../')" style="background-color: rgba(35, 31, 32, 1);">
+                            <img src="../img/Logo-lic-web-white.png" alt="Light In Chaos" id="Logo" onclick="goTo('', event)" style="background-color: rgba(35, 31, 32, 1);">
                         </div>
                     </div>
 
                     <ul class="sidebarContent"  id="links">
                         <li>
-                            <div class="links home" onclick="goTo('../')">Home</div>
+                            <a href="../">
+                                <div class="links home" onclick="goTo('', event)">Home</div>
+                            </a>
                         </li>
                         <li>
-                            <div class="links about" onclick="goTo('../#About')">A propos</div>
+                            <a href="../#About">
+                                <div class="links about" onclick="goTo('#About', event)">Présentation</div>
+                            </a>
                         </li>
                         <li>
-                            <div class="links contactLink" onclick="goTo('../#Contact')">Contact</div>
+                            <a href="../#Trust">
+                                <div class="links trust" onclick="goTo('#Trust', event)">Nos Clients</div>
+                            </a>
                         </li>
                         <li>
-                            <div class="links active" onclick="goTo('Project/')">Projets</div>  
+                            <a href="../#Contact">
+                                <div class="links contactLink" onclick="goTo('#Contact', event)">Contact</div>
+                            </a>
                         </li>
                         <li>
-                            <div class="links" onclick="goTo('Blog')">Blog</div>  
+                            <a href="../About">
+                                <div class="links" onclick="goTo('About', event)">Qui sommes nous</div>  
+                            </a>
+                        </li>
+                        <li>
+                            <div class="links active">Projets</div>  
+                        </li>
+                        <li>
+                            <a href="../Blog">
+                                <div class="links" onclick="goTo('Blog', event)">Blog</div>  
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -90,7 +129,7 @@ and open the template in the editor.
                 <!--<div class="row expanded">-->
                 <div class="row" id="Navigation">
                     <div id="NavigationContent">
-                        <div id="Path" class="small-6 columns"><a onclick="goTo('../')">Light In Chaos </a>/ Projets</div>
+                        <div id="Path" class="small-6 columns"><a onclick="goTo('', event)">Light In Chaos </a>/ Projets</div>
                         <div id="WrapperSocialInfos" class="small-6 columns"> 
                             <div class="socialNetwork">
                                 <ul class="socialIcons">
@@ -122,20 +161,20 @@ and open the template in the editor.
                 </div>
                 <div class="row projectRow" >
                     <div class="large-4 columns">
-                        <div id="Incarna" class="project" onclick="goTo('./Incarna/', event)">
+                        <div id="Incarna" class="project" onclick="goTo('Projects/Incarna/', event)">
                             <div class="projectContent">
                                 <div class="projectInfos">
                                     <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
                                     <h3>Incarna</h3>
-                                    <p>À la croisée du cinéma, de l’escape Game et du jeu de rôle. Incarna est la nouvelle génération de loisir en salle.<br>
-                                    Nous avons réalisé leur film de communication
+                                    <p>À la croisée du cinéma, de l’escape Game et du jeu de rôle, Incarna est la nouvelle génération de loisir en salle.<br>
+                                        Nous avons réalisé leur film de communication.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="large-4 columns">
-                        <div id="CNIT" class="project" onclick="goTo('./CNIT/', event)">
+                        <div id="CNIT" class="project" onclick="goTo('Projects/CNIT/', event)">
                             <div class="projectContent">
                                 <div class="projectInfos">
                                     <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
@@ -146,13 +185,13 @@ and open the template in the editor.
                         </div>
                     </div> 
                     <div class="large-4 columns">
-                        <div id="Cuisine360" class="project" onclick="goTo('./Cuisine360/', event)">
+                        <div id="Cuisine360" class="project" onclick="goTo('Projects/Cuisine360/', event)">
                             <div class="projectContent">
                                 <div class="projectInfos">
                                     <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
                                     <h3>Réalité virtuelle</h3>
                                     <p> Light in Chaos produit et capture des expérience de réalité virtuelle immersive ! <br>
-                                        Le rêve à trouver son langage : la réalité virtuelle.</p>
+                                        Le rêve à trouvé son langage : la réalité virtuelle.</p>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +199,7 @@ and open the template in the editor.
                 </div>
                 <div class="row projectRow">
                     <div class="large-4 columns">
-                        <div id="DTWorkshop" class="project" onclick="goTo('./DTWorkshop/', event)">
+                        <div id="DTWorkshop" class="project" onclick="goTo('Projects/DTWorkshop/', event)">
                             <div class="projectContent">
                                 <div class="projectInfos">
                                     <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
@@ -171,7 +210,7 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="large-4 columns">
-                        <div id="SSL" class="project" onclick="goTo('./SSL/', event)">
+                        <div id="SSL" class="project" onclick="goTo('Projects/SSL/', event)">
                             <div class="projectContent">
                                 <div class="projectInfos">
                                     <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
@@ -182,7 +221,7 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="large-4 columns">
-                        <div id="Enedis" class="project" onclick="goTo('./Enedis/', event)">
+                        <div id="Enedis" class="project" onclick="goTo('Projects/Enedis/', event)">
                             <div class="projectContent">
                                 <div class="projectInfos">
                                     <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
@@ -195,18 +234,19 @@ and open the template in the editor.
                 </div>
                 <div class="row projectRow">
                     <div class="large-4 columns">
-                        <div id="Kourandero" class="project" onclick="goTo('./Kourandero/', event)">
+                        <div id="Kourandero" class="project" onclick="goTo('Projects/Kourandero/', event)">
                             <div class="projectContent">
                                 <div class="projectInfos">
                                     <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
                                     <h3>Kourandero</h3>
-                                    <p>consectetur adipisicing elit. Sint natus itaque ex laborum praesentium soluta velit repudiandae deserunt magni ut dolorem obcaecati labore voluptatem reiciendis placeat tempora nisi ab laboriosam.</p>
+                                    <p>Comment rendre la promotion du recyclage fun et ludique ?<br>
+                                        En lui créant un univers où des créatures inspirées par le mouvement culturel Recycl'Art entrainent les visiteurs dans des jeux spécialement conçu pour apprendre et partager de bons moments.</p>
                                 </div>
                             </div>
                         </div>
                     </div>                
                     <div class="large-4 columns">
-                        <div id="Piticrock" class="project" onclick="goTo('./Piticrock/', event)">
+                        <div id="Piticrock" class="project" onclick="goTo('Projects/Piticrock/', event)">
                             <div class="projectContent">
                                 <div class="projectInfos">
                                     <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
@@ -217,10 +257,71 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="large-4 columns">
-
+                        <div id="ScienceAccueil" class="project" onclick="goTo('Projects/ScienceAccueil/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>Science Accueil</h3>
+                                    <p>Création d'une vidéo de motion design de 2mn40 projeté lors de la soirée des 20 ans de l'association.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <div class="row projectRow">
+                    <div class="large-4 columns">
+                        <div id="Wolfpack" class="project" onclick="goTo('Projects/Wolfpack/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>Wolfpack</h3>
+                                    <p><br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                    <div class="large-4 columns end">
+                        <div id="NovembreVideoClip" class="project" onclick="goTo('Projects/NovembreVideoClip/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>13 Novembre (Video Clip)</h3>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<!--                    <div class="large-4 columns">
+                        <div id="FumeVideoClip" class="project" onclick="goTo('Projects/FumeVideoClip/', event)">
+                            <div class="projectContent">
+                                <div class="projectInfos">
+                                    <div class="mobileAccessInfos chevronUp" onclick="displayInfos(event)"></div>
+                                    <h3>Elle fume des joints (Video Clip)</h3>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
                 </div>
             </div>
         </div>
+        <!--        <script>
+                    (function (i, s, o, g, r, a, m) {
+                        i['GoogleAnalyticsObject'] = r;
+                        i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                        a = s.createElement(o),
+                                m = s.getElementsByTagName(o)[0];
+                        a.async = 1;
+                        a.src = g;
+                        m.parentNode.insertBefore(a, m)
+                    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        
+                    ga('create', 'UA-84434910-1', 'auto');
+                    ga('send', 'pageview');
+        
+                </script>-->
     </body>
 </html>

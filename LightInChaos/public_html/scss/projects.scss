@@ -53,7 +53,7 @@ body
     #Circle
     {
         position: absolute;
-        width: 100px;
+        width: 70px;
         margin: auto;
         align-self: center;
     }
@@ -78,6 +78,16 @@ h5
     line-height: 26px;
     text-align: center;
 }
+
+a
+{
+    color:white;
+    &:hover
+    {
+       color:#6bc8e6;
+    }
+}
+
 #Logo
 {
     cursor: pointer;
@@ -196,6 +206,7 @@ h5
     }
 
 }
+
 .links
 {
     cursor: pointer;    
@@ -209,6 +220,7 @@ h5
 .active
 {
     text-decoration: underline;
+    cursor: default;
 }
 
 .project
@@ -232,49 +244,74 @@ h5
 
 #Incarna
 {
-    background: url(../Projects/Incarna/Cover.png) no-repeat;
+    background: url(../Projects/Incarna/Cover.jpg) no-repeat;
     background-size: cover;
 }
 
 #CNIT
 {
-    background: url(../Projects/CNIT/Cover.png) no-repeat;
+    background: url(../Projects/CNIT/Cover.jpg) no-repeat;
     background-size: cover;
 }
 
 #SSL
 {
-    background: url(../Projects/SSL/Cover.png) no-repeat;
+    background: url(../Projects/SSL/Cover.jpg) no-repeat;
     background-size: cover;
 }
 
 #DTWorkshop
 {
-    background: url(../Projects/DTWorkshop/Cover.png) no-repeat;
+    background: url(../Projects/DTWorkshop/Cover.jpg) no-repeat;
     background-size: cover;
 }
 
 #Piticrock
 {
-    background: url(../Projects/Piticrock/Cover.png) no-repeat;
+    background: url(../Projects/Piticrock/Cover.jpg) no-repeat;
     background-size: cover;
 }
 
 #Enedis
 {
-    background: url(../Projects/Enedis/Cover.png) no-repeat;
+    background: url(../Projects/Enedis/Cover.jpg) no-repeat;
     background-size: cover;
 }
 
 #Kourandero
 {
-    background: url(../Projects/Kourandero/Cover.png) no-repeat;
+    background: url(../Projects/Kourandero/Cover.jpg) no-repeat;
     background-size: cover;
 }
 
 #Cuisine360
 {
-    background: url(../Projects/Cuisine360/Cover.png) no-repeat;
+    background: url(../Projects/Cuisine360/Cover.jpg) no-repeat;
+    background-size: cover;
+}
+
+
+#ScienceAccueil
+{
+    background: url(../Projects/ScienceAccueil/Cover2.jpg) no-repeat;
+    background-size: cover;
+}
+
+#Wolfpack
+{
+    background: url(../Projects/Wolfpack/Cover.jpg) no-repeat;
+    background-size: cover;
+}
+
+#NovembreVideoClip
+{
+    background: url(../Projects/NovembreVideoClip/Cover.jpg) no-repeat;
+    background-size: cover;
+}
+
+#FumeVideoClip
+{
+    background: url(../Projects/FumeVideoClip/Cover.jpg) no-repeat;
     background-size: cover;
 }
 

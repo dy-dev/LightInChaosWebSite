@@ -1,0 +1,387 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20 févr. 2017, 22:14:48
+    Author     : Dominique
+*/
+@import "compass";
+
+$default-transition-property : all;
+$default-transition-duration : 3s;
+$quick-transition-duration : 3s;
+$default-transition-function : false;
+$default-transition-delay    : false;
+
+$darkColor : rgba(35, 31, 32, 1);
+$blueColor : #6bc8e6;
+
+html, 
+body 
+{
+    color: white;
+    font-size: 1em;
+    line-height: 1.4;
+    background:  $darkColor;
+    height: 100%;
+    margin: 0;
+    font-family: "Roboto";
+}
+
+#preloader {
+    /*opacity: 0.5;*/
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(35, 31, 32, 1);;
+    //change if the mask should have another color then white 
+    z-index: 100;
+    opacity:1;
+    display: flex;
+    justify-content: center;
+    // makes sure it stays on top 
+    #DropDown
+    {
+        opacity: 0;
+        border: solid #6bc8e6 2px;
+        width: 3px;
+        margin: auto;
+        height: 0;
+    }
+    #Circle
+    {
+        position: absolute;
+        width: 70px;
+        margin: auto;
+        align-self: center;
+    }
+    #circle-canvas
+    {
+        display: block;
+        margin: inherit;
+    }
+}
+
+h4
+{
+    font-family: "Roboto";
+}
+
+h5
+{
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+}
+#Logo
+{
+    cursor: pointer;
+}
+
+#MenuWrapper
+{
+    position:fixed; 
+    width: 100%; 
+    z-index: 0;
+    opacity: 0;
+}
+
+#Menu
+{
+    display:none;
+}
+
+#Eraser
+{
+    width: 250px;
+    height: 100%;
+    z-index: 200;
+    background-color: rgba(0,0,0,0);
+    display: block;
+    position: absolute;
+    right: 0px;
+}
+
+#SideBar
+{
+    position: fixed;
+    width: 310px;
+    //display: flex;
+    //justify-content: center;
+    margin-top: 15vmin;
+    min-height:100vh;
+
+    #SideBarContainer
+    {
+        align-self: center;
+    }
+    #WrapperLogo
+    {
+        position: absolute;
+    }
+
+    #LogoInfos
+    {
+        margin-top: -20%;
+        #Logo
+        {
+            padding: 10px 20px;
+        }
+    }
+
+    .sidebarContent
+    {
+        position: relative;
+        padding: 1.1vh 0;
+    }
+
+
+    #construction
+    {
+        text-align: center;
+        color: $blueColor;
+    }
+    ul
+    {
+        list-style-type: none;
+        text-align: center;
+        font-size: 1.3em;
+        margin: 0;
+    }
+
+    #ShowReelButtonContainer
+    {
+        width: 150px;
+        padding-top: 0.6vh;
+        margin: auto;
+    }
+}
+
+#MainContent
+{
+    opacity: 0;
+    display: flex;
+    margin-left: 260px;
+}
+
+#Navigation
+{
+    height: 150px;
+    margin-left: 0; 
+    display: flex;
+    justify-content: center;    
+}
+
+#NavigationContent
+{
+    width: 100%;
+    align-self: flex-end;
+    a {
+        color: $blueColor;
+        text-decoration: none;
+        line-height: inherit;
+        cursor: pointer;
+        &:hover, &:focus {
+            color: darken($blueColor, 25);// #4f92a8;
+        }
+    }
+    #Path
+    {
+        transform: translateY(50%);
+    }
+
+}
+.links
+{
+    cursor: pointer;    
+}
+
+.socialIcons
+{
+    text-align: right;
+}
+
+.active
+{
+    text-decoration: underline;
+}
+
+.project
+{
+    height: 400px;
+    background-color: beige;
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.projectRow
+{
+    margin-left: 0 !important;
+    a 
+    {
+        color:white;
+    }
+}
+
+#Incarna
+{
+    background: url(../Projects/Incarna/Cover.png) no-repeat;
+    background-size: cover;
+}
+
+#CNIT
+{
+    background: url(../Projects/CNIT/Cover.png) no-repeat;
+    background-size: cover;
+}
+
+#SSL
+{
+    background: url(../Projects/SSL/Cover.png) no-repeat;
+    background-size: cover;
+}
+
+#DTWorkshop
+{
+    background: url(../Projects/DTWorkshop/Cover.png) no-repeat;
+    background-size: cover;
+}
+
+#Piticrock
+{
+    background: url(../Projects/Piticrock/Cover.png) no-repeat;
+    background-size: cover;
+}
+
+#Enedis
+{
+    background: url(../Projects/Enedis/Cover.png) no-repeat;
+    background-size: cover;
+}
+
+#Kourandero
+{
+    background: url(../Projects/Kourandero/Cover.png) no-repeat;
+    background-size: cover;
+}
+
+#Cuisine360
+{
+    background: url(../Projects/Cuisine360/Cover.png) no-repeat;
+    background-size: cover;
+}
+
+
+#ScienceAccueil
+{
+    background: url(../Projects/ScienceAccueil/Cover2.png) no-repeat;
+    background-size: cover;
+}
+
+.projectContent
+{
+    height: 400px;
+    background-color: transparentize(darken($blueColor, 25), 0.5);//rgba(84, 146, 166, 0.51);
+    padding: 10px;
+    position: relative;
+    bottom: -85%;
+
+    .mobileAccessInfos
+    {
+    }
+    transition: all 0.5s ease;
+    h3 {
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .project:hover &{
+        background-color:  transparentize(darken($blueColor, 25), 0.1);
+        bottom: -15%;
+    }
+}
+
+.projectInfos
+{
+    margin-top: -50px;
+}
+.mobileAccessInfos
+{
+    content:'';
+    display: block;
+    position: relative;
+    top: 25px;
+    margin: 0 auto;
+    width: 50px;
+    height : 50px;
+    background-color: darken($blueColor, 20);
+    @include border-radius(50%);
+    border: solid 2px lighten($blueColor, 10);
+    &:active{
+        background-color: darken($blueColor, 10);
+    }
+}
+
+.chevronUp,
+.chevronDown
+{
+    position:relative;
+    display:block;
+    height:50px;/*height should be double border*/
+}
+.chevronUp:before,
+.chevronDown:before,
+.chevronUp:after,
+.chevronDown:after{
+    position:absolute;
+    display:block;
+    content:"";
+    border:15px solid transparent;/*adjust size*/
+}
+/*Change four 'top' values below to rotate (top/right/bottom/left)*/
+.chevronUp:before{
+    top: -4px;
+    left: 8px;
+    border-bottom-color: lighten($blueColor, 10);
+}
+.chevronUp:after{
+    top: 3px;
+    left: 8px;
+    border-bottom-color: darken($blueColor, 20);
+}
+.chevronDown:before{
+    top: 16px;
+    left: 8px;
+    border-top-color: lighten($blueColor, 10);
+}
+.chevronDown:after{
+    top: 9px;
+    left: 8px;
+    border-top-color: darken($blueColor, 20);
+}
+
+@media only screen 
+and (max-width: 850px) 
+{
+    #SideBar
+    {
+        display: none;
+    }
+    #MainContent
+    {
+        margin-left: 0;
+    }
+    #Menu
+    {
+        z-index:0;
+        display : block;
+        opacity: 0;
+    }
+}
