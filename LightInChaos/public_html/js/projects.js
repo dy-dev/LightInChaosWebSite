@@ -75,7 +75,7 @@ $(document).ready(function () {
 function getRootWebSitePath()
 {
     var _location = document.location.toString();
-    if (_location.indexOf("public_html") != 0) //we are in local test 
+    if (_location.indexOf("public_html") >= 0) //we are in local test 
     {
         var local = "public_html";
         return _location.substring(0, _location.indexOf(local) + local.length + 1);
@@ -86,8 +86,11 @@ function getRootWebSitePath()
         var applicationName = _location.substring(0, applicationNameIndex) + '/';
         var webFolderIndex = _location.indexOf('/', _location.indexOf(applicationName) + applicationName.length);
         var webFolderFullPath = _location.substring(0, webFolderIndex);
-
-        return webFolderFullPath;
+        if(webFolderFullPath.slice(-1) != "/")
+        {
+            webFolderFullPath += "/";
+        }
+        return applicationName;
     }
 }
 

@@ -5,10 +5,14 @@
  */
 
 
-
+var nav = null;
 $(window).on('load', function () {
     $("#MenuWrapper").load('../Projects/partials/menu.html', function ()
-    {
+    { 
+        if (nav === null)
+        {
+            nav = responsiveNav(".nav-collapse");
+        }
         $(".underlinks").get(0).remove();
         $("#ProjectsMenu").attr('onclick', "goTo('Projects/', event)");
         $("#ProjectsMenu").removeClass("active");
@@ -73,7 +77,10 @@ $(document).ready(function () {
     if (!(/Mobi/.test(navigator.userAgent))) {
         $('.mobileAccessInfos').css({opacity: '0'});
     }
-    nav = responsiveNav(".nav-collapse");
+    if (nav === null)
+    {
+        nav = responsiveNav(".nav-collapse");
+    }
 //    $('.nav-toggle').css({'z-index': '0'});
 //    $('.nav-toggle').css({'position': 'absolute'});
 });
@@ -88,6 +95,7 @@ function getRootWebSitePath()
     }
     else
     {
+       
         var applicationNameIndex = _location.indexOf('/', _location.indexOf('://') + 3);
         var applicationName = _location.substring(0, applicationNameIndex) + '/';
         var webFolderIndex = _location.indexOf('/', _location.indexOf(applicationName) + applicationName.length);
@@ -96,7 +104,8 @@ function getRootWebSitePath()
         {
             webFolderFullPath += "/";
         }
-        return webFolderFullPath;
+        // alert(webFolderFullPath);
+        return applicationName;
     }
 }
 
